@@ -1,0 +1,213 @@
+.hero {
+    height: 50vh;
+    align-items: flex-end;
+}
+
+.hero h1 {
+    font-family: var(--font-family-museo);
+    font-weight: var(--font-weight-museo);    
+    font-size: 7rem;
+    line-height: 7rem;
+    color: var(--color-white);
+    margin: 0;
+    padding-bottom: 3rem;
+}
+
+.hero h1:after {
+    content: '';
+    display: block;
+    height: .5rem;
+    width: 16rem;
+    margin-top: 3rem;
+    background-color: var(--color-white);
+}
+
+.hero h2 {
+    font-family: var(--font-family-futura);
+    font-weight: var(--font-weight-futura);
+    font-size: 5rem;
+    line-height: 6rem;
+    margin: 0;
+    color: var(--color-green);
+}
+
+/* Scroll Scene */
+
+.background-scene, .scroll-text-left, .scroll-text-right {
+    position: relative;
+    height: 100vh;
+    align-items: center;
+}
+
+.background-scene {
+ z-index: 1;
+ pointer-events: none;   
+}
+
+.scroll-text-left, .scroll-text-right {
+    z-index: 3;
+}
+
+.scroll-text-left {
+    justify-content: flex-start;
+}
+
+.scroll-text-right {
+    justify-content: flex-end;
+}
+
+.scroll-scene h3 {
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-style: italic;
+    font-size: 11rem;
+    line-height: 11rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    color: var(--color-green);
+}
+
+.scroll-scene p {
+    font-size: 4rem;
+    line-height: 5rem;
+}
+
+.line {
+    display: block;
+    height: .5rem;
+    width: 16rem;
+    margin-top: 3rem;
+    background-color: var(--color-white);
+}
+
+.desk-sequence {
+    position: absolute;
+    width: var(--col-width-12);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    overflow: hidden;
+}
+
+
+
+
+
+.case-slide {
+    height: 100vh;
+    min-height: 75rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.case-title, .case-info, .case-skills, .case-num {
+    position: absolute;
+    z-index: 4;
+}
+
+.case-title {
+    top: 18rem;
+    left: var(--col-width-1);
+    width: var(--col-width-4);
+}
+
+.case-title > h3{
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-style: italic;
+    font-size: 9rem;
+    line-height: 9rem;
+    color: var(--color-green);
+    margin: 0;
+    padding: 0;
+}
+
+.case-skills {
+    bottom: 7rem;
+    left: var(--col-width-2);
+    width: var(--col-width-4);
+    font-size: 2rem;
+    line-height: 4rem;
+}
+
+.case-skills > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.case-info {
+    top: 13rem;
+    right: var(--col-width-2);
+    width: var(--col-width-4);
+    font-family: var(--font-family-museo);
+    font-weight: var(--font-weight-museo);
+    font-size: 2.25rem;
+    line-height: 4rem;
+    transform-origin: bottom left;
+    transform: translate(100%,-100%) rotate(90deg);
+    overflow: hidden;
+}
+
+.case-num {
+    bottom: 23rem;
+    right: var(--col-width-2);
+    width: var(--col-width-2);
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-style: italic;
+}
+
+.case-num-current {
+    font-size: 11rem;
+    line-height: 11rem;
+    color: var(--color-green);
+    overflow: hidden;
+}
+
+.case-num-current span {
+    display: inline-block;
+}
+
+.case-num-total {
+    font-size: 5rem;
+    line-height: 5rem;
+    opacity: 50%;
+}
+
+.case-img {
+    width: 100%;
+    max-width: 112rem;
+    clip-path: circle(36%)
+}
+
+@media screen and (min-width: 768px) {
+    .desk-sequence {
+        width: var(--col-width-7)
+
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .desk-sequence {
+        width: var(--col-width-6)
+
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .desk-sequence {
+        width: var(--col-width-5)
+
+    }
+}
+
+
+@media screen and (min-width: 1400px) {
+    .desk-sequence {
+        width: var(--col-width-4)
+    }
+}

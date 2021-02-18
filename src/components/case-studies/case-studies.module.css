@@ -1,0 +1,173 @@
+.intro {
+    height: 96vh;
+    align-items: flex-end;
+    padding-bottom: 16rem;
+}
+
+/* Intro */
+
+/* Cover */
+
+.cover {
+    min-height: 32rem;
+    margin: 0 calc(var(--gutter-comp) + -10vw);
+}
+
+/* tldr */
+
+.tldr {
+    padding: 12rem 0;
+}
+
+.tldr p {
+    font-size: 2.25rem;
+    line-height: 4rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.tldr h3 {
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 7rem;
+    line-height: 7rem;
+    color: var(--color-green);
+    margin: 0;
+    padding: 0;
+}
+
+.tldr-heading {
+    padding-bottom: 4rem;
+}
+
+.tldr-row {
+    padding: 4rem 0 2rem 0;
+}
+
+.tldr-row:first-child {
+    padding-top: 0;
+    border-bottom: 1px solid rgba(239,244,251,.16);
+}
+
+
+.tldr h5 {
+    font-family: var(--font-family-museo);
+    font-weight: var(--font-weight-museo);
+    font-size: 1.75rem;
+    line-height: 3rem;
+    opacity: 50%;
+    margin: 2rem 0 2rem 0;
+}
+
+
+.skills ul{
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 2rem 0;
+}
+
+.skills li {
+    font-size: 2.25rem;
+    line-height: 4rem;
+}
+
+.section-sticky, .section-gallery {
+    min-height: 100vh;
+}
+
+.section-sticky .section-header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-Gallery .section-row {
+    align-items: flex-end;
+}
+
+.section-header h3 {
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 7rem;
+    line-height: 8rem;
+    color: var(--color-green);
+    margin: 0;
+}
+
+.section-header h4, .section-content h5 {
+    font-family: var(--font-family-museo);
+    font-weight: var(--font-weight-museo);
+}
+
+.section-header h4 {
+    font-size: 2rem;
+    line-height: 7rem;
+    position: relative;
+    z-index: 1;
+    margin: 0 0 2rem 0;
+}
+
+.section-header h4:before {
+    content: attr(data-step);
+    position: absolute;
+    top: 0;
+    left: -4rem;
+    z-index: 0;
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 6rem;
+    line-height: 7rem;
+    color: rgba(239,244,251,.16);
+}
+
+.section-content h5 {
+    font-size: 2rem;
+    line-height: 2rem;
+    opacity: 50%;
+}
+
+.section-sticky .section-content {
+    min-height: 100vh;
+}
+
+.section-content p {
+    font-size: 3rem;
+    line-height: 5rem;
+}
+
+.section-row {
+    padding: 5rem 0;
+}
+
+.gallery-itm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .cover {
+        margin: 0 calc(var(--gutter-comp) + -6vw);
+    }
+
+    .tldr-heading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        transform-origin: bottom left;
+        padding-bottom: 0;
+        transform: translate(0,-100%) rotate(90deg);
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .cover {
+        margin: 0 calc(var(--gutter-comp) + -14vw);
+    }
+}

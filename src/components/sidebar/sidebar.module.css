@@ -1,0 +1,33 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 5rem 0 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.logo {
+    width: 6rem;
+    height: 6rem;
+}
+
+.nav {
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 2.25rem;
+}
+
+.nav ul {
+    list-style: none;
+    line-height: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    padding: 1rem 0;
+}

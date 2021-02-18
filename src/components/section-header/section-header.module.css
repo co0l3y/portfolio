@@ -1,0 +1,41 @@
+header h3 {
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 7rem;
+    line-height: 8rem;
+    color: var(--color-green);
+    margin: 0;
+}
+
+.process {
+    position: relative;
+}
+
+.process h4 {
+    font-family: var(--font-family-museo);
+    font-weight: var(--font-weight-museo);
+    font-size: 2rem;
+    line-height: 7rem;
+    z-index: 1;
+    margin: 0 0 2rem 0;
+}
+
+.process-number {
+    position: absolute;
+    top: 0;
+    left: -4rem;
+    z-index: 0;
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 6rem;
+    line-height: 7rem;
+    color: rgba(239,244,251,.16);
+}
+
+.line {
+    display: block;
+    height: .5rem;
+    width: 16rem;
+    margin-top: 3rem;
+    background-color: var(--color-white);
+}

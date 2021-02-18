@@ -1,0 +1,35 @@
+
+
+
+.header, .content {
+    min-height: 100vh;
+}
+
+.header {
+    align-items: center;
+}
+
+.content {
+    justify-content: flex-end;
+}
+
+.content h5 {
+    font-size: 2rem;
+    line-height: 2rem;
+    opacity: 50%;
+}
+
+.content p {
+    font-size: 3rem;
+    line-height: 5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        padding-bottom: 100vh;
+    }
+
+    .content {
+        margin-top: 100vh;
+    }
+}

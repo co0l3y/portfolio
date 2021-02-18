@@ -1,0 +1,19 @@
+
+.cover {
+    min-height: 32rem;
+    margin: 0 calc(var(--gutter-comp) + -10vw);
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .cover {
+        margin: 0 calc(var(--gutter-comp) + -6vw);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .cover {
+        margin: 0 calc(var(--gutter-comp) + -14vw);
+    }
+}
