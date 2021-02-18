@@ -62,7 +62,14 @@ const CaseStudy = ({ data }) => {
                     </div>
                 </div>
             </section>
-            <CaseSectionSticky></CaseSectionSticky>
+            <CaseSectionSticky title='So What&apos;s the Problem?' stepNumber='01' stepName='Discovery'>
+                <h5>Problem 01</h5>
+                <p>Although we were always A/B testing new features, the core experience and interface of FirstMet had not changed in over 10 years. User’s found it dated compared to competitors.</p>
+            </CaseSectionSticky>
+            <CaseSectionSticky title='So What&apos;s the Problem?' stepNumber='01' stepName='Discovery'>
+                <h5>Problem 01</h5>
+                <p>Although we were always A/B testing new features, the core experience and interface of FirstMet had not changed in over 10 years. User’s found it dated compared to competitors.</p>
+            </CaseSectionSticky>
             <section className={styles.sectionGallery}>
                 <div className={`grid ${styles.sectionRow}`}>
                     <div className={`col-md-5 col-lg-6 ${styles.sectionHeader}`}>

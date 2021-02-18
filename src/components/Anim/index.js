@@ -4,6 +4,92 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 
+//Utility Animations
+
+const textFadeUp = (el) => {
+    return(gsap.from(el, {yPercent: 50, opacity: 0, duration: .5, ease: 'power3.inOut'}))
+}
+
+const lineAnim = (el) => {
+    return(gsap.from(el, {width: 0}))
+}
+
+const headLineAnim = (headEl, lineEl) => {
+    const tl = gsap.timeline()
+    
+    tl.add(textFadeUp(headEl))
+    tl.add(lineAnim(lineEl), '<.15')
+
+    return(tl)
+}
+
+const sectionHeadAnim = (sectionHead, line, stepHead, stepNumber) => {
+    const tl = gsap.timeline()
+    
+    tl.add(headLineAnim(sectionHead, line))
+    tl.add(textFadeUp(stepHead), .35)
+    tl.from(stepNumber, {xPercent: -25, opacity: 0, duration: .5, ease: 'power3.inOut'}, '<.25')
+
+    return(tl)
+}
+
+// Sticky Header
+
+export const stickyHeaderAnim = (headEl, triggerEl) => {
+    
+    gsap.registerPlugin(ScrollTrigger)
+
+    const sectionHead = headEl.children[1].firstChild
+    const line = headEl.children[1].lastChild
+    const stepHead = headEl.children[0].lastChild
+    const stepNumber = headEl.children[0].firstChild
+
+    const anim = sectionHeadAnim(sectionHead, line, stepHead, stepNumber)
+
+    ScrollTrigger.saveStyles([triggerEl, stepNumber, stepHead, sectionHead, line])
+
+
+    ScrollTrigger.matchMedia({
+        '(max-width: 767px)': () => {
+            //create anim trigger
+            ScrollTrigger.create({
+                id: 'headTriggerMobile',
+                trigger: triggerEl,
+                start: 'top top',
+                end: 'bottom top',
+                animation: anim,
+                toggleActions: 'play reverse play reverse',
+            })
+
+        },
+        '(min-width: 768px)': () => {
+            //creat anim trigger
+            ScrollTrigger.create({
+                id: 'headTriggerDesktop',
+                trigger: triggerEl,
+                start: '10% top',
+                end: '80% bottom',
+                animation: anim,
+                toggleActions: 'play reverse play reverse'
+            })
+
+            //create pin trigger
+            ScrollTrigger.create({
+                id: 'stickyTriggerDesktop',
+                trigger: triggerEl,
+                pin: headEl,
+                pinSpacing: false,
+                anticipatePin: true,
+                start: 'top top',
+                end: 'bottom bottom',
+            })
+        }
+    })    
+}
+
+
+//Index Scroll Scene
+
 export const deskAnim1 = (el, start, end, duration) => {
     const tl = gsap.timeline()
     const steps = end - start
@@ -151,6 +237,7 @@ const buildingsAnim = (buildL, buildR) => {
       })
   }
 
+  // Case Study Slides
 
   export const caseEnterAnim = (el) => {
     const tl = gsap.timeline()
@@ -180,4 +267,39 @@ const buildingsAnim = (buildL, buildR) => {
         toggleActions: 'play none none reverse',
         markers: true,
       })
+  }
+
+
+  // Case Study Intro
+
+  export const caseIntroAnim = (introEl) => {
+    const tl = gsap.timeline()
+
+    const titleEl = introEl.firstChild
+    const lineEl = introEl.children[1]
+    const categoryEl = introEl.lastChild
+
+    tl.add(headLineAnim(titleEl, lineEl))
+    tl.add(textFadeUp(categoryEl), '<.15')
+
+  }
+
+
+  // Case Study Cover
+
+  export const caseCoverAnim = (coverEl) => {
+    
+    gsap.registerPlugin(ScrollTrigger)
+    
+    gsap.fromTo(coverEl, {x: -300, opacity: 0}, {x: -200, opacity: 1, duration: 1, ease: 'power2.inOut'})
+
+    gsap.fromTo(coverEl, { x: -200 },{x: 0, duration: 2,ease: 'power3.inOut',
+        scrollTrigger: {
+            trigger: coverEl,
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play none none reverse',
+            scrub: false,
+        },
+    }) 
   }
