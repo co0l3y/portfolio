@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react'
 
-import styles from './case-intro.module.css'
+import styles from './intro.module.css'
 
-import { caseIntroAnim } from '../Anim'
+import { caseIntroAnim } from '../../Anim'
 
 
-const CaseIntro = ({ title, category }) => {
+const ProjectIntro = ({ title, category }) => {
 
     let introRef = useRef(null)
 
@@ -29,4 +29,4 @@ const CaseIntro = ({ title, category }) => {
     )
 }
 
-export default CaseIntro
+export default ProjectIntro

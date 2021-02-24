@@ -53,24 +53,26 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
         '(max-width: 767px)': () => {
             //create anim trigger
             ScrollTrigger.create({
-                id: 'headTriggerMobile',
+                id: 'animTriggerMobile',
                 trigger: triggerEl,
                 start: 'top top',
                 end: 'bottom top',
                 animation: anim,
                 toggleActions: 'play reverse play reverse',
+                // markers: true,
             })
 
         },
         '(min-width: 768px)': () => {
             //creat anim trigger
             ScrollTrigger.create({
-                id: 'headTriggerDesktop',
+                id: 'animTriggerDesktop',
                 trigger: triggerEl,
-                start: '10% top',
-                end: '80% bottom',
+                start: 'top top+=5%',
+                end: 'bottom bottom-=5%',
                 animation: anim,
-                toggleActions: 'play reverse play reverse'
+                toggleActions: 'play reverse play reverse',
+                // markers: true,
             })
 
             //create pin trigger
@@ -82,6 +84,7 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
                 anticipatePin: true,
                 start: 'top top',
                 end: 'bottom bottom',
+                // markers: true,
             })
         }
     })    
@@ -97,8 +100,6 @@ export const deskAnim1 = (el, start, end, duration) => {
     for (let i = 0; i <= steps; i++) {
       let percent = (i * -100)
       let position = (duration/steps) * i
-
-      console.log(steps, i)
 
       tl.set(el, {xPercent: percent, duration: 0}, position)
     }
@@ -174,9 +175,9 @@ export const deskAnim1 = (el, start, end, duration) => {
 
 
 const buildingsAnim = (buildL, buildR) => {
-    const tl = gsap.from([buildL, buildR], {y: 400, duration: 3, stagger: -.05, ease: 'power3.out'})
     const buildingsLeft = gsap.utils.toArray(buildL)
     const buildingsRight = gsap.utils.toArray(buildR)
+    const tl = gsap.from([buildL, buildR], {y: 400, duration: 3, stagger: -.05, ease: 'power3.out'})
 
     return(tl)
   }
@@ -208,6 +209,8 @@ const buildingsAnim = (buildL, buildR) => {
     tl.to(maskEl, {transformOrigin: 'center bottom', scale: 0, duration: 2, ease: 'back.in(1.2)', smoothOrigin: true,  }, '>')
     tl.to([cloudEls, moonEl], {opacity: 0, duration: 2}, '<')
 
+
+    // Intro Trigger
     ScrollTrigger.create({
         id: 'blinds-init',
         trigger: introTrigger,
@@ -217,7 +220,7 @@ const buildingsAnim = (buildL, buildR) => {
         toggleActions: 'play complete none none'
       })
 
-    // create scrolltrigger
+    // scrub trigger
     ScrollTrigger.create({
         id: 'svg-scrub',
         trigger: scrubTrigger,
@@ -227,6 +230,7 @@ const buildingsAnim = (buildL, buildR) => {
         scrub: 1,
       })
 
+      // pin trigger
       ScrollTrigger.create({
         id: 'scene-pin',
         trigger: pinTrigger,
@@ -241,6 +245,7 @@ const buildingsAnim = (buildL, buildR) => {
 
   export const caseEnterAnim = (el) => {
     const tl = gsap.timeline()
+
     const caseImg = el.children[0]
     const caseH = el.children[1].firstChild
     const caseLine = el.children[1].lastChild
@@ -251,8 +256,7 @@ const buildingsAnim = (buildL, buildR) => {
 
     tl.from(caseImg, {yPercent: 100, scale: .5, duration: 1, ease: 'back.out(1.2)'})
     tl.from(caseImg, {opacity:0, duration: .5, ease: 'power3.out'}, '<')
-    tl.from(caseH, {yPercent: 50, opacity: 0, duration: .5, ease: 'power3.inOut' }, '<.5')
-    tl.from(caseLine, {width: 0, ease: 'power3.out'}, '.15')
+    tl.add(headLineAnim(caseH, caseLine), '<.5')
     tl.from(caseSkills, {yPercent: 100, opacity: 0, duration: .5, stagger: .2}, 0)
     tl.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<0.5')
     tl.from(caseNumTotal, {opacity: 0, duration: .5,ease: 'power2.out'},'<.25')
@@ -291,8 +295,10 @@ const buildingsAnim = (buildL, buildR) => {
     
     gsap.registerPlugin(ScrollTrigger)
     
+    //Initial Animation
     gsap.fromTo(coverEl, {x: -300, opacity: 0}, {x: -200, opacity: 1, duration: 1, ease: 'power2.inOut'})
 
+    // Scroll Trigger Anim
     gsap.fromTo(coverEl, { x: -200 },{x: 0, duration: 2,ease: 'power3.inOut',
         scrollTrigger: {
             trigger: coverEl,

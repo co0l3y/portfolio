@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react'
-import { caseCoverAnim } from '../Anim'
+import { caseCoverAnim } from '../../Anim'
 
 import Img from 'gatsby-image'
-import styles from './case-cover.module.css'
+import styles from './cover.module.css'
 
-const CaseCover = ({ image }) => {
+const ProjectCover = ({ image }) => {
     
 
     let coverEl = useRef(null)
@@ -20,4 +20,4 @@ const CaseCover = ({ image }) => {
     )
 }
 
-export default CaseCover
+export default ProjectCover

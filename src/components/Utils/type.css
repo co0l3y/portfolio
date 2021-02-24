@@ -1,0 +1,15 @@
+.font-essonnes {
+    font-family: essonnes-display, 'Georgia', serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.font-museo {
+    font-family: museo-slab, serif;
+    font-weight: 700;
+}
+
+.font-futura {
+    font-family: futura-pt, sans-serif;
+    font-weight: 400;
+}

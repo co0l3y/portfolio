@@ -1,0 +1,76 @@
+.wrapper {
+    padding: 12rem 0;
+}
+
+.wrapper h3 {
+    font-family: var(--font-family-essonnes);
+    font-weight: var(--font-weight-essonnes);
+    font-size: 7rem;
+    line-height: 7rem;
+    color: var(--color-green);
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper h5 {
+    font-family: var(--font-family-museo);
+    font-weight: var(--font-weight-museo);
+    font-size: 1.75rem;
+    line-height: 3rem;
+    opacity: 50%;
+    margin: 2rem 0 2rem 0;
+}
+
+.wrapper p {
+    font-size: 2.25rem;
+    line-height: 4rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.heading {
+    padding-bottom: 4rem;
+}
+
+.row {
+    padding: 4rem 0 2rem 0;
+}
+
+.row:first-child {
+    padding-top: 0;
+    border-bottom: 1px solid rgba(239,244,251,.16);
+}
+
+
+
+
+
+.skills ul{
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 2rem 0;
+}
+
+.skills li {
+    font-size: 2.25rem;
+    line-height: 4rem;
+}
+
+.section-sticky, .section-gallery {
+    min-height: 100vh;
+}
+
+
+@media screen and (min-width: 768px) {
+
+
+    .heading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        transform-origin: bottom left;
+        padding-bottom: 0;
+        transform: translate(0,-100%) rotate(90deg);
+    }
+
+}

@@ -19,9 +19,10 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `case-studies`,
-        path: `${__dirname}/src/pages/case-studies`,
+        path: `${__dirname}/src/content/case-studies`,
       },
     },
+    'gatsby-plugin-mdx',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
