@@ -39,10 +39,10 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
     
     gsap.registerPlugin(ScrollTrigger)
 
-    const sectionHead = headEl.children[1].firstChild
-    const line = headEl.children[1].lastChild
-    const stepHead = headEl.children[0].lastChild
-    const stepNumber = headEl.children[0].firstChild
+    const stepHead = headEl.firstChild.lastChild
+    const stepNumber = headEl.firstChild.firstChild
+    const sectionHead = headEl.children[1]
+    const line = headEl.lastChild
 
     const anim = sectionHeadAnim(sectionHead, line, stepHead, stepNumber)
 

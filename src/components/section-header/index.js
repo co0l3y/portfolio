@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './section-header.module.css'
 
 
-const SectionHeader = ({ title, stepName, stepNumber, inputRef }) => {
+const SectionHeader = React.forwardRef(({ title, stepName, stepNumber, inputRef }) => {
     return (
         <header ref={inputRef}>
             <div className={styles.processWrapper}>
@@ -12,12 +12,10 @@ const SectionHeader = ({ title, stepName, stepNumber, inputRef }) => {
                     {`${stepNumber} ${stepName}`}
                 </h4>
             </div>
-            <div>
-                <h3 className={styles.header}>{title}</h3>
-                <span className={styles.divider}></span>
-            </div>
+            <h3 className={styles.header}>{title}</h3>
+            <span className={styles.divider}></span>
         </header>
     )
-}
+})
 
 export default SectionHeader

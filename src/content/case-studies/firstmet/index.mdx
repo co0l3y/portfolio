@@ -16,23 +16,51 @@ tldr:
     - "Product scoping & management"
   credits: "Niki Larsen, Jason Dove, Botond Denes, Matthew Broodie-Stewart, Alex Rose"
   tools: "Sketch, Photoshop, Illustrator, After Effects, Origami"
-galleries: 
-  gallery1: './gallery1'
 ---
 
-import CaseSectionSticky from '../../../components/case-section-sticky'
+import Section from '../../../components/section'
+import SectionRow from '../../../components/section-row'
+import SectionContent from '../../../components/section-content'
 
-<CaseSectionSticky title="So what's the problem?" stepNumber="01" stepName="Discover">
+<Section
+sticky
+title="So what's the problem?"
+stepNumber="01"
+stepName="Discover"
+>
+<SectionRow fullHeight>
+<SectionContent rightCol>
 
-##### OMG It's some content inside my wrapper!
+#### Content inside the SectionContent!
 
-This is awesome!
+some other stuff
 
-</CaseSectionSticky>
-<CaseSectionSticky title="Do your homework" stepNumber="01" stepName="Discover">
+![An Image which should be full width](./cover.png)
 
-##### OMG It's some content inside my wrapper!
+</SectionContent>
+</SectionRow>
+</Section>
 
-This is awesome!
+<Section
+title="So what's the problem?"
+stepNumber="01"
+stepName="Discover"
+intro="Something or another in the intro section to test"
+>
+<SectionRow>
+<SectionContent rightCol>
 
-</CaseSectionSticky>
+#### Full width Image
+
+With a paragraph and header!
+
+</SectionContent>
+</SectionRow>
+<SectionRow>
+<SectionContent>
+
+![An Image which should be full width](./cover.png)
+
+</SectionContent>
+</SectionRow>
+</Section>

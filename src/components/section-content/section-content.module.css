@@ -1,0 +1,11 @@
+.wrapper {
+    composes: colMd from '../utils/grid.css';
+}
+
+.wrapperRightCol {
+    composes: colMd7 from '../utils/grid.css';
+}
+
+.full-height {
+    min-height: 100vh;
+}

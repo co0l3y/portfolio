@@ -7,16 +7,22 @@ import Layout from '../layout'
 import ProjectIntro from './intro'
 import ProjectCover from './cover'
 import Tldr from '../tldr'
+import styles from './projects.module.css'
 
 const ProjectLayout = ({ data : { mdx }}) => {
-    const { body, frontmatter: {title, category, cover, tldr }} = mdx
+    const { body, frontmatter: {title, type, cover, tldr }} = mdx
 
     return(
         <Layout>
-            <ProjectIntro title={title} category={category} />
+            <ProjectIntro title={title} category={type} />
             <ProjectCover image={cover.childImageSharp.fluid} />
             <Tldr data={tldr}/>
+            <MDXProvider components={{
+              h4: props => <h4 {...props} className={styles.contentHeader}/>,
+              p: props => <p {...props} className={styles.contentBody} />,
+            }}>
             <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
         </Layout>
     )
 }
