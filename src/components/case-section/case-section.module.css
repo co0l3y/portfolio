@@ -1,0 +1,90 @@
+/* Util */
+
+.fullHeight {
+    min-height: 100vh;
+}
+
+.paddingTB {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* row */
+
+.row, .row-sticky, .intro-row-sticky, .row-content-full-height, .row-content{
+    composes: row from '../utils/grid.css';
+    composes: paddingTB;
+}
+
+.row-content, .row-content-full-height {
+    justify-content: flex-end;
+}
+
+.row-content-full-height {
+    composes: fullHeight;
+}
+
+.row-sticky {
+    composes: fullHeight;
+    align-items: center;
+}
+
+.intro-row-sticky {
+    justify-content: flex-end;
+}
+
+/* Wrappers */
+
+.head-wrapper {
+    composes: colMd5 from '../utils/grid.css';
+}
+
+.intro-wrapper, .intro-wrapper-sticky, .image-wrapper, .content-col-right {
+    composes: colMd7 colLg6 from '../utils/grid.css';
+}
+
+.col-full-height {
+    composes: fullHeight;
+}
+
+.col {
+    composes: colM from '../utils/grid.css';
+}
+
+/* Typography */
+
+.intro {
+    composes: fontFutura typeL from '../utils/grid.css';
+}
+
+.header {
+    composes: fontEssonnes headingL from '../utils/type.css';
+    color: var(--color-green);
+    margin: 0;
+}
+
+.process-wrapper {
+    position: relative;
+}
+
+
+.process-header {
+    composes: fontMuseo from '../utils/type.css';
+    font-size: 2rem;
+    line-height: 7rem;
+    z-index: 1;
+    margin: 0 0 2rem 0;
+}
+
+.process-number {
+    composes: fontEssonnes headingM from '../utils/type.css';
+    position: absolute;
+    top: 0;
+    left: -4rem;
+    z-index: 0;
+    color: var(--color-white-16);
+}
+
+.divider {
+    composes: divider from '../utils/elements.css';
+}
