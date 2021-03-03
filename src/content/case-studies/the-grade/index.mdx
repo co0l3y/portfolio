@@ -16,8 +16,211 @@ tldr:
     - "Data analysis"
   credits: "Clifford Lerner, David Fox, Robert Brisita, Dirk Heikoop, Jenna Freidman"
   tools: "Sketch, Photoshop, InVision, HTML, CSS, PHP,  Javascript (Angular)"
-galleries: 
-  gallery1: 'gallery1'
+sectionImages:
+  - id: 'my grade'
+    src: images/work/my-grade-mockup.png
+galleries:
+  - id: 'myGradeMockup'
+    images:
+      - 'images/work/my-grade-mockup.png'
+  - id: 'leaderboard'
+    images:
+      - 'images/work/leaderboard-mockup.png'
+  - id: 'peerReview'
+    images:
+      - 'images/work/peer-review-mockup.png'
+phoneGalleries:
+  - id: 'wireframes1'
+    images:
+      - 'images/process/leaderboard-wireframes-01.png'
+      - 'images/process/leaderboard-wireframes-02.png'
+      - 'images/process/leaderboard-wireframes-03.png'
+  - id: 'wireframes2'
+    images:
+      - 'images/process/mygrade-wireframes-01.png'
+      - 'images/process/mygrade-wireframes-02.jpg'
+      - 'images/process/mygrade-wireframes-03.jpg'
+  - id: 'wireframes3'
+    images:
+      - 'images/process/peer-review-wireframes-01.jpg'
+      - 'images/process/peer-review-wireframes-02.jpg'
+      - 'images/process/peer-review-wireframes-03.png'
+  - id: 'myGrade'
+    images:
+      - 'images/work/my-grade-01.png'
+      - 'images/work/my-grade-01.png'
+      - 'images/work/my-grade-01.png'
+  - id: 'leaderboard'
+    images:
+      - 'images/work/leaderboard-01.png'
+      - 'images/work/leaderboard-02.png'
+      - 'images/work/leaderboard-03.png'
+  - id: 'peerReview'
+    images:
+      - 'images/work/peer-review-01.png'
+      - 'images/work/peer-review-02.png'
+      - 'images/work/peer-review-03.png'
 ---
 
-Some content here!
+import CaseSection from '../../../components/case-section/'
+import ContentRow from '../../../components/case-section/content-row'
+import Content from '../../../components/case-section/content'
+import ContentGallery from '../../../components/case-section/content-gallery'
+
+<CaseSection
+  sticky
+  title="So, What's the Problem?"
+  stepNum="01">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 1:
+
+Users didn’t really understand how grading worked or what gave them a better grade. The algorithm was complex and took into account several factors. We had to find a way to convey this in a user-friendly way.
+
+</Content>
+</ContentRow>
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 2:
+
+User’s enjoyed gaming the system and competing for the best grade. How could we foster this friendly competition?
+
+</Content>
+</ContentRow>
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 3:
+
+User’s wanted more influence on the grading system. Had a great date with someone from the app? Had a horrible experience and want to warn others? We wanted to find a way for users to provide feedback about their IRL experiences.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Did you do your homework?"
+  stepNum="01">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### User Interviews
+
+I conducted interviews with real users at a few of our singles events in NYC, asking them questions about their experience in the app and what they wanted to see more of. Users often mentioned wanting to know more about their grade, and enjoyed the leaderboard we had set up for the party.
+
+#### Competitive Analysis &amp; Inspiration
+
+I began researching competitors and other app experiences for inspiration. For My Grade, I focused on dashboard interfaces and how we could visually convey a user’s metrics in a simple way. For the Leaderboard, I took cues from competitive games that ranked their users.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="The best laid plans"
+  stepNum="02">
+<ContentRow>
+<Content colRight>
+
+#### User Journey and Use-Case mapping
+
+I audited the current user journey, and determined where these new experiences fit in the existing flow. I also mapped different use-case scenarios to understand what user’s would be expecting from this experience to help inform each flow.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### Wireframing
+
+Based on my research I started sketching what these new screens and flows could look like. I would then meet with the CEO (who was serving as a Product Manager) to review and collect feedback. After a few iterations, we settled on a rough draft of each feature.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<ContentGallery gallery={props.phoneGalleries.wireframes1} />
+<ContentGallery gallery={props.phoneGalleries.wireframes2} />
+<ContentGallery gallery={props.phoneGalleries.wireframes3} />
+
+<CaseSection
+  title="Start pushing pixels"
+  stepNum="03"
+  intro="I started fleshing out high-fidelity mockups of the features based on our research and planning. We wanted to iterate on these experiences rapidly once we launched, so the decision was made to create these screens as web-views within the app so we could hot-swap as needed. This brought with it certain design considerations and development constraints which I had to keep in mind.">
+</CaseSection>
+
+
+<CaseSection
+  title="My Grade"
+  stepNum="03"
+  intro="My Grade offers users a detailed look into their grade and provides suggestions on how to improve it. To develop this feature I worked with the dev team to better understand our algorithm, and break down exactly what goes into the calculations. Armed with this information and inspiration from various dashboard interfaces, I set out to create an intuitive, informative experience that was easy to digest visually.">
+
+<ContentGallery phone gallery={props.phoneGalleries.myGrade} />
+<ContentGallery fullWidth gallery={props.galleries.myGradeMockup} />
+
+</CaseSection>
+
+<CaseSection
+  title="The Leaderboard"
+  stepNum="03"
+  intro="From our research, we found that users saw the grading system as a game, and enjoyed competing for the best grade. In the spirit of The Grade’s gamification of dating, we set out to create a series of leaderboards for nearby singles, popular cities, and even your Facebook friends who used The Grade. This allowed users to compete with friends, and also served as another way for users to browse singles. Users could then filter by distance, age, and location.">
+
+<ContentGallery phone gallery={props.phoneGalleries.leaderboard} />
+<ContentGallery fullWidth gallery={props.galleries.leaderboard} />
+
+</CaseSection>
+
+<CaseSection
+  title="Peer Review"
+  stepNum="03"
+  intro="One of the inherent dangers of online dating is not knowing if someone you want to meet is legitimate or not. What if a user’s profile reflected feedback from real people either vouching for them, or warning you. Peer Review allows users to directly influence the grading system and provide feedback about their real life experience by answering a series of simple questions. Users ultimately decided if they would endorse someone, and could leave hashtags for that user which could then be displayed on their profile. (Don’t worry, only positive reviews appear on a users profile)">
+
+<ContentGallery phone gallery={props.phoneGalleries.peerReview} />
+<ContentGallery fullWidth gallery={props.galleries.peerReview} />
+
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Alright, build it already"
+  stepNum="04">
+<ContentRow>
+<Content colRight>
+
+#### Development
+
+We wanted to iterate on these experiences rapidly and in real time. Doing this natively was not a viable solution, so we decided early on to build these experiences as web-views within the app. Our team was small (4 people), so I took on the responsibility of developing the front-end while the other two developers focused on the native code and back-end. Using HTML, CSS, and AngularJS I built initial prototypes, worked with the team to refine and finalize them, and then worked with the back-end developer on API endpoints to provide the view data.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### Rapid Iteration
+
+Every week we would review engagement metrics for the new features and across the app to determine if we were meeting our KPI’s and not hurting the general vitals of the app. We would then iterate the experiences based on our findings.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="The results are in"
+  stepNum="04">
+<ContentRow fullHeight>
+<Content colRight>
+
+The new features were a huge success. After a few months of iteration, we saw a 20% lift in engagement on the app, and a 40% increase in 7-day retention rates. Because of our fresh take to online dating and holding users accountable, we also had a lot of press buzz around the features.
+
+#### Learnings
+
+This was my first experience with “gamification” and building web-based interfaces for a live application. I learned a lot about understanding user’s behavior, and creating triggers to motivate them which has been invaluable in my career. As a team, we learned that although web-views allowed us to rapidly iterate, they sometimes fall short of the native experience.
+
+</Content>
+</ContentRow>
+</CaseSection>

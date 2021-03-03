@@ -33,6 +33,14 @@ const sectionHeadAnim = (sectionHead, line, stepHead, stepNumber) => {
     return(tl)
 }
 
+export const refreshScrollTrigger = () => {
+  ScrollTrigger.refresh()
+}
+
+export const killScrollTrigger = () => {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+}
+
 // Sticky Header
 
 export const stickyHeaderAnim = (headEl, triggerEl) => {
@@ -46,8 +54,7 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
 
     const anim = sectionHeadAnim(sectionHead, line, stepHead, stepNumber)
 
-    ScrollTrigger.saveStyles([triggerEl, stepNumber, stepHead, sectionHead, line])
-
+    ScrollTrigger.saveStyles([stepNumber, stepHead, sectionHead, line])
 
     ScrollTrigger.matchMedia({
         '(max-width: 767px)': () => {
@@ -59,7 +66,7 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
                 end: 'bottom top',
                 animation: anim,
                 toggleActions: 'play reverse play reverse',
-                // markers: true,
+                anticipatePin: 1,
             })
 
         },
@@ -68,11 +75,11 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
             ScrollTrigger.create({
                 id: 'animTriggerDesktop',
                 trigger: triggerEl,
-                start: 'top top+=5%',
-                end: 'bottom bottom-=5%',
+                start: 'top-=5% top',
+                end: 'bottom+=5% bottom',
                 animation: anim,
                 toggleActions: 'play reverse play reverse',
-                // markers: true,
+                markers: true,
             })
 
             //create pin trigger
@@ -84,10 +91,12 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
                 anticipatePin: true,
                 start: 'top top',
                 end: 'bottom bottom',
-                // markers: true,
+                markers: true,
             })
         }
-    })    
+    })
+
+
 }
 
 

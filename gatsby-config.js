@@ -24,15 +24,24 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-remark-images',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1200,
+              backgroundColor: `none`,
+            },
+          },
+        ],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1200,
+              backgroundColor: `none`,
             },
           },
         ],

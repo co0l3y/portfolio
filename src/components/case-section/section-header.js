@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './case-section.module.css'
+import styles from './section-header.module.css'
 
 
 const SectionHeader = React.forwardRef(({ title, stepNum }, ref) => {
@@ -8,13 +8,13 @@ const SectionHeader = React.forwardRef(({ title, stepNum }, ref) => {
         '01' : 'Discover',
         '02' : 'Plan',
         '03' : 'Design',
-        '04' : 'Refine'
+        '04' : 'Build/Test/Review'
     }
 
     const stepName = steps[stepNum]
 
     return (
-        <header ref={ref}>
+        <header ref={ref} className={styles.container}>
             <div className={styles.processWrapper}>
                 <span className={styles.processNumber}>{stepNum}</span>
                 <h4 className={styles.processHeader}>

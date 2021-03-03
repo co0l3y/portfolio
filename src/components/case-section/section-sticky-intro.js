@@ -16,8 +16,6 @@ const SectionStickyIntro = ({title, stepNum, intro, children}) => {
         const trigger= triggerRef.current
         const head = headRef.current
 
-        console.log(trigger, head)
-
         stickyHeaderAnim(head, trigger)
 
     },[triggerRef, headRef])

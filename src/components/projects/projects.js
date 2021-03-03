@@ -10,7 +10,32 @@ import Tldr from '../tldr'
 import styles from './projects.module.css'
 
 const ProjectLayout = ({ data : { mdx }}) => {
-    const { body, frontmatter: {title, type, cover, tldr }} = mdx
+    const { body, frontmatter: {title, type, cover, tldr, sectionImages, galleries, phoneGalleries }} = mdx
+
+    const imageReducer = (images, image, index) => {
+      images[`${image.id}`] = images[`${image.id}`] || image.src.childImageSharp.fluid
+      
+      return images
+    }
+
+    const galleryReducer = (galleriesAcc, gallery, index) => {
+      galleriesAcc[`${gallery.id}`] = galleriesAcc[`${gallery.id}`] || gallery.images
+      
+      return galleriesAcc
+    }
+
+    const galleriesById =
+      galleries &&
+      galleries.reduce(galleryReducer, {})
+    
+    const phoneGalleriesById =
+      phoneGalleries &&
+      phoneGalleries.reduce(galleryReducer, {})
+
+    const sectionImagesById = 
+      sectionImages &&
+      sectionImages.reduce(imageReducer, {})
+      
 
     return(
         <Layout>
@@ -21,7 +46,7 @@ const ProjectLayout = ({ data : { mdx }}) => {
               h4: props => <h4 {...props} className={styles.contentHeader}/>,
               p: props => <p {...props} className={styles.contentBody} />,
             }}>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer sectionImages={sectionImagesById} galleries={galleriesById} phoneGalleries={phoneGalleriesById}>{body}</MDXRenderer>
             </MDXProvider>
         </Layout>
     )
@@ -48,8 +73,38 @@ export const pageQuery = graphql`
         }
         cover {
           childImageSharp {
-            fluid (maxWidth: 1200){
+            fluid (maxWidth: 1600){
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        sectionImages {
+          id
+          src {
+            childImageSharp {
+              fluid (maxWidth: 1200){
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        galleries {
+          id
+          images {
+            childImageSharp {
+              fluid (maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        phoneGalleries {
+          id
+          images {
+            childImageSharp {
+              fluid (maxWidth: 650) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

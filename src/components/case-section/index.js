@@ -1,14 +1,16 @@
 import React from 'react'
 
 import SectionIntro from './section-intro'
-import SectionImage from './section-intro-image'
+import SectionImage from './section-image'
 import SectionIntroImage from './section-intro-image'
+import SectionIntroImagePhone from './section-intro-image-phone'
 import SectionSticky from './section-sticky'
 import SectionStickyIntro from './section-sticky-intro'
 import SectionStickyImage from './section-sticky-image'
 import SectionStickyIntroImage from './section-sticky-intro-image'
 
-const CaseSection = ({ sticky, title, stepNum, intro, image, children }) => {
+const CaseSection = ({ sticky, title, stepNum, intro, image, phone, children }) => {
+
 
     if (sticky && intro && image) {
         return <SectionStickyIntroImage title={title} stepNum={stepNum} intro={intro} image={image}>{children}</SectionStickyIntroImage>
@@ -19,7 +21,11 @@ const CaseSection = ({ sticky, title, stepNum, intro, image, children }) => {
     } else if (sticky) {
         return <SectionSticky title={title} stepNum={stepNum} >{children}</SectionSticky>
     } else if (intro && image) {
-        return <SectionIntroImage title={title} stepNum={stepNum} intro={intro} image={image}>{children}</SectionIntroImage>
+        if (phone) {
+            return <SectionIntroImagePhone title={title} stepNum={stepNum} intro={intro} image={image}>{children}</SectionIntroImagePhone>
+        } else {
+            return <SectionIntroImage title={title} stepNum={stepNum} intro={intro} image={image}>{children}</SectionIntroImage>
+        }
     } else if (image) {
         return <SectionImage title={title} stepNum={stepNum} image={image}>{children}</SectionImage>
     } else {

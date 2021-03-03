@@ -1,13 +1,27 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import Sidebar from "../sidebar"
 import Container from "../container"
 
-import { useStaticQuery, graphql } from "gatsby"
+import { refreshScrollTrigger, killScrollTrigger } from '../Anim'
 
 import './layout.css'
 
 const Layout = ({ children }) => {
+
+    useEffect(() => {
+        // recalc scrolltrigger on font load
+
+        document.fonts.ready.then(() => {
+            refreshScrollTrigger()
+            console.log('fonts are ready')
+
+            return(()=>{
+                killScrollTrigger()
+            })
+        })
+    },[document])
+
     return (
         <>
             <Sidebar />

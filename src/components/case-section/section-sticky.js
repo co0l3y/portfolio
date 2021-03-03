@@ -13,14 +13,12 @@ const SectionSticky = ({title, stepNum, children}) => {
 
 
     useEffect(()=> {
-        const trigger= triggerRef.current
+        const trigger = triggerRef.current
         const head = headRef.current
-
-        console.log(trigger, head)
 
         stickyHeaderAnim(head, trigger)
 
-    },[triggerRef, headRef])
+    })
 
     return(
         <section ref={triggerRef}>

@@ -8,12 +8,12 @@ const SectionIntro = ({ title, stepNum, intro, children }) => {
 
     return(
         <section>
-            <div className={styles.row}>
+            <div className={styles.introContainer}>
                 <div className={styles.headWrapper}>
                     <SectionHeader title={title} stepNum={stepNum}></SectionHeader>
                 </div>
-                <div className={styles.introWrapper}>
-                    {intro}
+                <div className={styles.summaryWrapper}>
+                    <p className={styles.summary}>{intro}</p>
                 </div>
             </div>
             {children}

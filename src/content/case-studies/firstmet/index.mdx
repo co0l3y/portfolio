@@ -16,28 +16,243 @@ tldr:
     - "Product scoping & management"
   credits: "Niki Larsen, Jason Dove, Botond Denes, Matthew Broodie-Stewart, Alex Rose"
   tools: "Sketch, Photoshop, Illustrator, After Effects, Origami"
+sectionImages:
+  - id: 'homework'
+    src: images/covers/homework.png
+  - id: 'browse'
+    src: images/browse.png
+galleries:
+  - id: 'browse'
+    images:
+      - 'images/browse.png'
+      - 'images/like.png'
+      - 'images/like-collapse.png'
+phoneGalleries:
+  - id: 'browse'
+    images:
+      - 'images/browse.png'
+      - 'images/like.png'
+      - 'images/like-collapse.png'
 ---
 
 import CaseSection from '../../../components/case-section/'
 import ContentRow from '../../../components/case-section/content-row'
 import Content from '../../../components/case-section/content'
+import ContentGallery from '../../../components/case-section/content-gallery.js'
 
-<CaseSection sticky title="So, What's the problem?" stepNum="01" >
+<CaseSection
+  sticky
+  title="So, What's the problem?"
+  stepNum="01">
+
 <ContentRow fullHeight>
 <Content colRight>
 
-#### Problem 1
+#### Problem 1: Dated
 
-Houston We have a problem
+Although we were always A/B testing new features, the core experience and interface of FirstMet had not changed in over 10 years. User’s found it dated compared to competitors.
 
 </Content>
 </ContentRow>
 <ContentRow fullHeight>
 <Content colRight>
 
-#### Problem 1
+#### Problem 2: Staying Competitive
 
-Yeah we know
+FirstMet was having trouble retaining users. The dating space was now super saturated with competitors whose interfaces were more modern and simple.
+
+</Content>
+</ContentRow>
+
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 3: Where is it?
+
+10 years of feature testing had created some bloat and odd user Journeys. User’s found the experience hard to navigate at times.
+
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Do all your homework"
+  stepNum="01">
+
+<ContentRow>
+<Content colRight>
+
+#### Stakeholder Interviews
+
+First I met with the Product Manager and executive stakeholders to determine project scope, manage expectations, and determine success metrics.
+
+</Content>
+</ContentRow>
+
+<ContentRow>
+<Content colRight>
+
+#### Data Analysis
+
+With the help of the Business Insights team, we gathered and analyzed current engagement data to set baselines and find areas for improvement.
+
+</Content>
+</ContentRow>
+
+<ContentRow>
+<Content colRight>
+
+#### Competitive Analysis &amp; UX Inspiration
+
+I completed audits of competitor experiences and those of similar apps to find inspiration and key differentiators that we could focus on.
+
+</Content>
+</ContentRow>
+
+<ContentRow>
+<Content colRight>
+
+#### Usability Testing &amp; Surveys
+
+We conducted usability testing to gain insights and feedback on the current experience and find friction points. Users were asked to complete the sign-up process and then perform certain tasks such as liking another user and sending a message. Their experience was screen-recorded, and they were asked to complete a set of questions immediately afterwards. This feedback was evaluated and turned into actionable items. We also met with the customer service team, who provided common customer complaints about their experience with the app.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="A plan for everything"
+  stepNum="01"
+  image={props.sectionImages.homework}>
+
+<ContentRow>
+<Content colRight>
+
+#### User Journey mapping
+
+Everything about the current experience had been finely tuned and optimized over 10 years of constant A/B testing and iteration. It was important we mapped and understood the current flows. We needed to maintain or improve certain engagement triggers, especially for premium users, to avoid hurting engagement metrics.
+
+</Content>
+</ContentRow>
+
+<ContentRow>
+<Content colRight>
+
+#### Wireframing
+
+I began exploring solutions for different parts of the user experience including the main browse section, user profiles, and messaging. I then met with the Product Manager to review and refine the proposed concepts.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### Development and Analytics Requirements
+
+After refining the planned user experience, we met with the dev team to determine feasibility and scope, start planning development, and audit what analytics data we would need to collect for later analysis.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="Design &amp; Prototyping"
+  stepNum="03"
+  intro="I began refining our wireframes into high fidelity concepts and prototyping user flows. The objective was to give the app a more modern, easier to use interface and implement our new branding, while maintaining some of the existing engagement queues central to our user engagement model. I also explored how micro-interaction driven animations could provide users with positive feedback and keep them engaged.">
+</CaseSection>
+
+<CaseSection
+  title="Browse"
+  stepNum="03"
+  intro="The browse feed is the core experience of most dating apps. FirstMet’s existing browse was adapted from desktop, and optimized for early, antiquated mobile devices. The pictures were tiny, and pushed to the side by giant skeuomorphic buttons. Pictures are one of the most important parts of a dating profile and our user testing indicated users wanted bigger pictures. I focused on bringing profile pictures to the forefront, modernizing the UI, and better utilizing the available screen real-estate."
+  image={props.sectionImages.browse}
+  phone>
+
+<ContentRow>
+<Content>
+
+Since dating apps are a form of tailored social network, we thought it might be interesting to introduce a scrolling feed. Instead of viewing profiles one-by-one, a user could scroll and take actions on several profiles at once. We A/B tested this concept along side a traditional one-by-one view and the current control.
+
+</Content>
+</ContentRow>
+
+<ContentGallery phone gallery={props.phoneGalleries.browse} />
+
+
+</CaseSection>
+
+<CaseSection
+  title="Profile"
+  stepNum="03">
+<ContentRow>
+<Content>
+
+Dating profiles, though often sparse, can potentially contain a lot of content. Our app was facebook connected so it could potentially pull in things like your favorite movies, tv shows, and more. I had to account for profiles being empty, and profiles loaded with content. I focused on cleaning up the informational hierarchy, while also introducing larger images like in browse.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="It's a match!"
+  stepNum="03">
+<ContentRow>
+<Content>
+
+The “match celebration” is one of the biggest drivers of engagement in the app. I tried to elevate the serotonin-inducing experience by introducing playful animation, and bringing a friendlier tone with a brighter cleaner design
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Testing 1,2,3..."
+  stepNum="04">
+<ContentRow>
+<Content colRight>
+
+#### Scoping &amp; Dev Handoff
+After finalizing designs and creating prototypes I then prepared spec documents, icon fonts, packaged everything up, and worked with the product manager to scope and schedule the features for development.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### A/B Testing
+
+The Scientific Method and Feature testing were at the core of everything we did at FirstMet.  Every change to the app was based on coming up with a hypothesis, testing it, and analysing the results. The new experience was launched as a split A/B/C test. The A group saw the new experience with a scrolling feed. The B group saw an updated one-by-one experience, and C was our control group. 
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### Evaluate
+
+Every week, I would run queries and analyze analytics and engagement data with the Product Manager. We would then meet with the dev team for a CIO review.
+
+What is CIO? It stands for Celebrate, Iterate, Obliterate. During this time we would go over the results of our ongoing tests, and if they had reached statistical significance decide next steps. Features that hit their mark would be celebrated. Those that showed promise, but didn’t quite hit KPI’s would be iterated upon. Finally if a feature just wasn’t performing we would cut bait and obliterate it.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+
+<CaseSection
+  sticky
+  title="So, what does it all mean!?"
+  stepNum="04">
+<ContentRow>
+<Content colRight>
+
+After reviewing the data we found that the B group, who had the new experience but saw a one-by-one feed, outperformed control. This group saw a 20% increase in engagement, and sent 10% more messages. The A group also showed promise, but users tended to just scroll past profiles they didn’t like instead of skipping them. This means those users would show up in their feed again later. A next step would be to iterate on this experience taking those learnings into consideration. 
+
+Ultimately, the project was dropped when the company sold FirstMe. Yet, it was still a valuable crash course in overhauling an existing application, exploring new interaction mechanisms and micro-interactions, and optimization of the user’s experience through feature testing and data analytics.
 
 </Content>
 </ContentRow>

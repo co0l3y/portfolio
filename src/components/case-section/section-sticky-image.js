@@ -4,6 +4,8 @@ import styles from './case-section.module.css'
 
 import SectionHeader from './section-header'
 
+import Image from 'gatsby-image'
+
 import { stickyHeaderAnim } from '../Anim'
 
 const SectionStickyImage = ({ title, stepNum, image, children}) => {
@@ -13,21 +15,27 @@ const SectionStickyImage = ({ title, stepNum, image, children}) => {
 
 
     useEffect(()=> {
-        const trigger= triggerRef.current
+        const trigger = triggerRef.current
         const head = headRef.current
 
         stickyHeaderAnim(head, trigger)
 
-    },[triggerRef, headRef])
+        console.log(trigger)
+
+    })
 
     return(
-        <section>
-            <div className={styles.rowSticky}>
-                <div className={styles.headWrapper}>
-                    <SectionHeader title={title} stepNum={stepNum}></SectionHeader>
+        <section ref={triggerRef} className={styles.container}>
+            <div className={styles.introContainerImage}>
+                <div className={styles.imageContainer}>
+                    <div className={styles.imageWrapper}>
+                        <Image fluid={image} />
+                    </div>
                 </div>
-                <div className={styles.imageWrapper}>
-                    {image}
+                <div className={styles.headContainerSticky}>
+                    <div className={styles.headWrapperImage}>
+                        <SectionHeader ref={headRef} title={title} stepNum={stepNum}></SectionHeader>
+                    </div>
                 </div>
             </div>
             {children}

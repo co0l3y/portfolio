@@ -21,17 +21,17 @@
     --col-padding: calc(var(--gutter-width) * 0.5);
     --gutter-comp: calc((var(--gutter-width) * 0.5) * -1);
     
-    --col-width-1: 8.33333%;
-    --col-width-2: 16.66667%;
+    --col-width-1: 8.33333333%;
+    --col-width-2: 16.66666667%;
     --col-width-3: 25%;
-    --col-width-4: 33.33333%;
-    --col-width-5: 41.66667%;
+    --col-width-4: 33.33333333%;
+    --col-width-5: 41.66666667%;
     --col-width-6: 50%;
-    --col-width-7: 58.33333%;
-    --col-width-8: 66.66667%;
+    --col-width-7: 58.33333333%;
+    --col-width-8: 66.66666667%;
     --col-width-9: 75%;
-    --col-width-10:83.33333%;
-    --col-width-11: 91.66667%;
+    --col-width-10:83.33333333%;
+    --col-width-11: 91.66666667%;
     --col-width-12: 100%;
 
   }
@@ -376,11 +376,5 @@
     }
     .push-lg-11 {
         margin-left: var(--col-width-11);
-    }
-}
-
-@media screen and (min-width: 1600px) {
-    html {
-        font-size: 8.5px;
     }
 }

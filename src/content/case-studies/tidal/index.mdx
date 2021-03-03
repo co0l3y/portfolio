@@ -14,11 +14,291 @@ tldr:
     - "Marketing experience design"
     - "A/B and usability testing"
     - "Project scoping & management"
-
   credits: "Krist Rehm, Samantha Guzman, Tom Losinksi, Krysti Pryde, Matt Ogilvie, Hazel Adao"
   tools: "Overflow, Sketch, Figma, Photoshop, Illustrator, After Effects, Airtable, Trello, Optimizely, Instapage"
-galleries: 
-  gallery1: './gallery1'
+sectionImages:
+  - id: 'homework'
+    src: images/covers/flow-campaigns.jpg
+  - id: 'automate'
+    src: images/covers/all-the-things.jpg
+  - id: 'related'
+    src: images/covers/pepe-silvia.png
+  - id: 'sign-up'
+    src: images/work/sign-up-flow.png
+galleries:
+  - id: 'templates1'
+    images:
+      - 'images/process/templates-01.png'
+      - 'images/process/templates-02.png'
+  - id: 'templates2'
+    images:
+      - 'images/process/templates-03.png'
+      - 'images/process/templates-04.png'
+  - id: 'components'
+    images:
+      - 'images/process/component-library-01.png'
+      - 'images/process/component-library-02.png'
+  - id: 'airtable'
+    images:
+      - 'images/process/airtable.png'
+  - id: 'creative'
+    images:
+      - 'images/work/creative-01.png'
+      - 'images/work/creative-04.png'
+      - 'images/work/creative-03.png'
+      - 'images/work/creative-02.png'
+  - id: 'landingPages'
+    images:
+      - 'images/work/landing-pages-01.png'
+  - id: 'signUp'
+    images:
+      - 'images/work/sign-up-flow.png'
+phoneGalleries:
+  - id: 'appStore1'
+    images:
+      - 'images/work/app-store-01.png'
+      - 'images/work/app-store-02.png'
+      - 'images/work/app-store-03.png'
+      - 'images/work/app-store-04.png'
+  - id: 'appStore2'
+    images:
+      - 'images/work/app-store-05.png'
+      - 'images/work/app-store-06.png'
+      - 'images/work/app-store-07.png'
+      - 'images/work/app-store-08.png'
 ---
 
-Content here
+import CaseSection from '../../../components/case-section/'
+import ContentRow from '../../../components/case-section/content-row'
+import Content from '../../../components/case-section/content'
+import ContentGallery from '../../../components/case-section/content-gallery.js'
+
+<CaseSection
+  sticky
+  title="So, what's the problem?"
+  stepNum="01">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 1: Falling off a cliff, Stop the Leak
+
+TIDAL was having trouble growing and maintaining their user base. Up until this point, TIDAL’s growth had been mainly organic and centered around artist releases and exclusives. Although they had good traction, at times their acquisition funnel would see as high as a 90% dropoff rate.
+
+</Content>
+</ContentRow>
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 2: Small and Scrappy
+
+The creative team consisted of myself, a marketing designer, a video designer, and a UX designer. Some campaigns required hundreds (if not thousands) of assets for ad’s and landing pages in multiple sizes and languages. It was difficult to meet demand, and the team was starting to feel more like robots than creatives.
+
+</Content>
+</ContentRow>
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 3: Increasing complexity
+
+As our efforts ramped up so did the complexity. Our project management was spread across several tools. Our data was in spreadsheets and dashboards. It was becoming difficult to keep track of all our tests, the production queue, and our assets in a way that made sense and provided insights
+
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Did you finish your homework?"
+  stepNum="01"
+  image={props.sectionImages.homework}>
+<ContentRow>
+<Content colRight>
+
+#### Stakeholder and Team Interviews
+
+First, met with executive stakeholders so I could understand their expectations for the Growth team’s KPIs and Goals. Then I met with the Growth creative team, individually and as a group, to gather their ideas, and better understand where their pain points were so we could build a better process.
+
+#### User Journey mapping
+
+To better understand the sign up experience, we mapped and analyzed the different journeys a user could take to becoming a TIDAL member. We then broke those down into key touch points we could focus on optimizing including ad creative, landing pages, our app stores, and the sign up flows in our website and app.
+
+#### Data Analysis
+
+We worked with the Business Analytics team to analyze what data we had, and find the gaps so we could get a better picture of who new users were, where they were coming from, and where there was friction or drop-off in their journey.
+
+#### Competitive Analysis
+
+The team regularly audited and examined other companies' sign up flows and marketing efforts for inspiration, to understand their strengths and weaknesses, and to figure out how we could stand out in a crowded marketplace.
+
+#### Usability Testing &amp; Surveys
+
+We performed our own audits of the various touch points, surveyed new users about their sign up experience, and conducted usability tests with real users. This feedback was collected and categorized in themes and common friction points which we used to guide our design and UX testing.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="Back to the basics"
+  stepNum="02"
+  intro="With limited resources the team had to be more agile to meet our objectives. I borrowed from my past experience A/B testing features as a Product Designer, and worked with the VP of Growth to introduce a more agile process.  We started working in 1 week  “Sprints” (I use that term loosely) and broke the process out into familiar steps for each day.">
+<ContentRow>
+<Content>
+
+#### Day 1: Research &amp; Inspiration
+
+The entire team (not just creatives) collects inspiration from competitors and beyond. The inspiration wasn’t just limited to ad creative, but whatever you could find. We would meet to go over our inspiration and take turns talking about what we liked or didn’t like about it, and what learnings we could take away to apply in our own testing. 
+
+</Content>
+<Content>
+
+#### Day 2: Ideation &amp; Planning
+
+At the core of all our testing are Concepts. These are ideas we can turn into ad creative and eventually iterate on. Taking the research and inspiration from the day before, the team would ideate and submit concepts. At the end of the day we would meet, and in a pitch-style meeting everyone walks the team through their concepts. Sometimes we would form teams to help with ideation. The team then votes on which concept to explore that week.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content>
+
+#### Day 3: Visual Exploration
+
+The creative team meets to review the concept and produce a creative brief to help further explore and define the concept. The team then breaks off to start exploring possible creative executions.
+
+</Content>
+<Content>
+
+#### Day 4: Finalization &amp; Internal Review
+
+The team finalizes their creatives for review, some creatives take longer to produce, and are reviewed the following week with check-ins along the way. The team meets to review and provide feedback.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content>
+
+#### Day 5: Final Approval &amp; CIO
+
+After incorporating feedback from the internal review, the creative is submitted to the Creative Marketing Director for final approval. The whole team meets and reviews weekly test data to track our progress towards KPI goals and hold a “CIO” review.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="Automate all the things!"
+  stepNum="02"
+  intro="We needed to produce landing pages and different sized assets for different platforms in several copy, language, and currency combinations. Up until this point we were doing it fairly manually.  I set out to streamline and automate our workflow."
+  image={props.sectionImages.automate}>
+<ContentRow>
+<Content colRight>
+
+#### Templates
+
+I created new templates that took out a lot of the manual work we had been doing. I collected all the resolutions we would typically need to support across channels, and created a system using symbols. A designer could go in and make minor updates, and export all the sizes we needed. This allowed us to produce thousands of assets for campaigns with minimal effort.
+
+</Content>
+</ContentRow>
+
+<ContentGallery gallery={props.galleries.templates1} />
+<ContentGallery gallery={props.galleries.templates2} />
+
+<ContentRow>
+<Content colRight>
+
+#### Component Libraries
+
+Borrowing from the Branding Design team, I created a subset of the company’s main component library, and made minor adjustments to meet the teams needs for marketing assets and UX Design.
+
+</Content>
+</ContentRow>
+
+<ContentGallery fullWidth gallery={props.galleries.components} />
+
+<ContentRow>
+<Content colRight>
+
+#### Naming Convention
+
+Due to the iterative nature of our work, we had tons of assets, and it was becoming difficult to easily identify files. I borrowed from my product experience and implemented new folder and naming conventions loosely based on software versioning to help us keep track of concepts and their various iterations.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="It's all related"
+  stepNum="02"
+  intro="Our project management and campaign tracking was spread across various tools. What worked for one team didn’t work for the other, and we couldn’t adequately convey the relationship between our research, concepts, creative, campaigns, and test data."
+  image={props.sectionImages.related}>
+<ContentRow>
+<Content colRight>
+
+#### A New Central Hub
+
+I found Airtable and it’s spreadsheet-meets-database interface seemed like a perfect fit. Taking an object oriented design approach, I mapped each Object we needed to track and it’s relevant metadata. This allowed me to see the relationships between each object and map that all out in Airtable. The result was a single hub with custom views the creatives and marketing team could use to track every aspect of our testing.
+
+You can check out an early version of the Airtable here
+
+</Content>
+</ContentRow>
+
+<ContentGallery fullWidth gallery={props.galleries.airtable} />
+
+</CaseSection>
+
+<CaseSection
+  title="Growth Marketing Creative"
+  stepNum="03"
+  intro="We continuously tested our marketing creative and concepts, producing thousands of assets, to find what resonated with our various audiences and inform our branding strategy.">
+
+<ContentGallery fullWidth gallery={props.galleries.creative} />
+
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Marketing Landing Pages"
+  stepNum="03"
+  intro="We ran A/B tests on landing pages testing different copy, imagery, and layouts. Ultimately landing on a simple, modern look somewhere between tech and luxury brands.">
+
+<ContentGallery fullWidth colRight gallery={props.galleries.landingPages} />
+
+</CaseSection>
+
+<CaseSection
+  title="Sign Up Flow"
+  stepNum="03"
+  intro="After collecting feedback from real users, we found common friction points and hypothesized solutions. We explored, wireframed, and designed solutions, then worked with the Development team to scope and implement A/B tests on the sign up flow.">
+
+<ContentGallery fullWidth gallery={props.galleries.signUp} />
+
+</CaseSection>
+
+<CaseSection
+  title="App Store Testing"
+  stepNum="03"
+  intro="Using market research and analytics data, we optimized and honed our presence in app stores with A/B testing. We also localized our tests per region, currency, and language">
+<ContentGallery phone gallery={props.phoneGalleries.appStore1} />
+<ContentGallery phone gallery={props.phoneGalleries.appStore2} />
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="So, did you learn anything?"
+  stepNum="04">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Learnings
+
+This was my first deep dive into marketing experience optimization, so I learned a lot about how users first interact with a product, which has helped inform my design and testing decisions. This was also the first time I was involved in setting up a testing and analytics solution from the ground up, which taught me valuable lessons about how to properly track and optimize an experience.
+
+#### Results
+
+After implementing new design strategies and bringing iterative testing to TIDAL, the team was able to produce more with less effort and focus on creative solutions. This allowed us to exceed our goals, ultimately producing thousands of assets, improving click through rates 30%, lowering cost per acquisition 50%, and increasing new users month-over-month 20%.
+
+</Content>
+</ContentRow>
+</CaseSection>

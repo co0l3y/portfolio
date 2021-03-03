@@ -1,21 +1,208 @@
 ---
-title: Tidal Music
-subtitle: Redesigning the core user experience for one of the first facebook connected dating apps.
+title: Poko
+subtitle: Find and chat with Pokémon go players in your area
 cover: "cover.png"
 type: "UI/UX, Branding, Development"
 tldr:
-  company: "Tidal"
+  company: "Freelance Project"
   role: "Lead Product Designer"
   date: "August - November 2016"
   skills:
-    - "Lead UX & Branding Design"
+    - "Lead UX & Branding design"
     - "Discovery & planning"
     - "Wireframing, prototyping, & mockups"
     - "Front-end development"
   credits: "Miguel Molinari, Matt Walden"
   tools: "Sketch, Illustrator, InVision, HTML, CSS, Javascript (Ionic/Angular)"
-galleries: 
-  gallery1: './gallery1'
+sectionImages:
+  - id: 'nearby'
+    src: images/work/nearby-01.png
+galleries:
+    - id: 'nearbyMock'
+      images:
+        - 'images/work/nearby-mockup.png'
+phoneGalleries:
+    - id: 'nearby'
+      images:
+        - 'images/work/nearby-01.png'
+    - id: 'signUp'
+      images:
+        - 'images/work/signup-01.png'
+        - 'images/work/signup-02.png'
+        - 'images/work/signup-03.png'
+    - id: 'chat'
+      images:
+        - 'images/work/chat-01.png'
+        - 'images/work/chat-02.png'
+        - 'images/work/chat-03.png'
+        - 'images/work/chat-04.png'
+    - id: 'profile'
+      images:
+        - 'images/work/profile-01.png'
 ---
 
-Some stuff here again
+import CaseSection from '../../../components/case-section/'
+import ContentRow from '../../../components/case-section/content-row'
+import Content from '../../../components/case-section/content'
+import ContentGallery from '../../../components/case-section/content-gallery'
+
+<CaseSection
+  sticky
+  title="So, What's the Problem?"
+  stepNum="01">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 1: Anti-Social
+
+Pokemon Go, although inherently a very social game that got users off of their couches and outside, had very limited features when it first launched. There was no chat, or way to find users nearby to play with. Trainers wanted a way to communicate and coordinate.
+
+</Content>
+</ContentRow>
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Problem 2: 
+
+Other Pokemon Go focused chat apps either lacked features or were buggy and unstable providing a poor user experience.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Did you do your homework?"
+  stepNum="01">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### User Research
+
+I interviewed friends and co-workers who played the game, and asked them about their experience. Many of them expressed the desire to to coordinate with friends and their nearby community. The game was very geo-centric, and often brought strangers together at pokestops and battles, but there wasn’t a central place to share knowledge and communicate.
+
+#### Competitive Analysis
+
+We researched the market to determine if another app like this existed. There were a few that had just come out, so we studied them to determine what features we could offer to stay competitive. Most current offerings lacked a way to locate others nearby, or to be able to send your current location.
+
+#### UX &amp; Branding Research
+
+I collected inspiration and studied UX patterns from other messaging apps and Pokemon GO itself. Since this was meant to be a companion app, it was important that the experience from app to app felt fluid, while allowing Poko to retain a unique identity.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="The best laid plans"
+  stepNum="02">
+<ContentRow>
+<Content colRight>
+
+#### User Journey Mapping
+
+I began mapping out the various screens we would need and exploring possible use case scenarios and user journeys. Since this was a companion app we wanted to keep the journey simple so trainers could focus on the game. 
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### Wireframing
+
+I started wireframing different design solutions for each screen, after narrowing it down to a few choices I reviewed them with the product owner Miguel and collected feedback.
+
+</Content>
+</ContentRow>
+<ContentRow>
+<Content colRight>
+
+#### Initial Branding concepts
+
+I then explored various brand identities for Poko in black and white. I find it easier to start this way and incorporate color later. The branding had to be recognizable and unique in it’s own right, while hinting that we were a companion app for Pokemon Go. I reviewed early logo concepts with Miguel, and then started developing mood boards for us to narrow down to a final style guide.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="Logo &amp; Branding"
+  stepNum="03"
+  intro="For Poko’s branding, I used a color palette reminiscent of Pokemon Go so that the two apps shared a continuity and users associated the two in their heads. I wanted to keep the branding simple and modern, while also incorporating Pokemon symbolism. I broke the letterforms down to their most basic shapes, allowing the P to utilize negative space and imply the shape of a PokeBall inside a message bubble. I chose Lato for the main typeface because it shared patterns with Pokemon Go’s typeface, while also complimenting our wordmark.">
+<ContentRow>
+<Content>
+
+Images here please! 
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  title="Sign Up Flow"
+  stepNum="03"
+  intro="We kept the sign up flow simple, so that users could get up and running quickly. User’s choose a sign up method, enter their username, and declare their team. We limited sign-up to only google and facebook initially, since this allowed us to find your friends this provided a bit of shielding from spam bots and bad-actors.">
+
+<ContentGallery phone gallery={props.phoneGalleries.signUp} />
+
+</CaseSection>
+
+<CaseSection
+  title="Nearby"
+  stepNum="03"
+  intro="Nearby is a local lobby that allows trainers to find each other and coordinate. User’s can filter nearby trainers by team and distance. Trainer cards provide quick information like their team, level, and their current status. Tap the pin to quickly send your location to another trainer so you can team up. Swipe left on a card to hide or report a Trainer."
+  image={props.phoneGalleries.nearby[0]}
+  phone>
+
+<ContentGallery fullWidth gallery={props.galleries.nearbyMock} />
+
+</CaseSection>
+
+<CaseSection
+  title="Location Based Chat"
+  stepNum="03"
+  intro="Keep in touch with your friends and other trainers nearby. Use Poko to plan a meet-up, discuss strategy, or just talk PoGo. You can even share your location so it’s easier for other trainers to find you while on-the-go.">
+
+<ContentGallery phone gallery={props.phoneGalleries.chat} />
+
+
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Trainer Profiles"
+  stepNum="03"
+  intro="Trainer profiles are simple and to the point so that you can focus on the task at hand – catching Pokemon. Just upload a profile photo and set a status to let other trainers know you’re ready to catch them all!">
+
+<ContentGallery colRight fullWidth phone gallery={props.phoneGalleries.profile} />
+
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="Alright, build it already"
+  stepNum="04">
+<ContentRow fullHeight>
+<Content colRight>
+
+#### Development
+
+The developers and I had been in sync from the beginning, so they had already hit the ground running setting up the basics of the app. I prepared specs and style guides for them to follow. Since we used Ionic, a web-based framework for creative native apps, I was able to help the developers code the front-end UI with HTML and CSS.
+
+</Content>
+</ContentRow>
+</CaseSection>
+
+<CaseSection
+  sticky
+  title="The results are in"
+  stepNum="04">
+<ContentRow fullHeight>
+<Content colRight>
+
+Even though it was a side project, at its peak Poko got over a thousand Pokemon Trainers to use the platform. Pokemon Go ended up introducing social features a few years later. The app is no longer in development, but it was a really fun project to work on. It was my first time being involved in the early stages of an app. I learned a tremendous amount about creating an identity, and building a design and UX strategy from the ground up.
+
+</Content>
+</ContentRow>
+</CaseSection>

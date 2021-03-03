@@ -9,12 +9,14 @@
     padding-bottom: 5rem;
 }
 
-/* row */
 
-.row, .row-sticky, .intro-row-sticky, .row-content-full-height, .row-content{
+
+.row, .row-sticky, .intro-row-sticky, .row-content-full-height, .row-content, .row-intro-image{
     composes: row from '../utils/grid.css';
     composes: paddingTB;
 }
+
+
 
 .row-content, .row-content-full-height {
     justify-content: flex-end;
@@ -35,12 +37,8 @@
 
 /* Wrappers */
 
-.head-wrapper {
-    composes: colMd5 from '../utils/grid.css';
-}
-
 .intro-wrapper, .intro-wrapper-sticky, .image-wrapper, .content-col-right {
-    composes: colMd7 colLg6 from '../utils/grid.css';
+    composes: colMd7 from '../utils/grid.css';
 }
 
 .col-full-height {
@@ -48,43 +46,103 @@
 }
 
 .col {
-    composes: colM from '../utils/grid.css';
+    composes: colMd from '../utils/grid.css';
+}
+
+
+
+/* Round 2 */
+
+.container {
+    padding-bottom: 24rem;
+}
+
+.intro-container {
+    composes: row from '../utils/grid.css';
+    composes: fullHeight;
+    align-items: center;
+}
+
+.intro-container-image {
+    position: relative;
+    composes: fullHeight;
+    align-items: center;
+}
+
+.head-container {
+    composes: row from '../utils/grid.css';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    align-items: center;
+}
+
+.head-container-sticky {
+    composes: row from '../utils/grid.css';
+    composes: paddingTB;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.head-wrapper {
+    composes: colMd5 from '../utils/grid.css';
+}
+
+.head-wrapper-image {
+    composes: colMd5 from '../utils/grid.css';
+}
+
+.head-wrapper-summary-image {
+    composes: colMd6 from '../utils/grid.css';
+    align-self: center;
+}
+
+.head-wrapper-sticky {
+    composes: colMd5 from '../utils/grid.css';
+}
+
+.image-container {
+    composes: row from '../utils/grid.css';
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    top:0;
+    left: 0;
+    right: 0;
+}
+
+.image-container-sticky {
+    composes: row from '../utils/grid.css';
+    composes: paddingTB;
+    position: absolute;
+    height: 100%;
+    top:0;
+    left: 0;
+}
+
+.image-wrapper {
+    composes: colMd8 from '../utils/grid.css';
+    opacity: .36;
+}
+
+.image-wrapper-phone {
+    composes: colMd4 pushMd2 from '../utils/grid.css';
+}
+
+.summary-wrapper {
+    composes: colMd7 from '../utils/grid.css';
+}
+
+.summary {
+    composes: fontFutura textL from '../utils/type.css';
+    padding-top: 2rem;
 }
 
 /* Typography */
 
 .intro {
-    composes: fontFutura typeL from '../utils/grid.css';
-}
-
-.header {
-    composes: fontEssonnes headingL from '../utils/type.css';
-    color: var(--color-green);
-    margin: 0;
-}
-
-.process-wrapper {
-    position: relative;
-}
-
-
-.process-header {
-    composes: fontMuseo from '../utils/type.css';
-    font-size: 2rem;
-    line-height: 7rem;
-    z-index: 1;
-    margin: 0 0 2rem 0;
-}
-
-.process-number {
-    composes: fontEssonnes headingM from '../utils/type.css';
-    position: absolute;
-    top: 0;
-    left: -4rem;
-    z-index: 0;
-    color: var(--color-white-16);
-}
-
-.divider {
-    composes: divider from '../utils/elements.css';
+    composes: fontFutura textL from '../utils/type.css';
 }
