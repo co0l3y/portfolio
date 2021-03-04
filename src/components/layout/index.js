@@ -11,20 +11,21 @@ const Layout = ({ children }) => {
 
     useEffect(() => {
         // recalc scrolltrigger on font load
-
-        document.fonts.ready.then(() => {
-            refreshScrollTrigger()
-            console.log('fonts are ready')
-
-            return(()=>{
-                killScrollTrigger()
+        if (typeof document !== 'undefined') {
+            document.fonts.ready.then(() => {
+                refreshScrollTrigger(true)
+                console.log('Scrolltrigger refreshed!')
             })
+        }
+
+        return(()=>{
+            killScrollTrigger()
         })
     },[document])
 
     return (
         <>
-            <Sidebar />
+            <Sidebar/>
             <Container>
                 <main>{children}</main>
             </Container>

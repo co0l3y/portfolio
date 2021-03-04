@@ -4,7 +4,7 @@ import styles from './case-section.module.css'
 
 import SectionHeader from './section-header'
 
-import { stickyHeaderAnim } from '../Anim'
+import { stickyHeaderAnim, sectionIntroAnim } from '../Anim'
 
 const SectionSticky = ({title, stepNum, children}) => {
 
@@ -21,13 +21,15 @@ const SectionSticky = ({title, stepNum, children}) => {
     })
 
     return(
-        <section ref={triggerRef}>
+        <section ref={triggerRef} className={styles.container}>
             <div className={styles.rowSticky}>
                 <div className={styles.headWrapper}>
                     <SectionHeader ref={headRef} title={title} stepNum={stepNum}></SectionHeader>
                 </div>
             </div>
-            {children}
+            <div className={styles.contentContainer}>
+                {children}
+            </div>
         </section>
     )
 }

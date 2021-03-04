@@ -5,8 +5,8 @@
 }
 
 .paddingTB {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 
@@ -54,28 +54,34 @@
 /* Round 2 */
 
 .container {
-    padding-bottom: 24rem;
+    padding-bottom: 48rem;
 }
 
 .intro-container {
     composes: row from '../utils/grid.css';
-    composes: fullHeight;
     align-items: center;
 }
 
 .intro-container-image {
+    composes: row from '../utils/grid.css';
+    justify-content: flex-end;
     position: relative;
-    composes: fullHeight;
     align-items: center;
+}
+
+.intro-container-sticky {
+    composes: row from '../utils/grid.css';
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
 }
 
 .head-container {
     composes: row from '../utils/grid.css';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top:0;
-    left: 0;
+}
+
+.head-container-image {
+    composes: row from '../utils/grid.css';
     align-items: center;
 }
 
@@ -86,12 +92,18 @@
     align-items: center;
 }
 
+.head-container-sticky-image {
+    composes: row from '../utils/grid.css';
+    align-items: center;
+}
+
 .head-wrapper {
     composes: colMd5 from '../utils/grid.css';
 }
 
 .head-wrapper-image {
     composes: colMd5 from '../utils/grid.css';
+    align-items: center;
 }
 
 .head-wrapper-summary-image {
@@ -141,8 +153,41 @@
     padding-top: 2rem;
 }
 
+.content-container {
+    padding-top: 20rem;
+}
+
+.gallery-item {
+    width: 100%;
+    padding: 4rem;
+}
+
 /* Typography */
 
 .intro {
     composes: fontFutura textL from '../utils/type.css';
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .head-container-image, .head-container-sticky-image {
+        position: absolute;
+        height: 100%;
+        top:0;
+        left: 0;
+        right: 0;
+    }
+
+    .head-container-sticky, .head-container-sticky-image {
+        min-height: 100vh;
+    }
+
+    .intro-container-sticky {
+        min-height: 100vh;
+    }
+
+    .gallery-item {
+        padding: 0;
+    }
 }

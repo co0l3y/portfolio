@@ -33,6 +33,12 @@ phoneGalleries:
       - 'images/browse.png'
       - 'images/like.png'
       - 'images/like-collapse.png'
+  - id: 'profile'
+    images:
+      - 'images/profile-message.png'
+  - id: 'match'
+    images:
+      - 'images/match.png'
 ---
 
 import CaseSection from '../../../components/case-section/'
@@ -159,6 +165,7 @@ After refining the planned user experience, we met with the dev team to determin
 </CaseSection>
 
 <CaseSection
+  sticky
   title="Design &amp; Prototyping"
   stepNum="03"
   intro="I began refining our wireframes into high fidelity concepts and prototyping user flows. The objective was to give the app a more modern, easier to use interface and implement our new branding, while maintaining some of the existing engagement queues central to our user engagement model. I also explored how micro-interaction driven animations could provide users with positive feedback and keep them engaged.">
@@ -168,11 +175,11 @@ After refining the planned user experience, we met with the dev team to determin
   title="Browse"
   stepNum="03"
   intro="The browse feed is the core experience of most dating apps. FirstMet’s existing browse was adapted from desktop, and optimized for early, antiquated mobile devices. The pictures were tiny, and pushed to the side by giant skeuomorphic buttons. Pictures are one of the most important parts of a dating profile and our user testing indicated users wanted bigger pictures. I focused on bringing profile pictures to the forefront, modernizing the UI, and better utilizing the available screen real-estate."
-  image={props.sectionImages.browse}
+  image={props.phoneGalleries.browse[0]}
   phone>
 
 <ContentRow>
-<Content>
+<Content colRight>
 
 Since dating apps are a form of tailored social network, we thought it might be interesting to introduce a scrolling feed. Instead of viewing profiles one-by-one, a user could scroll and take actions on several profiles at once. We A/B tested this concept along side a traditional one-by-one view and the current control.
 
@@ -181,31 +188,24 @@ Since dating apps are a form of tailored social network, we thought it might be 
 
 <ContentGallery phone gallery={props.phoneGalleries.browse} />
 
-
 </CaseSection>
 
 <CaseSection
+  sticky
   title="Profile"
-  stepNum="03">
-<ContentRow>
-<Content>
+  stepNum="03"
+  intro="Dating profiles, though often sparse, can potentially contain a lot of content. Our app was facebook connected so it could potentially pull in things like your favorite movies, tv shows, and more. I had to account for profiles being empty, and profiles loaded with content. I focused on cleaning up the informational hierarchy, while also introducing larger images like in browse.">
 
-Dating profiles, though often sparse, can potentially contain a lot of content. Our app was facebook connected so it could potentially pull in things like your favorite movies, tv shows, and more. I had to account for profiles being empty, and profiles loaded with content. I focused on cleaning up the informational hierarchy, while also introducing larger images like in browse.
+<ContentGallery phone fullWidth colRight gallery={props.phoneGalleries.profile} />
 
-</Content>
-</ContentRow>
 </CaseSection>
 
 <CaseSection
   title="It's a match!"
-  stepNum="03">
-<ContentRow>
-<Content>
-
-The “match celebration” is one of the biggest drivers of engagement in the app. I tried to elevate the serotonin-inducing experience by introducing playful animation, and bringing a friendlier tone with a brighter cleaner design
-
-</Content>
-</ContentRow>
+  stepNum="03"
+  intro="The “match celebration” is one of the biggest drivers of engagement in the app. I tried to elevate the serotonin-inducing experience by introducing playful animation, and bringing a friendlier tone with a brighter cleaner design"
+  image={props.phoneGalleries.match[0]}
+  phone>
 </CaseSection>
 
 <CaseSection

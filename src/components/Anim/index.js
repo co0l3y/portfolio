@@ -34,11 +34,97 @@ const sectionHeadAnim = (sectionHead, line, stepHead, stepNumber) => {
 }
 
 export const refreshScrollTrigger = () => {
-  ScrollTrigger.refresh()
+  ScrollTrigger.refresh(true)
 }
 
 export const killScrollTrigger = () => {
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+}
+
+// Gallery Image Anim
+
+export const galleryAnimUp = (imageEls, triggerEl) => {
+
+  const anim = gsap.from(imageEls, {yPercent: 5, opacity: 0, duration: .75, stagger: .15, ease: 'power2.out'})
+
+  ScrollTrigger.create({
+    id: 'galleryAnim',
+    trigger: triggerEl,
+    start: 'top bottom-=25%',
+    animation: anim,
+    markers: true,
+    toggleActions: 'play none none reverse'
+  })
+
+}
+
+// Section Image Anim
+
+export const sectionImageAnim = (imageEl) => {
+  gsap.registerPlugin(ScrollTrigger)
+  
+  const anim = gsap.from(imageEl, {xPercent: 100, opacity: 0, ease: 'power1.out'})
+
+  ScrollTrigger.create({
+    id: 'sectionImageAnim',
+    trigger: imageEl,
+    start: 'top bottom+=10%',
+    end: 'center center-=5%',
+    animation: anim,
+    scrub: true,
+    markers: true,
+  })
+}
+
+// Intro Fade Up
+
+export const sectionIntroAnim = (introEl, sticky) => {
+  
+  gsap.registerPlugin(ScrollTrigger)
+  
+  const anim = gsap.from(introEl, {opacity: 0, duration: .75, ease: 'power2.inOut'})
+
+  const start = sticky ? 'top bottom-=10%' : 'top bottom-=25%'
+  const toggle = sticky ? 'play reverse play reverse' : 'play none none reverse'
+  
+  ScrollTrigger.create({
+    id: 'introAnim',
+    trigger: introEl,
+    start: start,
+    end: 'top top+=10%',
+    animation: anim,
+    toggleActions: toggle,
+    // markers: true,
+  })
+  
+}
+
+//Regular Header
+
+export const regularHeaderAnim = (headEl) => {
+  
+  gsap.registerPlugin(ScrollTrigger)
+
+  const stepHead = headEl.firstChild.lastChild
+  const stepNumber = headEl.firstChild.firstChild
+  const sectionHead = headEl.children[1]
+  const line = headEl.lastChild
+  
+  // ScrollTrigger.saveStyles([stepNumber, stepHead, sectionHead, line])
+
+  // Create Anim trigger
+
+  const anim = sectionHeadAnim(sectionHead, line, stepHead, stepNumber)
+
+  ScrollTrigger.create({
+    id: 'animTriggerDesktop',
+    trigger: headEl,
+    start: 'top bottom-=25%',
+    animation: anim,
+    toggleActions: 'play none none reverse',
+    // markers: true,
+  })
+
 }
 
 // Sticky Header
@@ -75,11 +161,11 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
             ScrollTrigger.create({
                 id: 'animTriggerDesktop',
                 trigger: triggerEl,
-                start: 'top-=5% top',
-                end: 'bottom+=5% bottom',
+                start: 'top top+=25%',
+                end: 'bottom bottom',
                 animation: anim,
                 toggleActions: 'play reverse play reverse',
-                markers: true,
+                // markers: true,
             })
 
             //create pin trigger
@@ -91,7 +177,7 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
                 anticipatePin: true,
                 start: 'top top',
                 end: 'bottom bottom',
-                markers: true,
+                // markers: true,
             })
         }
     })
