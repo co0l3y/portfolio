@@ -356,16 +356,33 @@ const buildingsAnim = (buildL, buildR) => {
     tl.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<0.5')
     tl.from(caseNumTotal, {opacity: 0, duration: .5,ease: 'power2.out'},'<.25')
     tl.from(caseInfo, {xPercent: -100, duration: .5, stagger: .15}, 0)
-
+    
+    // Create Anim Trigger
+    
     ScrollTrigger.create({
         id: 'case-enter',
         trigger: el,
         animation: tl,
-        start: 'top top+=25%',
-        end: 'bottom top',
-        toggleActions: 'play none none reverse',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play reverse play reverse',
+        // markers: true,
+      })
+
+      ScrollTrigger.create({
+        id: 'case-snap',
+        trigger: el,
+        start: 'top bottom',
+        end: 'bottom bottom',
+        snap: {
+          snapTo: 1,
+          duration: {min: 0.2, max: 0.5},
+          delay: 0.1,
+          ease: 'power3.inOut'
+        },
         markers: true,
       })
+
   }
 
 

@@ -1,0 +1,86 @@
+.container {
+    height: 100vh;
+    min-height: 75rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.title-wrapper, .info-container, .skills, .num-container {
+    position: absolute;
+    z-index: 4;
+}
+
+.title-wrapper{
+    top: 18rem;
+    left: var(--col-width-1);
+    width: var(--col-width-4);
+}
+
+.title {
+    composes: fontEssonnes from '../utils/type.css';
+    font-style: italic;
+    font-size: 9rem;
+    line-height: 9rem;
+    color: var(--color-green);
+    margin: 0;
+    padding: 0;
+}
+
+.line {
+    composes: divider from '../utils/elements.css';
+}
+
+.skills {
+    composes: textM from '../utils/type.css';
+    bottom: 7rem;
+    left: var(--col-width-2);
+    width: var(--col-width-4);
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-container {
+    composes: fontMuseo from '../utils/type.css';
+    composes: fontM from '../utils/type.css';
+    top: 13rem;
+    right: var(--col-width-2);
+    width: var(--col-width-4);
+    transform-origin: bottom left;
+    transform: translate(100%,-100%) rotate(90deg);
+    overflow: hidden;
+}
+
+.num-container {
+    composes: fontEssonnes from '../utils/type.css';
+    bottom: 23rem;
+    right: var(--col-width-2);
+    width: var(--col-width-2);
+}
+
+.num-current {
+    composes: headingXxl from '../utils/type.css';
+    color: var(--color-green);
+    overflow: hidden;
+}
+
+.num-wrapper {
+    display: inline-block;
+}
+
+.num-total {
+    composes: headingS from '../utils/type.css';
+    opacity: 50%;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-width: 112rem;
+    clip-path: circle(36%)
+}

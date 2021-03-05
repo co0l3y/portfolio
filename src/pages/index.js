@@ -8,12 +8,11 @@ import Img from 'gatsby-image'
 import SEO from '../components/seo'
 import BackgroundSceneSvg from '../components/background-scene'
 import DeskSequence from '../components/desk-sequence'
+import CaseSlide from '../components/case-slide'
 
 import { scrollSceneAnim, caseEnterAnim } from '../components/Anim'
 
 import styles from '../components/index/index-page.module.css'
-import { interpolate } from 'gsap/gsap-core'
-import { Tween } from 'gsap/gsap-core'
 
 
 const IndexPage = ({ data }) => {
@@ -25,20 +24,23 @@ const IndexPage = ({ data }) => {
   let svgRef = useRef(null)
   let svgContainerRef = useRef(null)
   let pinRef = useRef(null)
-  let workRef = useRef(null)
-  let caseRef = useRef(null)
   let deskRef = useRef(null)
 
-  useEffect(()=>{
+  const caseStudies = data.caseStudies.nodes
 
+  const totalCount = data.caseStudies.totalCount
+
+  const caseSlides = caseStudies.map((caseStudy, index) =>
+    <CaseSlide key={caseStudy.id} slideData={caseStudy} totalCount={totalCount} index={index + 1} />
+  )
+
+  console.log(caseSlides)
+
+  useEffect(()=>{
     // elements
     const deskEl = deskRef.current
-
     //animations
-
       scrollSceneAnim(introRef, scrollRef, pinRef, svgContainerRef, deskEl)
-      caseEnterAnim(caseRef)
-
   })
 
   return(
@@ -79,34 +81,8 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
-      <section ref={el => workRef = el} className={styles.work}>
-        <div ref={el => caseRef = el} className={styles.caseSlide}>
-          <div className={styles.caseImg}>
-            <Img fluid={data.caseCover.childImageSharp.fluid} />
-          </div>
-          <div className={styles.caseTitle}>
-            <h3>FirstMet</h3>
-            <span className={styles.line}></span>
-          </div>
-          <div className={styles.caseInfo}>
-            <div className={styles.caseInfoCat}>UX Design &amp; Optimization</div>
-            <div className={styles.caseInfoDate}>March 2018 - May 2018</div>
-          </div>
-          <div className={styles.caseSkills}>
-            <ul>
-              <li>Lead UI/UX Design</li>
-              <li>Discovery and requirements gathering</li>
-              <li>Prototyping &amp; wireframing</li>
-              <li>High fidelity mockups</li>
-              <li>A/B and usability testing</li>
-              <li>Product scoping &amp; management</li>
-            </ul>
-          </div>
-          <div className={styles.caseNum}>
-            <div className={styles.caseNumCurrent}><span>0</span><span>1</span></div>
-            <div className={styles.caseNumTotal}><span>–0</span><span>4</span></div>
-          </div>
-        </div>
+      <section className={styles.work}>
+        {caseSlides}
       </section>
     </section>
   </Layout>
@@ -115,14 +91,30 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-  query IndexQuery {
-    caseCover: file(relativePath: {regex: "/firstmet/cover.png/"}) {
+query IndexQuery {
+  caseStudies: allMdx(filter: {fields: {slug: {regex: "/case-studies/"}}}) {
+    nodes {
       id
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        type
+        tldr {
+          date
+          skills
+        }
+        cover {
+          childImageSharp {
+            fluid (maxWidth: 1600) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
+    totalCount
   }
+}
 `
