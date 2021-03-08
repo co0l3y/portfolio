@@ -8,16 +8,24 @@ import Img from 'gatsby-image'
 import SEO from '../components/seo'
 import BackgroundSceneSvg from '../components/background-scene'
 import DeskSequence from '../components/desk-sequence'
-import CaseSlide from '../components/case-slide'
+import CaseGallery from '../components/case-gallery'
 
-import { scrollSceneAnim, caseEnterAnim } from '../components/Anim'
+import { scrollSceneAnim, caseSlidesAnim } from '../components/Anim'
 
 import styles from '../components/index/index-page.module.css'
 
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({
+   data : { 
+     caseStudies: {
+       nodes : caseStudies,
+       totalCount
+      }
+    } 
+  }) => {
   gsap.registerPlugin(ScrollTrigger)
 
+    
   // refs
   let introRef = useRef(null)
   let scrollRef = useRef(null)
@@ -25,16 +33,8 @@ const IndexPage = ({ data }) => {
   let svgContainerRef = useRef(null)
   let pinRef = useRef(null)
   let deskRef = useRef(null)
-
-  const caseStudies = data.caseStudies.nodes
-
-  const totalCount = data.caseStudies.totalCount
-
-  const caseSlides = caseStudies.map((caseStudy, index) =>
-    <CaseSlide key={caseStudy.id} slideData={caseStudy} totalCount={totalCount} index={index + 1} />
-  )
-
-  console.log(caseSlides)
+  
+  
 
   useEffect(()=>{
     // elements
@@ -81,9 +81,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className={styles.work}>
-        {caseSlides}
-      </section>
+      <CaseGallery caseStudies={caseStudies} totalCount={totalCount}/>
     </section>
   </Layout>
 )}

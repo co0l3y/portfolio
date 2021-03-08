@@ -338,52 +338,76 @@ const buildingsAnim = (buildL, buildR) => {
 
   // Case Study Slides
 
-  export const caseEnterAnim = (el) => {
-    const tl = gsap.timeline()
+  export const caseGalleryAnim = (slideEls , container) => {
 
-    const caseImg = el.children[0]
-    const caseH = el.children[1].firstChild
-    const caseLine = el.children[1].lastChild
-    const caseInfo = gsap.utils.toArray(el.children[2].children)
-    const caseSkills = gsap.utils.toArray(el.children[3].firstChild.children)
-    const caseNumCurrent = gsap.utils.toArray(el.children[4].firstChild.children)
-    const caseNumTotal = el.children[4].lastChild
+    gsap.registerPlugin(ScrollTrigger)
 
-    tl.from(caseImg, {yPercent: 100, scale: .5, duration: 1, ease: 'back.out(1.2)'})
-    tl.from(caseImg, {opacity:0, duration: .5, ease: 'power3.out'}, '<')
-    tl.add(headLineAnim(caseH, caseLine), '<.5')
-    tl.from(caseSkills, {yPercent: 100, opacity: 0, duration: .5, stagger: .2}, 0)
-    tl.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<0.5')
-    tl.from(caseNumTotal, {opacity: 0, duration: .5,ease: 'power2.out'},'<.25')
-    tl.from(caseInfo, {xPercent: -100, duration: .5, stagger: .15}, 0)
-    
-    // Create Anim Trigger
-    
-    ScrollTrigger.create({
-        id: 'case-enter',
-        trigger: el,
-        animation: tl,
-        start: 'top center',
-        end: 'bottom center',
-        toggleActions: 'play reverse play reverse',
-        // markers: true,
-      })
+
+
+    //Pin Trigger
 
       ScrollTrigger.create({
-        id: 'case-snap',
-        trigger: el,
-        start: 'top bottom',
-        end: 'bottom bottom',
-        snap: {
-          snapTo: 1,
-          duration: {min: 0.2, max: 0.5},
-          delay: 0.1,
-          ease: 'power3.inOut'
-        },
-        markers: true,
+        trigger: container,
+        pin: container,
+        start: 'top top',
+        end: 'top+=' + (100 * (slideEls.length - 1)) + '%',
+        anticipatePin: 1,
+        pinSpacing: true,
       })
 
+      // snap
+
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top bottom',
+        end: 'bottom+=' + (100 * (slideEls.length - 1)) + '% bottom',
+        // markers: true,
+        snap: {
+          snapTo: 1 / (slideEls.length ),
+          duration: 0.2,
+          delay: 0.1,
+          ease: 'power2.inOut'
+        }
+      })
+
+      
+    // slides
+    slideEls.forEach((slide, index) => {
+
+      const caseImg = slide.children[0]
+      const caseH = slide.children[1].firstChild.firstChild
+      const caseLine = slide.children[1].lastChild
+      const caseInfo = gsap.utils.toArray(slide.children[2].children)
+      const caseSkills = gsap.utils.toArray(slide.children[3].firstChild.children)
+      const caseNumCurrent = gsap.utils.toArray(slide.children[4].firstChild.children)
+      const caseNumTotal = slide.children[4].lastChild
+
+      console.log(caseImg)
+      
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'case-anim-trigger-' + index,
+          trigger: slide,
+          start: 'top+=' + (100 * index) + '% top+=10%',
+          end: 'top+=' + (100 * (index + 1 )) + '% bottom-=10%',
+          toggleActions: 'play reverse play reverse',
+          // markers: true,
+        }
+      })
+
+    tl.from(slide, {autoAlpha: 0})
+    tl.from(caseImg, {duration: 1, scale: 0, ease: 'back.out(.5)'},)
+    tl.from(caseImg, {autoAlpha:0, duration: 2, ease: 'power3.out'}, '<')
+    tl.add(headLineAnim(caseH, caseLine), '<0.25')
+    tl.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .15}, '<')
+    tl.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<')
+    tl.from(caseNumTotal, {autoAlpha: 0, duration: .5,ease: 'power2.out'},'<')
+    tl.from(caseInfo, {xPercent: -100, duration: .5, stagger: .15}, '<')
+
+    })
+
   }
+
 
 
   // Case Study Intro
