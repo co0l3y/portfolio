@@ -352,7 +352,7 @@ const buildingsAnim = (buildL, buildR) => {
       snap: {
         snapTo: 1 / (slideEls.length - 1),
         duration: {min: 0.2, max: 0.5},
-        delay: 0.1,
+        delay: 0,
         ease: 'power2.inOut'
       }
     })
@@ -375,10 +375,10 @@ const buildingsAnim = (buildL, buildR) => {
         scrollTrigger: {
           id: 'case-image-' + index,
           trigger: slide,
-          start: 'top top+=25%',
-          end: 'bottom bottom-=10%',
+          start: 'top center',
+          end: 'bottom bottom-=25%',
           toggleActions: 'play reverse play reverse',
-          markers: true,
+          // markers: true,
         }
       })
 
@@ -386,20 +386,20 @@ const buildingsAnim = (buildL, buildR) => {
         scrollTrigger: {
           id: 'case-text-' + index,
           trigger: slide,
-          start: 'top top+=5%',
-          end: 'bottom bottom-=5%',
+          start: 'top top+=25%',
+          end: 'bottom bottom-=25%',
           toggleActions: 'play reverse play reverse',
-          markers: true,
+          // markers: true,
         }
       })
 
     caseImage.from(caseImg, {duration: 1, scale: 0, ease: 'back.out(.5)'})
     caseImage.from(caseImg, {autoAlpha:0, duration: 0.25, ease: 'power3.out'}, '<')
     caseText.add(headLineAnim(caseH, caseLine))
-    caseText.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .15}, '<')
-    caseText.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<')
+    caseText.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .075}, '<')
+    caseText.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.075}, '<')
     caseText.from(caseNumTotal, {autoAlpha: 0, duration: .5,ease: 'power2.out'},'<')
-    caseText.from(caseInfo, {xPercent: -100, duration: .5, stagger: .15}, '<')
+    caseText.from(caseInfo, {xPercent: -100, duration: .5, stagger: .075}, '<')
 
     })
 
