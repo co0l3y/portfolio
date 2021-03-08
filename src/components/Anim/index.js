@@ -342,35 +342,21 @@ const buildingsAnim = (buildL, buildR) => {
 
     gsap.registerPlugin(ScrollTrigger)
 
+    //snapping
 
+    ScrollTrigger.create({
+      id: 'case-slide-snap',
+      trigger: container,
+      start: 'top top',
+      end: 'bottom bottom',
+      snap: {
+        snapTo: 1 / (slideEls.length - 1),
+        duration: {min: 0.2, max: 0.5},
+        delay: 0.1,
+        ease: 'power2.inOut'
+      }
+    })
 
-    //Pin Trigger
-
-      ScrollTrigger.create({
-        trigger: container,
-        pin: container,
-        start: 'top top',
-        end: 'top+=' + (100 * (slideEls.length - 1)) + '%',
-        anticipatePin: 1,
-        pinSpacing: true,
-      })
-
-      // snap
-
-      ScrollTrigger.create({
-        trigger: container,
-        start: 'top bottom',
-        end: 'bottom+=' + (100 * (slideEls.length - 1)) + '% bottom',
-        // markers: true,
-        snap: {
-          snapTo: 1 / (slideEls.length ),
-          duration: 0.2,
-          delay: 0.1,
-          ease: 'power2.inOut'
-        }
-      })
-
-      
     // slides
     slideEls.forEach((slide, index) => {
 
@@ -382,27 +368,38 @@ const buildingsAnim = (buildL, buildR) => {
       const caseNumCurrent = gsap.utils.toArray(slide.children[4].firstChild.children)
       const caseNumTotal = slide.children[4].lastChild
 
-      console.log(caseImg)
+    console.log(slide)
+
       
-      const tl = gsap.timeline({
+      const caseImage = gsap.timeline({
         scrollTrigger: {
-          id: 'case-anim-trigger-' + index,
+          id: 'case-image-' + index,
           trigger: slide,
-          start: 'top+=' + (100 * index) + '% top+=10%',
-          end: 'top+=' + (100 * (index + 1 )) + '% bottom-=10%',
+          start: 'top top+=25%',
+          end: 'bottom bottom-=10%',
           toggleActions: 'play reverse play reverse',
-          // markers: true,
+          markers: true,
         }
       })
 
-    tl.from(slide, {autoAlpha: 0})
-    tl.from(caseImg, {duration: 1, scale: 0, ease: 'back.out(.5)'},)
-    tl.from(caseImg, {autoAlpha:0, duration: 2, ease: 'power3.out'}, '<')
-    tl.add(headLineAnim(caseH, caseLine), '<0.25')
-    tl.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .15}, '<')
-    tl.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<')
-    tl.from(caseNumTotal, {autoAlpha: 0, duration: .5,ease: 'power2.out'},'<')
-    tl.from(caseInfo, {xPercent: -100, duration: .5, stagger: .15}, '<')
+      const caseText = gsap.timeline({
+        scrollTrigger: {
+          id: 'case-text-' + index,
+          trigger: slide,
+          start: 'top top+=5%',
+          end: 'bottom bottom-=5%',
+          toggleActions: 'play reverse play reverse',
+          markers: true,
+        }
+      })
+
+    caseImage.from(caseImg, {duration: 1, scale: 0, ease: 'back.out(.5)'})
+    caseImage.from(caseImg, {autoAlpha:0, duration: 0.25, ease: 'power3.out'}, '<')
+    caseText.add(headLineAnim(caseH, caseLine))
+    caseText.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .15}, '<')
+    caseText.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.15}, '<')
+    caseText.from(caseNumTotal, {autoAlpha: 0, duration: .5,ease: 'power2.out'},'<')
+    caseText.from(caseInfo, {xPercent: -100, duration: .5, stagger: .15}, '<')
 
     })
 
