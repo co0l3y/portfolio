@@ -336,72 +336,85 @@ const buildingsAnim = (buildL, buildR) => {
       })
   }
 
+
+  //Case Hover Anim
+
+  export const caseHoverAnim = (slide) => {
+    const image = slide.children[0]
+    const caseView = slide.children[1].lastChild
+    const tl = gsap.timeline({paused: true})
+    
+    tl.to(image, {autoAlpha: 1, duration: .25, ease: 'power2.out'})
+    tl.to(image, {scale: 1, duration: .25, ease: 'power2.out'}, '<')
+    tl.from(caseView, {yPercent: -50, autoAlpha:0, duration: .5, ease: 'power3.out'})
+    
+    return tl
+
+  }
+
+
   // Case Study Slides
 
-  export const caseGalleryAnim = (slideEls , container) => {
+  export const caseSlideAnim = (slide, index) => {
 
     gsap.registerPlugin(ScrollTrigger)
 
     //snapping
 
     ScrollTrigger.create({
-      id: 'case-slide-snap',
-      trigger: container,
+      id: 'case-slide-snap-' + index,
+      trigger: slide,
       start: 'top top',
-      end: 'bottom bottom',
+      markers: true,
       snap: {
-        snapTo: 1 / (slideEls.length - 1),
+        snapTo: 1,
         duration: {min: 0.2, max: 0.5},
         delay: 0,
         ease: 'power2.inOut'
       }
     })
 
-    // slides
-    slideEls.forEach((slide, index) => {
+    // Image Anim
+    const caseImage = gsap.timeline({
+      scrollTrigger: {
+        id: 'case-image-' + index,
+        trigger: slide,
+        start: 'top center',
+        end: 'bottom bottom-=25%',
+        toggleActions: 'play reverse play reverse',
+        // markers: true,
+      }
+    })
 
-      const caseImg = slide.children[0]
-      const caseH = slide.children[1].firstChild.firstChild
-      const caseLine = slide.children[1].lastChild
-      const caseInfo = gsap.utils.toArray(slide.children[2].children)
-      const caseSkills = gsap.utils.toArray(slide.children[3].firstChild.children)
-      const caseNumCurrent = gsap.utils.toArray(slide.children[4].firstChild.children)
-      const caseNumTotal = slide.children[4].lastChild
+    //text anim
+    const caseText = gsap.timeline({
+      scrollTrigger: {
+        id: 'case-text-' + index,
+        trigger: slide,
+        start: 'top top+=25%',
+        end: 'bottom bottom-=25%',
+        toggleActions: 'play reverse play reverse',
+        // markers: true,
+      }
+    })
 
-    console.log(slide)
+    // Slide Elements
 
-      
-      const caseImage = gsap.timeline({
-        scrollTrigger: {
-          id: 'case-image-' + index,
-          trigger: slide,
-          start: 'top center',
-          end: 'bottom bottom-=25%',
-          toggleActions: 'play reverse play reverse',
-          // markers: true,
-        }
-      })
+    const caseImg = slide.children[0]
+    const caseH = slide.children[1].firstChild.firstChild
+    const caseLine = slide.children[1].children[1]
+    const caseInfo = gsap.utils.toArray(slide.children[2].children)
+    const caseSkills = gsap.utils.toArray(slide.children[3].firstChild.children)
+    const caseNumCurrent = gsap.utils.toArray(slide.children[4].firstChild.children)
+    const caseNumTotal = slide.children[4].lastChild
 
-      const caseText = gsap.timeline({
-        scrollTrigger: {
-          id: 'case-text-' + index,
-          trigger: slide,
-          start: 'top top+=25%',
-          end: 'bottom bottom-=25%',
-          toggleActions: 'play reverse play reverse',
-          // markers: true,
-        }
-      })
-
-    caseImage.from(caseImg, {duration: 1, scale: 0, ease: 'back.out(.5)'})
-    caseImage.from(caseImg, {autoAlpha:0, duration: 0.25, ease: 'power3.out'}, '<')
+    caseImage.fromTo(caseImg, {scale: 0}, {scale: .95, duration: 1, ease: 'back.out(.5)'})
+    caseImage.fromTo(caseImg, {autoAlpha: 0},{ autoAlpha: .75, duration: 0.25, ease: 'power3.out'}, '<')
     caseText.add(headLineAnim(caseH, caseLine))
     caseText.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .075}, '<')
     caseText.from(caseNumCurrent, {yPercent: 100, ease: 'back.out(1.2)', stagger: 0.075}, '<')
     caseText.from(caseNumTotal, {autoAlpha: 0, duration: .5,ease: 'power2.out'},'<')
     caseText.from(caseInfo, {xPercent: -100, duration: .5, stagger: .075}, '<')
-
-    })
 
   }
 

@@ -5,9 +5,9 @@ import { Link } from "gatsby"
 
 import styles from './case-gallery.module.css'
 
-import { caseGalleryAnim }from '../Anim'
+import { caseSlideAnim, caseHoverAnim }from '../Anim'
 
-const CaseSlide = React.forwardRef(({ 
+const CaseSlide = ({ 
     caseStudy: { 
         fields : { slug },
         frontmatter : { 
@@ -22,28 +22,41 @@ const CaseSlide = React.forwardRef(({
     },
     totalCount,
     index
-}, ref) => {
+}) => {
 
-    // let caseRef = useRef(null)
+    let containerRef = useRef(null)
+    let hoverRef = useRef(null)
 
-    // useEffect(()=>{
-    //     const caseEl = caseRef.current
-    //     caseEnterAnim(caseEl)
+    useEffect(()=>{
+        const slide = containerRef.current
+        hoverRef.current = caseHoverAnim(slide)
 
-    // },[caseRef])
+        caseSlideAnim(slide, index)
+
+    },[containerRef, hoverRef])
+
+    const handleMouseEnter = () => {
+        hoverRef.current.play()
+    }
+
+    const handleMouseLeave = () => {
+        hoverRef.current.reverse()
+    }
+
 
     return(
-        <div ref={ref} className={styles.slideContainer}>
-            <div className={styles.imageWrapper}>
+        <div ref={containerRef} className={styles.slideContainer}>
+            <div className={styles.imageWrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <Link className={styles.titleLink} to={slug}>
                     <Image className={styles.image} fluid={cover.childImageSharp.fluid} />
                 </Link>
             </div>
-            <div className={styles.titleWrapper}>
+            <div className={styles.titleWrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <Link className={styles.titleLink} to={slug}>
                     <h3 className={styles.title}>{title}</h3>
                 </Link>
                 <span className={styles.line}></span>
+                <span className={styles.view}>View case study</span>
             </div>
             <div className={styles.infoContainer}>
                 <div className={styles.infoCat}>{type}</div>
@@ -63,25 +76,16 @@ const CaseSlide = React.forwardRef(({
         </div>
     )
     
-})
+}
 
 const CaseGallery = ({ caseStudies, totalCount }) => {
 
-    let slideRefs = useRef([])
     let containerRef = useRef(null)
 
-    const slides = caseStudies.map((caseStudy, index) =>
-            <CaseSlide ref={ref => slideRefs.current[index] = ref} key={caseStudy.id} caseStudy={caseStudy} totalCount={totalCount} index={index + 1} />
-    )
-    
-    useEffect(()=>{
-        
-        const { current: slideEls } = slideRefs
-        const { current: container } = containerRef
 
-        caseGalleryAnim(slideEls, container)
-        
-    },[slideRefs, containerRef])
+    const slides = caseStudies.map((caseStudy, index) =>
+            <CaseSlide key={caseStudy.id} caseStudy={caseStudy} totalCount={totalCount} index={index + 1} />
+    )
 
     return(
         <div ref={containerRef} className={styles.container}>
