@@ -41,8 +41,11 @@ const ProjectLayout = ({
     let pinRef = useRef(null)
 
     useEffect(()=>{
-      bgSceneCaseAnim(pinRef, svgContainerRef, deskRef)
-    },[svgContainerRef, deskRef])
+      const deskEl = deskRef.current
+
+      bgSceneCaseAnim(pinRef, svgContainerRef, deskEl)
+
+    },[svgContainerRef, deskRef, pinRef])
 
 
     const imageReducer = (images, image, index) => {

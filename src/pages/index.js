@@ -52,7 +52,7 @@ const IndexPage = ({
       </div>
     </section>
     <section ref={el => pinRef = el} className={styles.pinScene}>
-      <section ref={el => scrollRef = el} className={styles.scrollScene}>
+      <div ref={el => scrollRef = el} className={styles.scrollScene}>
         <div ref={el => svgContainerRef = el} className={styles.backgroundScene}>
           <BackgroundSceneSvg inputRef={svgRef}/>
           <div className={styles.deskSequence}>
@@ -80,7 +80,7 @@ const IndexPage = ({
             <p>into pretty, pretty, pretty, pretty cool design solutions</p>
           </div>
         </div>
-      </section>
+      </div>
       <CaseGallery caseStudies={caseStudies} totalCount={totalCount}/>
     </section>
   </Layout>

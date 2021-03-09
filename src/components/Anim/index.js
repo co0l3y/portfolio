@@ -72,7 +72,7 @@ export const sectionImageAnim = (imageEl) => {
     end: 'center center-=5%',
     animation: anim,
     scrub: true,
-    markers: true,
+    // markers: true,
   })
 }
 
@@ -192,8 +192,12 @@ export const deskAnim1 = (el, start, end, duration) => {
     const tl = gsap.timeline()
     const steps = end - start
 
-    for (let i = 0; i <= steps; i++) {
-      let percent = (i * -100)
+    const startPercent = (start - 1) * -100
+
+    gsap.set(el, {xPercent: startPercent})
+
+    for (let s = start, i = 0; s <= end; s++, i++) {
+      let percent = ((s - 1) * -100)
       let position = (duration/steps) * i
 
       tl.set(el, {xPercent: percent, duration: 0}, position)
@@ -338,35 +342,53 @@ const buildingsAnim = (buildL, buildR) => {
 
 export const bgSceneCaseAnim = (pinTrigger, svgContainer, deskEl) => {
   const svgEl = svgContainer.querySelector('svg')
-  const starEls = svgEl.querySelectorAll('#stars circle') 
+  const starEls = svgEl.querySelectorAll('#stars circle')
 
-  const tl = gsap.timeline({
+    //pin scene
+
+    ScrollTrigger.create({
+      id: 'scene-pin',
+      trigger: pinTrigger,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: svgContainer,
+      pinSpacing: false,
+      anticipatePin: .5,
+    })
+
+  //bg scene anim
+
+  const sceneAnim = gsap.timeline({
     scrollTrigger: {
       id: 'bg-scene-anim',
       trigger: svgContainer,
-      start: 'top center',
+      start: 'top bottom-=25%',
       end: 'top top',
-      animation: tl,
       scrub: .5,
-      markers: true,
+      // markers: true,
     }
+  })
+    
+    // desk scene scrub
+
+    const deskAnim = gsap.timeline({
+      scrollTrigger: {
+        id: 'desk-scene-anim',
+        trigger: pinTrigger,
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: .5,
+        // markers: true,
+      }
+
 
   })
 
-  //pin scene
 
-  ScrollTrigger.create({
-    id: 'scene-pin',
-    trigger: pinTrigger,
-    start: 'top top',
-    end: 'bottom bottom',
-    pin: svgContainer,
-    pinSpacing: false,
-    anticipatePin: .5,
-  })
 
-  tl.from(svgEl, {autoAlpha: 0, duration: .5})
-  tl.add(parallaxAnim(starEls, 200, 300, 'y', 2, 5, 'power2.out', '<.0001'), '<')
+  sceneAnim.from(svgEl, {autoAlpha: 0, duration: .5})
+  sceneAnim.add(parallaxAnim(starEls, 200, 300, 'y', 2, 5, 'power2.out', '<.0001'), '<')
+  deskAnim.add(deskAnim1(deskEl, 4,8,4))
 
 }
 

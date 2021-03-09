@@ -41,7 +41,7 @@
 
 .background-scene {
  z-index: 1;
- pointer-events: none;   
+ pointer-events: none;
 }
 
 .scroll-text-left, .scroll-text-right {
