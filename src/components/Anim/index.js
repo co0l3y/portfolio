@@ -274,8 +274,6 @@ export const deskAnim1 = (el, start, end, duration) => {
 
 
 const buildingsAnim = (buildL, buildR) => {
-    const buildingsLeft = gsap.utils.toArray(buildL)
-    const buildingsRight = gsap.utils.toArray(buildR)
     const tl = gsap.from([buildL, buildR], {y: 400, duration: 3, stagger: -.05, ease: 'power3.out'})
 
     return(tl)

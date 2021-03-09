@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         return(()=>{
             killScrollTrigger()
         })
-    },[document])
+    },[])
 
     return (
         <>
