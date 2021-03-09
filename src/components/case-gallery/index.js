@@ -56,7 +56,7 @@ const CaseSlide = ({
                     <h3 className={styles.title}>{title}</h3>
                 </Link>
                 <span className={styles.line}></span>
-                <span className={styles.view}>View case study</span>
+                <Link className={styles.view} to={slug}>View Case Study</Link>
             </div>
             <div className={styles.infoContainer}>
                 <div className={styles.infoCat}>{type}</div>

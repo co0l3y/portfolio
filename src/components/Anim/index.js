@@ -52,7 +52,7 @@ export const galleryAnimUp = (imageEls, triggerEl) => {
     trigger: triggerEl,
     start: 'top bottom-=25%',
     animation: anim,
-    markers: true,
+    // markers: true,
     toggleActions: 'play none none reverse'
   })
 
@@ -286,7 +286,6 @@ const buildingsAnim = (buildL, buildR) => {
     const moonEl = svgEl.querySelector('#circle')
     const starEls = svgEl.querySelectorAll('#stars circle')
     const cloudEls = svgEl.querySelector('#clouds').children
-    const steamEls = svgEl.querySelectorAll('#coffee-steam path')
     const buildingRightEls = svgEl.querySelector('#buildings-right').children
     const buildingLeftEls = svgEl.querySelector('#buildings-left').children
     const maskEl = svgEl.querySelector('#mask circle')
@@ -295,7 +294,6 @@ const buildingsAnim = (buildL, buildR) => {
     tl.add(blindsExitAnim(blindEls))
     tl.add(deskAnim1(deskEl, 1,8,8), '<')
     tl.add(blindsBlendAnim(blindBlendEls), '<')
-    tl.from(steamEls, {yPercent: 50, opacity: 0, duration: .5, stagger: .02 }, '<')
     tl.add(parallaxAnim(starEls, 200, 300, 'y', 6, 7, 'power2.out', '<.0001'), '<2.25')
     tl.from(moonEl, {y: -200, duration: 4, opacity: 0, ease: 'power2.out'}, 2.25)
     tl.from(maskEl, {opacity: 0, transformOrigin: 'center bottom', scale: 0, duration: 2, ease: 'back.out(1.2)', smoothOrigin: true,  }, '<1')
@@ -336,17 +334,52 @@ const buildingsAnim = (buildL, buildR) => {
       })
   }
 
+  // Backround Anim for Case Studies
 
-  //Case Hover Anim
+export const bgSceneCaseAnim = (pinTrigger, svgContainer, deskEl) => {
+  const svgEl = svgContainer.querySelector('svg')
+  const starEls = svgEl.querySelectorAll('#stars circle') 
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      id: 'bg-scene-anim',
+      trigger: svgContainer,
+      start: 'top center',
+      end: 'top top',
+      animation: tl,
+      scrub: .5,
+      markers: true,
+    }
+
+  })
+
+  //pin scene
+
+  ScrollTrigger.create({
+    id: 'scene-pin',
+    trigger: pinTrigger,
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: svgContainer,
+    pinSpacing: false,
+    anticipatePin: .5,
+  })
+
+  tl.from(svgEl, {autoAlpha: 0, duration: .5})
+  tl.add(parallaxAnim(starEls, 200, 300, 'y', 2, 5, 'power2.out', '<.0001'), '<')
+
+}
+
+
+  //Case slide Hover Anim
 
   export const caseHoverAnim = (slide) => {
     const image = slide.children[0]
     const caseView = slide.children[1].lastChild
-    const tl = gsap.timeline({paused: true})
+    const tl = gsap.timeline({paused: true, overwrite: 'auto'})
     
-    tl.to(image, {autoAlpha: 1, duration: .25, ease: 'power2.out'})
-    tl.to(image, {scale: 1, duration: .25, ease: 'power2.out'}, '<')
-    tl.from(caseView, {yPercent: -50, autoAlpha:0, duration: .5, ease: 'power3.out'})
+    tl.fromTo(image, {autoAlpha: .75}, {autoAlpha: 1, duration: .25, ease: 'power2.out'})
+    tl.from(caseView, {yPercent: -50, autoAlpha:0, duration: .5, ease: 'power3.out'}, '<')
     
     return tl
 
@@ -365,7 +398,7 @@ const buildingsAnim = (buildL, buildR) => {
       id: 'case-slide-snap-' + index,
       trigger: slide,
       start: 'top top',
-      markers: true,
+      // markers: true,
       snap: {
         snapTo: 1,
         duration: {min: 0.2, max: 0.5},
@@ -382,6 +415,7 @@ const buildingsAnim = (buildL, buildR) => {
         start: 'top center',
         end: 'bottom bottom-=25%',
         toggleActions: 'play reverse play reverse',
+        overwrite: 'auto',
         // markers: true,
       }
     })
@@ -408,7 +442,7 @@ const buildingsAnim = (buildL, buildR) => {
     const caseNumCurrent = gsap.utils.toArray(slide.children[4].firstChild.children)
     const caseNumTotal = slide.children[4].lastChild
 
-    caseImage.fromTo(caseImg, {scale: 0}, {scale: .95, duration: 1, ease: 'back.out(.5)'})
+    caseImage.fromTo(caseImg, {scale: 0}, {scale: 1, duration: 1, ease: 'back.out(.5)'})
     caseImage.fromTo(caseImg, {autoAlpha: 0},{ autoAlpha: .75, duration: 0.25, ease: 'power3.out'}, '<')
     caseText.add(headLineAnim(caseH, caseLine))
     caseText.from(caseSkills, {yPercent: 100, autoAlpha: 0, duration: .5, stagger: .075}, '<')

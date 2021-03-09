@@ -38,8 +38,10 @@
 
 .view {
     composes: textM from '../utils/type.css';
+    color: var(--color-white);
     display: block;
     padding-top: 2rem;
+    text-decoration: none;
 }
 
 .skills {
