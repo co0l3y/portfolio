@@ -6,44 +6,44 @@ const Tldr = ({ data: { role, date, company, skills, tools, credits} }) => {
     
 
     return(
-        <section className={`grid ${styles.wrapper}`}>
-        <div className='col-md-2 push-lg-1'>
-            <div className={styles.heading}>
-                <h3>TL&#59;DR 😉</h3>
+        <section className={styles.container}>
+        <div className={styles.headContainer}>
+            <div className={styles.headWrapper}>
+                <h3 className={styles.header}>TL&#59;DR 😉</h3>
             </div>
         </div>
-        <div className='col-md-10 col-lg-9'>
-            <div className={`grid ${styles.row}`}>
-                <div className='col-md-4'>
-                    <h5>My Role</h5>
-                    <p>{role}</p>
+        <div className={styles.contentContainer}>
+            <div className={styles.row}>
+                <div className={styles.col4}>
+                    <h5 className={styles.subHead}>My Role</h5>
+                    <p className={styles.text}>{role}</p>
                 </div>
-                <div className='col-md-4'>
-                    <h5>Date</h5>
-                    <p>{date}</p>
+                <div className={styles.col4}>
+                    <h5 className={styles.subHead}>Date</h5>
+                    <p className={styles.text}>{date}</p>
                 </div>
-                <div className='col-md-4'>
-                    <h5>Company</h5>
-                    <p>{company}</p>
+                <div className={styles.col4}>
+                    <h5 className={styles.subHead}>Company</h5>
+                    <p className={styles.text}>{company}</p>
                 </div>
             </div>
-            <div className={`grid ${styles.row}`}>
-                <div className={`col-md-6 ${styles.skills}`}>
-                    <h5>What I Did</h5>
-                    <ul>
+            <div className={styles.row}>
+                <div className={styles.col6}>
+                    <h5 className={styles.subHead}>What I Did</h5>
+                    <ul className={styles.skills}>
                         {skills.map((skill, index)=>(
-                            <li key={index}>{skill}</li>
+                            <li key={index} className={styles.skillItem}>{skill}</li>
                         ))}
                     </ul>
                 </div>
-                <div className='col-md-6'>
+                <div className={styles.col6}>
                     <div>
-                        <h5>Tools I used</h5>
-                        <p>{tools}</p>
+                        <h5 className={styles.subHead}>Tools I used</h5>
+                        <p className={styles.text}>{tools}</p>
                     </div>
                     <div>
-                        <h5>Who Helped Me Do It</h5>
-                        <p>{credits}</p>
+                        <h5 className={styles.subHead}>Who Helped Me Do It</h5>
+                        <p className={styles.text}>{credits}</p>
                     </div>
                 </div>
             </div>

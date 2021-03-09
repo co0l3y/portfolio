@@ -4,13 +4,13 @@ import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
 import Layout from '../components/layout'
-import Img from 'gatsby-image'
-import SEO from '../components/seo'
 import BackgroundSceneSvg from '../components/background-scene'
 import DeskSequence from '../components/desk-sequence'
 import CaseGallery from '../components/case-gallery'
+// import Img from 'gatsby-image'
+// import SEO from '../components/seo'
 
-import { scrollSceneAnim, caseSlidesAnim } from '../components/Anim'
+import { scrollSceneAnim } from '../components/Anim'
 
 import styles from '../components/index/index-page.module.css'
 
@@ -45,10 +45,11 @@ const IndexPage = ({
 
   return(
   <Layout>
-    <section ref={el => introRef = el} className={`${styles.hero} grid`}>
-      <div className='col-md-4 push-md-1'>
-        <h1>Sean Cameron Cooley</h1>
-        <h2>Design, Motion, &amp; Interactive</h2>
+    <section ref={el => introRef = el} className={styles.hero}>
+      <div className={styles.heroWrapper}>
+        <h1 className={styles.heroHeader}>Sean Cameron Cooley</h1>
+        <span className={styles.line}></span>
+        <h2 className={styles.heroSubHeader}>Design, Motion, &amp; Interactive</h2>
       </div>
     </section>
     <section ref={el => pinRef = el} className={styles.pinScene}>
@@ -59,25 +60,25 @@ const IndexPage = ({
             <DeskSequence inputRef={deskRef}/>
           </div>
         </div>
-        <div className={`grid ${styles.scrollTextLeft}`}>
-          <div className='col-sm-6 col-md-5'>
-            <h3>Oh, hello</h3>
+        <div className={styles.scrollTextLeft}>
+          <div className={styles.scrollTextWrapper}>
+            <h3 className={styles.scrollHeader}>Oh, hello</h3>
             <span className={styles.line}></span>
-            <p>My name is Sean</p>
+            <p className={styles.scrollText}>My name is Sean</p>
           </div>
         </div>
-        <div className={`grid ${styles.scrollTextRight}`}>
-          <div className='col-sm-6 col-md-5'>
-            <h3>I'm a design director</h3>
+        <div className={styles.scrollTextRight}>
+          <div className={styles.scrollTextWrapper}>
+            <h3 className={styles.scrollHeader}> I'm a design director</h3>
             <span className={styles.line}></span>
-            <p>With over 9 years of experience weaving...</p>
+            <p className={styles.scrollText}>With over 9 years of experience weaving...</p>
           </div>
         </div>
-        <div className={`grid ${styles.scrollTextLeft}`}>
-          <div className='col-sm-6 col-md-5'>
-            <h3>pixels, coffee, code, &amp; insights</h3>
+        <div className={styles.scrollTextLeft}>
+          <div className={styles.scrollTextWrapper}>
+            <h3 className={styles.scrollHeader}>Pixels, coffee, code, &amp; insights</h3>
             <span className={styles.line}></span>
-            <p>into pretty, pretty, pretty, pretty cool design solutions</p>
+            <p className={styles.scrollText}>into pretty, pretty, pretty, pretty cool design solutions</p>
           </div>
         </div>
       </div>

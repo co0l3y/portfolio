@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         if (typeof document !== 'undefined') {
             document.fonts.ready.then(() => {
                 refreshScrollTrigger(true)
-                console.log('Scrolltrigger refreshed!')
+                // console.log('Scrolltrigger refreshed!')
             })
         }
 
