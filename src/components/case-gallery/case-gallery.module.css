@@ -3,7 +3,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     overflow: hidden;
 }
 
@@ -15,14 +15,12 @@
 .title-wrapper{
     top: 18rem;
     left: var(--col-width-1);
-    width: var(--col-width-4);
+    width: var(--col-width-6);
 }
 
 .title {
     composes: fontEssonnes from '../utils/type.css';
-    font-style: italic;
-    font-size: 9rem;
-    line-height: 9rem;
+    composes: headingXxl from '../utils/type.css';
     color: var(--color-green);
     margin: 0;
     padding: 0;
@@ -45,10 +43,11 @@
 }
 
 .skills {
+    display: none;
     composes: textM from '../utils/type.css';
-    bottom: 7rem;
-    left: var(--col-width-2);
-    width: var(--col-width-4);
+    bottom: 20rem;
+    left: var(--col-padding);
+    width: var(--col-width-5);
 }
 
 .skills-list {
@@ -57,12 +56,19 @@
     margin: 0;
 }
 
+.skills-item {
+    composes: fontS from '../utils/type.css';
+}
+
+
+
 .info-container {
     composes: fontMuseo from '../utils/type.css';
     composes: fontM from '../utils/type.css';
     top: 13rem;
     right: var(--col-width-2);
-    width: var(--col-width-4);
+    width: var(--col-width-12);
+    white-space: nowrap;
     transform-origin: bottom left;
     transform: translate(100%,-100%) rotate(90deg);
     overflow: hidden;
@@ -70,9 +76,9 @@
 
 .num-container {
     composes: fontEssonnes from '../utils/type.css';
-    bottom: 23rem;
-    right: var(--col-width-2);
-    width: var(--col-width-2);
+    bottom: 4rem;
+    right: 0;
+    width: var(--col-width-3);
 }
 
 .num-current {
@@ -91,11 +97,48 @@
 }
 
 .image-wrapper {
-    width: 100%;
-    max-width: 112rem;
-    clip-path: circle(36%)
+    flex: 1 0 100%;
+    margin: 0 calc((var(--col-padding) + 12vw) * -1) 20rem calc((var(--col-padding) + 12vw) * -1);
+    clip-path: circle(36%);
 }
 
 .image {
     border: none
+}
+
+@media screen and (min-width: 768px) {
+    .slide-container {
+        align-items: center;
+    }
+
+    .skills {
+        display: block;
+    }
+
+    .num-container {
+        bottom: 23rem;
+        width: var(--col-width-2);
+    }
+
+    .image-wrapper {
+        margin: 0 var(--full-bleed);
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .num-container {
+        right: var(--col-width-2);
+    }
+
+    .skills {
+        bottom: 8rem;
+        left: var(--col-width-2);
+        width: var(--col-width-4);
+    }
+
+    .image-wrapper{
+        max-width: 112rem;
+    }
+    
 }

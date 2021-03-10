@@ -1,12 +1,16 @@
-.intro {
+.container {
+    composes: row from '../../utils/grid.css';
     height: 96vh;
     align-items: flex-end;
     padding-bottom: 16rem;
 }
 
-.title > h2 {
-    font-family: var(--font-family-essonnes);
-    font-weight: var(--font-weight-essonnes);
+.wrapper {
+    composes: colMd7 colLg6 from '../../utils/grid.css';
+}
+
+.title {
+    composes: fontEssonnes from '../../utils/type.css';
     font-size: 9rem;
     line-height: 10rem;
     color: var(--color-green);
@@ -15,17 +19,11 @@
 }
 
 .line {
-    display: block;
-    height: .5rem;
-    width: 16rem;
-    margin-top: 3rem;
-    background-color: var(--color-white);
+    composes: divider from '../../utils/elements.css';
 }
 
 .category {
-    font-family: var(--font-family-museo);
-    font-weight: var(--font-weight-museo);
-    font-size: 2.5rem;
-    line-height: 2.5 rem;
+    composes: fontMuseo from '../../utils/type.css';
+    composes: textM from '../../utils/type.css';
     padding-top: 3rem;
 }

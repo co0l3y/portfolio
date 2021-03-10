@@ -15,15 +15,11 @@ const ProjectIntro = ({ title, category }) => {
 
 
     return(
-    <section className={`${styles.intro} grid`}>
-        <div ref={el => introRef = el} className='col-md-6'>
-            <div className={styles.title}>
-                <h2>{title}</h2>
-            </div>
+    <section className={styles.container}>
+        <div ref={el => introRef = el} className={styles.wrapper}>
+            <h2 className={styles.title}>{title}</h2>
             <span className={styles.line}></span>
-            <div className={styles.category}>
-                {category}
-            </div>
+            <div className={styles.category}>{category}</div>
         </div>
     </section>
     )

@@ -19,58 +19,184 @@
 /* Sizes */
 
 .text-s {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.text-m {
     font-size: 2rem;
     line-height: 3rem;
 }
 
-.text-m {
+.text-l {
     font-size: 2.25rem;
     line-height: 4rem;
 }
 
-.text-l {
-    font-size: 3rem;
-    line-height: 5rem;
-}
-
 .text-xl {
-    font-size: 4rem;
-    line-height: 5rem
+    font-size: 3rem;
+    line-height: 4rem
 }
 
 .heading-xxs {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 2rem;
 }
 
 .heading-xs {
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 1.75rem;
+    line-height: 3rem;
 }
 
 .heading-s {
+    font-size: 4rem;
+    line-height: 5rem;
+}
+
+.heading-m {
     font-size: 5rem;
     line-height: 6rem;
 }
 
-.heading-m {
+.heading-l {
     font-size: 6rem;
     line-height: 7rem;
 }
 
-.heading-l {
-    font-size: 7rem;
-    line-height: 8rem;
-}
-
 .heading-xl {
-    font-size: 9rem;
-    line-height: 10rem;
+    font-size: 8rem;
+    line-height: 9rem;
 }
 
 .heading-xxl {
-    font-size: 11rem;
-    line-height: 11rem;
+    font-size: 6rem;
+    line-height: 7rem;
 }
 
+/* @media screen and (min-width: 768px) {
 
+    .text-s {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    
+    .text-m {
+        font-size: 2.25rem;
+        line-height: 4rem;
+    }
+    
+    .text-l {
+        font-size: 3rem;
+        line-height: 5rem;
+    }
+    
+    .text-xl {
+        font-size: 4rem;
+        line-height: 5rem
+    }
+    
+    .heading-xxs {
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
+    
+    .heading-xs {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    
+    .heading-s {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+    
+    .heading-m {
+        font-size: 6rem;
+        line-height: 7rem;
+    }
+    
+    .heading-l {
+        font-size: 7rem;
+        line-height: 8rem;
+    }
+    
+    .heading-xl {
+        font-size: 9rem;
+        line-height: 10rem;
+    }
+    
+    .heading-xxl {
+        font-size: 11rem;
+        line-height: 11rem;
+    }
+
+} */
+
+@media screen and (min-width: 768px) {
+    .heading-xxl {
+        font-size: 10rem;
+        line-height: 10rem;
+    }
+
+    .text-m {
+        font-size: 1.75rem;
+        line-height: 4rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .text-s {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    
+    .text-m {
+        font-size: 2.25rem;
+        line-height: 4rem;
+    }
+    
+    .text-l {
+        font-size: 3rem;
+        line-height: 5rem;
+    }
+    
+    .text-xl {
+        font-size: 4rem;
+        line-height: 5rem
+    }
+    
+    .heading-xxs {
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
+    
+    .heading-xs {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    
+    .heading-s {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+    
+    .heading-m {
+        font-size: 6rem;
+        line-height: 7rem;
+    }
+    
+    .heading-l {
+        font-size: 6.5rem;
+        line-height: 8rem;
+    }
+    
+    .heading-xl {
+        font-size: 9rem;
+        line-height: 10rem;
+    }
+    
+    .heading-xxl {
+        font-size: 11rem;
+        line-height: 11rem;
+    }
+}

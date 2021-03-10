@@ -26,25 +26,29 @@
 
 /* Scroll Scene */
 
-.background-scene, .scroll-text-left, .scroll-text-right {
+/* .scroll-scene {
+    margin: 0 var(--gutter-comp);
+} */
+
+.background-scene {
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    position: relative;
+}
+
+
+.scroll-text-left, .scroll-text-right {
     composes: row from '../utils/grid.css';
     position: relative;
     height: 100vh;
     align-items: center;
-}
-
-.background-scene {
- z-index: 1;
- pointer-events: none;
-}
-
-.scroll-text-left, .scroll-text-right {
     z-index: 3;
 }
 
 
 .scroll-text-wrapper {
-    composes: colSm6 colMd5 from '../utils/grid.css';
+    composes: colSm10 colMd5 from '../utils/grid.css';
 }
 
 .scroll-header {
@@ -53,11 +57,12 @@
     margin-top: 2rem;
     margin-bottom: 5rem;
     color: var(--color-green);
+    text-shadow: .25rem .25rem rgb(6, 20, 35);
 }
 
 .scroll-text {
-    font-size: 4rem;
-    line-height: 5rem;
+    composes: textXl from '../utils/type.css';
+    text-shadow: .25rem .25rem rgb(6, 20, 35);
 }
 
 .line {

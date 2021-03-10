@@ -17,9 +17,11 @@
 
 
     /* Grid */
-    --gutter-width: 4rem;
+    --gutter-width: 8rem;
     --col-padding: calc(var(--gutter-width) * 0.5);
     --gutter-comp: calc((var(--gutter-width) * 0.5) * -1);
+    --container-width: 100vw;
+    --full-bleed: var(--gutter-comp);
     
     --col-width-1: 8.33333333%;
     --col-width-2: 16.66666667%;
@@ -33,6 +35,23 @@
     --col-width-10:83.33333333%;
     --col-width-11: 91.66666667%;
     --col-width-12: 100%;
+
+  }
+
+  @media screen and (min-width: 768px) {
+    :root{
+        --gutter-width: 4rem;
+        --container-width: 88vw;
+        --full-bleed: calc(var(--gutter-comp) + -6vw);
+    }
+
+}
+
+  @media screen and (min-width: 1200px) {
+      :root{
+          --container-width: 72vw;
+          --full-bleed: calc(var(--gutter-comp) + -14vw);
+      }
 
   }
 
@@ -64,6 +83,8 @@
     -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
     font-feature-settings: "kern", "liga", "clig", "calt";
     font-size: 2.25rem;
+    line-height: 3rem;
+    overflow-x: hidden;
     background-color: var(--color-black);
   }
   

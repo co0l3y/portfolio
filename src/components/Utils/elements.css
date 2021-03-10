@@ -1,7 +1,14 @@
 .divider {
     display: block;
     height: .5rem;
-    width: 16rem;
-    margin-top: 3rem;
+    width: 12rem;
+    margin-top: 2rem;
     background-color: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+    .divider {
+        width: 16rem;
+        margin-top: 3rem;
+    }
 }

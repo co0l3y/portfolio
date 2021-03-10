@@ -1,11 +1,5 @@
 .container {
-    width: 88vw;
+    width: var(--container-width);
     margin: 0 auto;
-    padding: 0 2rem;
-}
-
-@media screen and (min-width: 1200px) {
-   .container {
-       width: 72vw;
-   }
+    padding: 0 var(--col-padding);
 }

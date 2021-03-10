@@ -298,7 +298,7 @@ const buildingsAnim = (buildL, buildR) => {
     tl.add(blindsBlendAnim(blindBlendEls), '<')
     tl.add(parallaxAnim(starEls, 200, 300, 'y', 6, 7, 'power2.out', '<.0001'), '<2.25')
     tl.from(moonEl, {y: -200, duration: 4, opacity: 0, ease: 'power2.out'}, 2.25)
-    tl.from(maskEl, {opacity: 0, transformOrigin: 'center bottom', scale: 0, duration: 2, ease: 'back.out(1.2)', smoothOrigin: true,  }, '<1')
+    tl.fromTo(maskEl, {scale: 0, opacity: 0, transformOrigin: 'center bottom', smoothOrigin: true,}, {scale: 1, opacity:.65, duration: 2, ease: 'back.out(1.2)',}, '<1')
     tl.add(parallaxAnim(cloudEls, -300, 300, 'xPercent', 4, 4.5, 'power2.out', '<.02'), '<.5')
     tl.add(buildingsAnim(buildingRightEls, buildingLeftEls), '<.25')
     tl.to(maskEl, {transformOrigin: 'center bottom', scale: 0, duration: 2, ease: 'back.in(1.2)', smoothOrigin: true,  }, '>')

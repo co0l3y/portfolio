@@ -9,7 +9,7 @@ const Tldr = ({ data: { role, date, company, skills, tools, credits} }) => {
         <section className={styles.container}>
         <div className={styles.headContainer}>
             <div className={styles.headWrapper}>
-                <h3 className={styles.header}>TL&#59;DR 😉</h3>
+                <h3 className={styles.header}>TL&#59;DR <span role='img' aria-label="Winking Face" className={styles.emoji}>&#128521;</span></h3>
             </div>
         </div>
         <div className={styles.contentContainer}>

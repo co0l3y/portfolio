@@ -33,7 +33,7 @@ const CaseSlide = ({
 
         caseSlideAnim(slide, index)
 
-    },[containerRef, hoverRef])
+    },[containerRef, hoverRef, index])
 
     const handleMouseEnter = () => {
         hoverRef.current.play()
@@ -46,17 +46,17 @@ const CaseSlide = ({
 
     return(
         <div ref={containerRef} className={styles.slideContainer}>
-            <div className={styles.imageWrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <Link className={styles.titleLink} to={slug}>
+            <div className={styles.imageWrapper} >
+                <Link className={styles.titleLink} to={slug} role="navigation" aria-label={title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Image className={styles.image} fluid={cover.childImageSharp.fluid} />
                 </Link>
             </div>
-            <div className={styles.titleWrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <Link className={styles.titleLink} to={slug}>
+            <div className={styles.titleWrapper}>
+                <Link className={styles.titleLink} to={slug} role="navigation" aria-label={title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <h3 className={styles.title}>{title}</h3>
                 </Link>
                 <span className={styles.line}></span>
-                <Link className={styles.view} to={slug}>View Case Study</Link>
+                <Link className={styles.view} to={slug} role="navigation" aria-label={title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>View Case Study</Link>
             </div>
             <div className={styles.infoContainer}>
                 <div className={styles.infoCat}>{type}</div>
