@@ -476,15 +476,14 @@ export const bgSceneCaseAnim = (pinTrigger, svgContainer, deskEl) => {
 
   // Case Study Intro
 
-  export const caseIntroAnim = (introEl) => {
-    const tl = gsap.timeline()
+  export const caseIntroAnim = (head,line,cat) => {
+    const tl = gsap.timeline({paused: true})
 
-    const titleEl = introEl.firstChild
-    const lineEl = introEl.children[1]
-    const categoryEl = introEl.lastChild
 
-    tl.add(headLineAnim(titleEl, lineEl))
-    tl.add(textFadeUp(categoryEl), '<.15')
+    tl.add(headLineAnim(head, line))
+    tl.add(textFadeUp(cat), '<.15')
+
+    return(tl)
 
   }
 
@@ -494,18 +493,26 @@ export const bgSceneCaseAnim = (pinTrigger, svgContainer, deskEl) => {
   export const caseCoverAnim = (coverEl) => {
     
     gsap.registerPlugin(ScrollTrigger)
+
+    const scrollTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: coverEl,
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play none none reverse',
+        scrub: false,
+      }
+    })
+
+    //initial settings
+    gsap.set(coverEl, {x: -300, opacity: 0})
     
-    //Initial Animation
-    gsap.fromTo(coverEl, {x: -300, opacity: 0}, {x: -200, opacity: 1, duration: 1, ease: 'power2.inOut'})
+    //Load Animation
+    const loaded = gsap.fromTo(coverEl, {x: -300, opacity: 0}, {x: -200, opacity: 1, duration: 1, ease: 'power2.inOut'})
 
     // Scroll Trigger Anim
-    gsap.fromTo(coverEl, { x: -200 },{x: 0, duration: 2,ease: 'power3.inOut',
-        scrollTrigger: {
-            trigger: coverEl,
-            start: 'top center',
-            end: 'bottom center',
-            toggleActions: 'play none none reverse',
-            scrub: false,
-        },
-    }) 
+    scrollTl.fromTo(coverEl, { x: -200 }, {x: 0, duration: 2, ease: 'power3.inOut'})
+
+    return(loaded)
+
   }
