@@ -4,7 +4,7 @@ import styles from './case-section.module.css'
 
 import SectionHeader from './section-header'
 
-import { stickyHeaderAnim, sectionIntroAnim } from '../Anim'
+import { stickyHeaderAnim } from '../Anim'
 
 const SectionSticky = ({title, stepNum, children}) => {
 

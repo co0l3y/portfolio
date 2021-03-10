@@ -1,14 +1,27 @@
 /* Util */
 
 .fullHeight {
-    min-height: 100vh;
+    min-height: auto;
 }
 
 .paddingTB {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
+@media screen and (min-width: 768px) {
+    .fullHeight {
+        min-height: 100vh;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .paddingTB {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
 
 
 .row, .row-sticky, .intro-row-sticky, .row-content-full-height, .row-content, .row-intro-image{
@@ -54,7 +67,7 @@
 /* Round 2 */
 
 .container {
-    padding-bottom: 48rem;
+    padding-bottom: 32rem;
 }
 
 .intro-container {
@@ -102,7 +115,7 @@
 }
 
 .head-wrapper-image {
-    composes: colMd5 from '../utils/grid.css';
+    composes: colMd6 colLg5 from '../utils/grid.css';
     align-items: center;
 }
 
@@ -136,12 +149,12 @@
 }
 
 .image-wrapper {
-    composes: colMd8 from '../utils/grid.css';
+    composes: colMd9 colLg8 from '../utils/grid.css';
     opacity: .36;
 }
 
 .image-wrapper-phone {
-    composes: colMd4 pushMd2 from '../utils/grid.css';
+    composes: colMd5 pushMd1 colLg4 pushLg2 from '../utils/grid.css';
 }
 
 .summary-wrapper {
@@ -154,7 +167,7 @@
 }
 
 .content-container {
-    padding-top: 20rem;
+    padding-top: 10rem;
 }
 
 .gallery-item {
@@ -189,5 +202,16 @@
 
     .gallery-item {
         padding: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container {
+        padding-bottom: 48rem;
+    }
+
+    .content-container {
+        padding-top: 20rem;
     }
 }

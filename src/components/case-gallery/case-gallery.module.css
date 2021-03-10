@@ -67,8 +67,7 @@
     composes: fontM from '../utils/type.css';
     top: 13rem;
     right: var(--col-width-2);
-    width: var(--col-width-12);
-    white-space: nowrap;
+    width: 60vh;
     transform-origin: bottom left;
     transform: translate(100%,-100%) rotate(90deg);
     overflow: hidden;

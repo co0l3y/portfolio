@@ -85,7 +85,7 @@ export const sectionIntroAnim = (introEl, sticky) => {
   const anim = gsap.from(introEl, {opacity: 0, duration: .75, ease: 'power2.inOut'})
 
   const start = sticky ? 'top bottom-=10%' : 'top bottom-=25%'
-  const toggle = sticky ? 'play reverse play reverse' : 'play none none reverse'
+  const toggle = sticky ? 'play none none reverse' : 'play none none reverse'
   
   ScrollTrigger.create({
     id: 'introAnim',
@@ -148,7 +148,7 @@ export const stickyHeaderAnim = (headEl, triggerEl) => {
             ScrollTrigger.create({
                 id: 'animTriggerMobile',
                 trigger: triggerEl,
-                start: 'top top',
+                start: 'top center',
                 end: 'bottom top',
                 animation: anim,
                 toggleActions: 'play reverse play reverse',
