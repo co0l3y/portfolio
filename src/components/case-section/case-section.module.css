@@ -115,7 +115,7 @@
 }
 
 .head-wrapper-image {
-    composes: colMd6 colLg5 from '../utils/grid.css';
+    composes: colMd5 from '../utils/grid.css';
     align-items: center;
 }
 

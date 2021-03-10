@@ -8,14 +8,17 @@ const ProjectCover = ({ image }) => {
     
 
     let coverEl = useRef(null)
+    let animRef = useRef(null)
 
     useEffect(()=>{
-        caseCoverAnim(coverEl)
-    })
+        
+        animRef.current = caseCoverAnim(coverEl)
+        
+    },[coverEl])
     
     return (
         <section ref={el => coverEl = el} className={styles.cover}>
-            <Img fluid={image}/>
+            <Img fluid={image} onLoad={()=> animRef.current.play()}/>
         </section> 
     )
 }
