@@ -27,8 +27,10 @@ const SectionStickyImage = ({ title, stepNum, image, children}) => {
     return(
         <section ref={triggerRef} className={styles.container}>
             <div className={styles.introContainerSticky}>
-                <div ref={imageRef} className={styles.imageWrapper}>
-                    <Image fluid={image} />
+                <div className={styles.imageContainer}>
+                    <div ref={imageRef} className={styles.imageWrapper}>
+                        <Image style={{'height': '100%'}} imgStyle={{'objectFit' : 'cover'}} fluid={image} />
+                    </div>
                 </div>
                 <div className={styles.headContainerStickyImage}>
                     <div className={styles.headWrapperImage}>

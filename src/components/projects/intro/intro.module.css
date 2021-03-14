@@ -10,9 +10,7 @@
 }
 
 .title {
-    composes: fontEssonnes from '../../utils/type.css';
-    font-size: 9rem;
-    line-height: 10rem;
+    composes: fontEssonnes headingXl from '../../utils/type.css';
     color: var(--color-green);
     margin: 0;
     padding: 0;

@@ -508,11 +508,104 @@ export const bgSceneCaseAnim = (pinTrigger, svgContainer, deskEl) => {
     gsap.set(coverEl, {x: -300, opacity: 0})
     
     //Load Animation
-    const loaded = gsap.fromTo(coverEl, {x: -300, opacity: 0}, {x: -200, opacity: 1, duration: 1, ease: 'power2.inOut'})
+    gsap.fromTo(coverEl, {x: -300, opacity: 0}, {x: -200, opacity: 1, duration: 1, ease: 'power2.inOut'})
 
     // Scroll Trigger Anim
     scrollTl.fromTo(coverEl, { x: -200 }, {x: 0, duration: 2, ease: 'power3.inOut'})
 
-    return(loaded)
+  }
+  export const linkHover = (link) => {
+    const tl = gsap.timeline({paused: true})
+
+    const line = link.lastChild
+
+    tl.fromTo(link, {color: '#EFF4FB'}, {color: '#43CEA2', duration: .5, ease: 'power2.inOut'})
+    tl.fromTo(line, {width: 0}, {width: '50%', duration: .5, ease: 'power2.inOut'}, '<')
+    
+    return(tl)
 
   }
+
+  export const magicLinkOver = (e, container, background, text, icon, iconContainer) => {
+
+      const containerRect = container.getBoundingClientRect()
+      const scrollTop = typeof window !== 'undefined' && typeof document !== 'undefined' ? window.pageYOffset || document.documentElement.scrollTop : ''
+      let relX = e.pageX - containerRect.left
+      let relY = e.pageY - containerRect.top
+
+
+      gsap.to(background, {
+        x: (relX - containerRect.width/2) / containerRect.width  * 20,
+        y: (relY - containerRect.height/2 - scrollTop) / containerRect.height * 20,
+        duration: 0.4,
+        ease: 'power2.out',
+      })
+
+      gsap.to(text, {
+        x: (relX - containerRect.width/2) / containerRect.width  * 10,
+        y: (relY - containerRect.height/2 - scrollTop) / containerRect.height * 10,
+        duration: 0.2,
+        ease: 'power2.out',
+      })
+
+      gsap.to(iconContainer, {
+        x: (relX - containerRect.width/2) / containerRect.width  * 5,
+        y: (relY - containerRect.height/2 - scrollTop) / containerRect.height * 5,
+        duration: 0.2,
+        ease: 'power2.out',
+      })
+  }
+
+  export const magicLinkEnter = (background, text, icon, iconContainer) => {
+
+    gsap.to(background, {scale: 1.25, backgroundColor: 'rgba(239,244,251,.16)', duration: .25, ease: 'back.out(1)'})
+    gsap.to(text, {scale: 1.25, color: '#43CEA2', duration: .5, ease: 'power2.out'})
+    gsap.to(icon, {fill: '#43CEA2', duration: .5, ease: 'power2.out'})
+    gsap.to(iconContainer, {opacity: 1, duration: .5, ease: 'power2.out'})
+  
+  }
+
+  export const magicLinkExit = (background, text, icon, iconContainer) => {
+
+    gsap.to(icon, {fill: '#EFF4FB', duration: .5, ease: 'power2.out'})
+
+    gsap.to(background, {
+      x: 0,
+      y: 0 ,
+      scale: 1,
+      backgroundColor: 'rgba(239,244,251,.08)',
+      duration: 0.4,
+      ease: 'power2.out',
+    })
+
+    gsap.to(text, {
+      x: 0,
+      y: 0 ,
+      scale: 1,
+      color: '#EFF4FB',
+      duration: 0.2,
+      ease: 'power2.out',
+    })
+
+    gsap.to(iconContainer, {
+      x: 0,
+      y: 0,
+      opacity: .5,
+      duration: 0.2,
+      ease: 'power2.out',
+    })
+}
+
+export const logoEnterAnim = (logo) => {
+
+  gsap.to(logo, {
+    opacity: 1,
+  })
+}
+
+export const logoExitAnim = (logo) => {
+  gsap.to(logo, {
+    opacity: .8,
+  })
+}
+

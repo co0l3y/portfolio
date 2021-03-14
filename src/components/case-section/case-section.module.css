@@ -76,16 +76,10 @@
 }
 
 .intro-container-image {
-    composes: row from '../utils/grid.css';
-    justify-content: flex-end;
     position: relative;
-    align-items: center;
 }
 
 .intro-container-sticky {
-    composes: row from '../utils/grid.css';
-    justify-content: flex-end;
-    align-items: center;
     position: relative;
 }
 
@@ -130,13 +124,9 @@
 
 .image-container {
     composes: row from '../utils/grid.css';
+    height: 100%;
     justify-content: flex-end;
     align-items: center;
-    position: absolute;
-    height: 100%;
-    top:0;
-    left: 0;
-    right: 0;
 }
 
 .image-container-sticky {
@@ -197,7 +187,7 @@
     }
 
     .intro-container-sticky {
-        min-height: 100vh;
+        height: 100vh;
     }
 
     .gallery-item {

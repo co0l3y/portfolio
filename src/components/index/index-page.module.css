@@ -5,13 +5,13 @@
 }
 
 .hero-wrapper {
-    composes: colMd4 pushMd1 from '../utils/grid.css';
+    composes: colSm6 colMd4 pushMd1 from '../utils/grid.css';
 }
 
 .hero-header {
     composes: fontMuseo from '../utils/type.css';
-    font-size: 7rem;
-    line-height: 7rem;
+    font-size: 5rem;
+    line-height: 5rem;
     color: var(--color-white);
     margin: 0;
 }
@@ -22,6 +22,19 @@
     margin: 0;
     color: var(--color-green);
     padding-top: 2rem;
+}
+
+.hero-right-wrapper {
+    composes: colMd6 pushMd1 from '../utils/grid.css';
+}
+
+.contact-container {
+    composes: row from '../utils/grid.css';
+    align-items: flex-end;
+}
+
+.contact-wrapper {
+    composes: colMd6 from '../utils/grid.css';
 }
 
 /* Scroll Scene */
@@ -48,7 +61,7 @@
 
 
 .scroll-text-wrapper {
-    composes: colSm10 colMd5 from '../utils/grid.css';
+    composes: colSm10 colMd5 colLg4 from '../utils/grid.css';
 }
 
 .scroll-header {
@@ -80,6 +93,11 @@
 
 
 @media screen and (min-width: 768px) {
+    .hero-header {
+        font-size: 7rem;
+        line-height: 7rem;
+    }
+
     .desk-sequence {
         width: var(--col-width-8)
 

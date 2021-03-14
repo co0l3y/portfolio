@@ -14,7 +14,7 @@ const DeskSequence = ({inputRef}) => {
             edges {
               node {
                 childImageSharp {
-                  fluid(maxWidth: 1024) {
+                  fluid(maxWidth: 800) {
                       ...GatsbyImageSharpFluid
                   }
                 }
@@ -28,7 +28,7 @@ const DeskSequence = ({inputRef}) => {
         <div ref={inputRef} className={styles.wrapper}>
             {data.deskSequence.edges.map(({ node }, index)=>(
             <div key={index} className={styles.imgWrap}>
-                <Img fluid={node.childImageSharp.fluid} />
+                <Img loading='eager' fluid={node.childImageSharp.fluid} />
             </div>
             ))}
         </div>

@@ -1,33 +1,94 @@
-.sidebar {
+.container {
     position: fixed;
+    display: flex;
+    width: 100%;
     top: 0;
     left: 0;
-    height: 100vh;
-    padding: 5rem 0 5rem 5rem;
-    display: flex;
-    flex-direction: column;
+    padding: 5rem 3rem 5rem 3rem;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 20;
 }
 
-.logo {
+.logo-container {
     width: 6rem;
     height: 6rem;
+    position: relative;
+}
+
+.logo-link {
+    display: block;
 }
 
 .nav {
-    font-family: var(--font-family-essonnes);
-    font-weight: var(--font-weight-essonnes);
-    font-size: 2.25rem;
-}
-
-.nav ul {
-    list-style: none;
-    line-height: 3rem;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; 
 }
 
-.nav li {
-    padding: 1rem 0;
+.logo-wrapper {
+    opacity: .8;
+}
+
+.nav-item {
+    padding: 1rem 0 0 3rem;
+}
+
+.nav-link, .nav-link-active {
+    composes: fontEssonnes from '../utils/type.css';
+    font-size: 2rem;
+    line-height: 2rem;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-link {
+ color: var(--color-white);
+}
+
+.nav-link-active {
+    color: var(--color-green);
+}
+
+.line {
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    height: .25rem;
+    display: block;
+    margin-top: .5rem;
+    background-color: var(--color-white);
+}
+
+.nav-link .line {
+    width: 0;
+}
+
+.nav-link-active .line {
+    width: 75%
+}
+
+@media screen and (min-width: 768px) {
+    .container{
+        width: auto;
+    }
+    .nav {
+        flex-direction: column;
+    }
+
+    .nav-item {
+        padding: 2rem 0 0 0;
+        
+    }
+
+    .nav-link, .nav-link-active {
+        font-size: 3rem;
+        line-height: 5rem;
+    }
+
+    .container {
+        height: 100vh;
+        padding: 5rem 0 5rem 5rem;
+        flex-direction: column;
+    }
 }

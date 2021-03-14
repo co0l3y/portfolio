@@ -27,11 +27,13 @@ const SectionIntroImage = ({ title, stepNum, intro, image, phone, children }) =>
     return(
         <section className={styles.container}>
             <div className={styles.introContainerImage}>
-                <div ref={imageRef} className={styles.imageWrapper}>
-                    <Image fluid={image} />
+                <div className={styles.imageContainer}>
+                    <div ref={imageRef} className={styles.imageWrapper}>
+                        <Image style={{'height': '100%'}} imgStyle={{'objectFit' : 'cover'}} fluid={image} />
+                    </div>
                 </div>
                 <div className={styles.headContainerImage}>
-                    <div className={styles.headWrapperImage}>
+                    <div className={styles.headWrapperSummaryImage}>
                         <SectionHeader ref={headRef} title={title} stepNum={stepNum}></SectionHeader>
                         <p ref={introRef} className={styles.summary}>{intro}</p>
                     </div>

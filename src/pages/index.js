@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import BackgroundSceneSvg from '../components/background-scene'
 import DeskSequence from '../components/desk-sequence'
 import CaseGallery from '../components/case-gallery'
+import MagicLink from '../components/MagicLink'
 // import Img from 'gatsby-image'
 // import SEO from '../components/seo'
 
@@ -51,6 +52,16 @@ const IndexPage = ({
         <span className={styles.line}></span>
         <h2 className={styles.heroSubHeader}>Design, Motion, &amp; Interactive</h2>
       </div>
+      <div className={styles.heroRightWrapper}>
+        <div className={styles.contactContainer}>
+          <div className={styles.contactWrapper}>
+            <MagicLink to='#' icon='resume'>View Resume</MagicLink>
+          </div>
+          <div className={styles.contactWrapper}>
+            <MagicLink to='https://www.linkedin.com/in/seancameroncooley/' icon='linkedin'>Linkedin</MagicLink>
+          </div>
+        </div>
+      </div>
     </section>
     <section ref={el => pinRef = el} className={styles.pinScene}>
       <div ref={el => scrollRef = el} className={styles.scrollScene}>
@@ -79,6 +90,7 @@ const IndexPage = ({
             <h3 className={styles.scrollHeader}>Pixels, coffee, code, &amp; insights</h3>
             <span className={styles.line}></span>
             <p className={styles.scrollText}>into pretty, pretty, pretty, pretty cool design solutions</p>
+            <MagicLink internal icon='arrow' to='/about/'>Learn More</MagicLink>
           </div>
         </div>
       </div>
@@ -91,7 +103,7 @@ export default IndexPage
 
 export const query = graphql`
 query IndexQuery {
-  caseStudies: allMdx(filter: {fields: {slug: {regex: "/case-studies/"}}}) {
+  caseStudies: allMdx(filter: {fields: {slug: {regex: "/case-studies/"}}}, sort: {fields: frontmatter___order, order: ASC}) {
     nodes {
       id
       fields {

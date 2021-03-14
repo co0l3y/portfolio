@@ -13,7 +13,7 @@ import Img from 'gatsby-image'
  * - `useStaticQuery`: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-const Logo = () => {
+const Logo = React.forwardRef((props, ref) => {
   const data = useStaticQuery(graphql`
     query {
       logoImage: file(relativePath: {eq: "logo-color-1024.png"}) {
@@ -31,7 +31,7 @@ const Logo = () => {
     return <div>Picture not found</div>
   }
 
-  return <Img fixed={data.logoImage.childImageSharp.fixed} />
-}
+  return <Img ref={ref} fixed={data.logoImage.childImageSharp.fixed} />
+})
 
 export default Logo

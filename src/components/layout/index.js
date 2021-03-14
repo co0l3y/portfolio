@@ -13,13 +13,13 @@ const Layout = ({ children }) => {
         // recalc scrolltrigger on font load
         if (typeof document !== 'undefined') {
             document.fonts.ready.then(() => {
-                refreshScrollTrigger(true)
+                // refreshScrollTrigger(true)
                 // console.log('Scrolltrigger refreshed!')
             })
         }
 
         return(()=>{
-            killScrollTrigger()
+            // killScrollTrigger()
         })
     },[])
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './tldr.module.css'
 
-const Tldr = ({ data: { role, date, company, skills, tools, credits} }) => {
+const Tldr = ({ data: { role, date, summary, company, skills, tools, credits} }) => {
     
 
     return(
@@ -45,6 +45,14 @@ const Tldr = ({ data: { role, date, company, skills, tools, credits} }) => {
                         <h5 className={styles.subHead}>Who Helped Me Do It</h5>
                         <p className={styles.text}>{credits}</p>
                     </div>
+                </div>
+            </div>
+            <div className={styles.row}>
+                <div className={styles.summaryWrapper}>
+                    <h5 className={styles.subHead}>What's it all about!?</h5>
+                    {summary.map((p, index)=>(
+                        <p key={p} className={styles.text}>{p}</p>
+                    ))}
                 </div>
             </div>
         </div>

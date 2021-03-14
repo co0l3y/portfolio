@@ -1,0 +1,238 @@
+.image-parent {
+    position: relative;
+}
+
+.image-container {
+    composes: row from '../../components/utils/grid.css';
+    position: absolute;
+    top: 12rem;
+    left: 2rem;
+    right: -2rem;
+    justify-content: flex-end;
+}
+
+.image-wrapper {
+    composes: colSm10 colMd9 colLg6 from '../../components/utils/grid.css';
+}
+
+.hero {
+    composes: row from '../../components/utils/grid.css';
+    height: 50vh;
+    align-items: flex-end;
+}
+
+.hero-wrapper {
+    composes: colSm6 colMd4 pushMd1 from '../../components/utils/grid.css';
+}
+
+.hero-header {
+    composes: fontMuseo from '../../components/utils/type.css';
+    font-size: 5rem;
+    line-height: 5rem;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.hero-sub-header {
+    composes: fontFutura from '../../components/utils/type.css';
+    composes: headingS from '../../components/utils/type.css';
+    margin: 0;
+    color: var(--color-green);
+    padding-top: 2rem;
+}
+
+.intro-container {
+    composes: row from '../../components/utils/grid.css';
+    justify-content: flex-end;
+    padding-top: 24rem;
+    padding-bottom: 24rem;
+}
+
+.intro-wrapper {
+    composes: colMd10 colLg9 from '../../components/utils/grid.css';
+}
+
+.intro, .outro {
+    composes: fontEssonnes headingL from '../../components/utils/type.css';
+    color: var(--color-green);
+}
+
+.outro-container {
+    composes: row from '../../components/utils/grid.css';
+    justify-content: flex-end;
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+}
+
+
+.outro-wrapper {
+    composes: colMd9 colLg7 from '../../components/utils/grid.css';
+}
+
+
+
+.section-container {
+    composes: row from '../../components/utils/grid.css';
+    justify-content: space-between;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    border-top: 1px solid var(--color-white-16);
+}
+
+.section-container:last-of-type {
+    border-bottom: 1px solid var(--color-white-16);
+}
+
+.info-head-wrapper {
+    composes: colMd4 colLg3 pushLg1 from '../../components/utils/grid.css';
+    align-self: center;
+}
+
+.info-content-container {
+    composes: colMd8 colLg6 from '../../components/utils/grid.css';
+}
+
+.info-content-wrapper {
+    padding: 4rem 0;
+}
+
+.section-header {
+    composes: fontEssonnes headingM from '../../components/utils/type.css';
+    color: var(--color-green);
+    margin: 0;
+    padding: 0;
+}
+
+.section-subhead {
+    composes: fontMuseo headlineXs from '../../components/utils/type.css';
+    margin: 0;
+    padding-top: 2rem;
+    color: var(--color-white-50);
+}
+
+.line {
+    composes: divider from '../../components/utils/elements.css';
+}
+
+.date {
+    composes: fontFutura textM from '../../components/utils/type.css';
+    color: var(--color-white-50);
+}
+
+.position {
+    composes: fontMuseo textL from '../../components/utils/type.css';
+    margin: 0;
+}
+
+.company {
+    composes: fontFutura textM from '../../components/utils/type.css';
+    color: var(--color-white-50);
+}
+
+
+.skills-container {
+    composes: colMd6 from '../../components/utils/grid.css'; 
+}
+
+.skills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-item {
+    composes: fontFutura textL from '../../components/utils/type.css';
+    padding: 0;
+    display: inline;
+}
+
+.skills-item:after {
+    content: '\00B7';
+    padding: 0 1rem;
+    display: inline;
+}
+
+.skills-item:last-of-type:after {
+    content: '';
+    display: none;
+}
+
+.hobbies {
+    composes: fontFutura textL from '../../components/utils/type.css';
+}
+
+.contact-container {
+    composes: row from '../../components/utils/grid.css';
+}
+
+.contact-item {
+    composes: col from '../../components/utils/grid.css';
+}
+
+.wedding, .band {
+    composes: row from '../../components/utils/grid.css';
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    justify-content: space-between;
+}
+
+.head-wrapper {
+    composes: colMd9 colLg4 from '../../components/utils/grid.css';
+    padding-top: 3rem;
+}
+
+.section-copy {
+    composes: fontFutura textM from '../../components/utils/type.css';
+}
+
+.content-container {
+    composes: colMd12 colLg7 from '../../components/utils/grid.css';
+    align-self: center;
+}
+
+.content-wrapper {
+    padding: 2rem 0;
+}
+
+
+@media screen and (min-width: 768px) {
+    .image-container {
+        left: 0;
+        right: 0;
+    }
+
+    .image-wrapper {
+        margin-right: 12.5%;
+    }
+
+    .hero-header {
+        top: 8rem;
+        font-size: 7rem;
+        line-height: 7rem;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .wedding {
+        flex-direction: row-reverse;
+        padding-top: 20rem;
+        padding-bottom: 20rem;
+    }
+
+    .band {
+        padding-top: 20rem;
+        padding-bottom: 20rem;
+    }
+
+    .intro-container {
+        padding-top: 32rem;
+        padding-bottom: 32rem;
+    }
+
+    .outro-container {
+        padding-top: 24rem;
+        padding-bottom: 24rem;
+    }
+}

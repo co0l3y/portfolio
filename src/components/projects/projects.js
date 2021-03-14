@@ -113,6 +113,7 @@ export const caseStudyQuery = graphql`
         tldr {
           company
           role
+          summary
           date
           skills
           credits
@@ -157,7 +158,7 @@ export const caseStudyQuery = graphql`
         }
       }
     }
-    allMdx(filter: {id: {ne: $id}, fields: {slug: {regex: "/case-studies/"}}}) {
+    allMdx(filter: {id: {ne: $id}, fields: {slug: {regex: "/case-studies/"}}}, sort: {fields: frontmatter___order, order: ASC}) {
       nodes{
         id
         fields {
@@ -168,6 +169,7 @@ export const caseStudyQuery = graphql`
           type
           tldr {
             company
+            summary
             role
             date
             skills

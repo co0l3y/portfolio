@@ -48,11 +48,15 @@
 .row {
     composes: row from '../utils/grid.css';
     padding: 4rem 0 2rem 0;
+    border-bottom: 1px solid rgba(239,244,251,.16);
 }
 
 .row:first-child {
     padding-top: 0;
-    border-bottom: 1px solid rgba(239,244,251,.16);
+}
+
+.row:last-child {
+    border-bottom: none;
 }
 
 .skills {
@@ -65,6 +69,9 @@
     composes: textM from '../utils/type.css';
 }
 
+.summary-wrapper {
+    composes: col from '../utils/grid.css';
+}
 
 @media screen and (min-width: 768px) {
 
