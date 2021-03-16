@@ -1,15 +1,17 @@
 .hero {
-    composes: row from '../utils/grid.css';
-    height: 50vh;
+    composes: row from '../components/utils/grid.css';
+    height: 52vh;
+    min-height: 52rem;
     align-items: flex-end;
+    align-content: flex-end;
 }
 
 .hero-wrapper {
-    composes: colSm6 colMd4 pushMd1 from '../utils/grid.css';
+    composes: colSm7 colMd4 pushMd1 from '../components/utils/grid.css';
 }
 
 .hero-header {
-    composes: fontMuseo from '../utils/type.css';
+    composes: fontMuseo from '../components/utils/type.css';
     font-size: 5rem;
     line-height: 5rem;
     color: var(--color-white);
@@ -17,31 +19,40 @@
 }
 
 .hero-sub-header {
-    composes: fontFutura from '../utils/type.css';
-    composes: headingS from '../utils/type.css';
+    composes: fontFutura from '../components/utils/type.css';
+    composes: headingS from '../components/utils/type.css';
     margin: 0;
     color: var(--color-green);
     padding-top: 2rem;
 }
 
 .hero-right-wrapper {
-    composes: colMd6 pushMd1 from '../utils/grid.css';
+    composes: colMd6 pushMd1 from '../components/utils/grid.css';
 }
 
 .contact-container {
-    composes: row from '../utils/grid.css';
+    composes: row from '../components/utils/grid.css';
     align-items: flex-end;
 }
 
 .contact-wrapper {
-    composes: colMd6 from '../utils/grid.css';
+    composes: colSm6 from '../components/utils/grid.css';
 }
 
-/* Scroll Scene */
 
-/* .scroll-scene {
-    margin: 0 var(--gutter-comp);
-} */
+.scroll-scene {
+    position: relative;
+}
+
+.scroll-hint {
+    composes: fontFutura textS from '../components/utils/type.css';
+    position: absolute;
+    top: 16rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: .32;
+}
 
 .background-scene {
     height: 100vh;
@@ -52,7 +63,7 @@
 
 
 .scroll-text-left, .scroll-text-right {
-    composes: row from '../utils/grid.css';
+    composes: row from '../components/utils/grid.css';
     position: relative;
     height: 100vh;
     align-items: center;
@@ -61,25 +72,25 @@
 
 
 .scroll-text-wrapper {
-    composes: colSm10 colMd5 colLg4 from '../utils/grid.css';
+    composes: colSm10 colMd5 colLg4 from '../components/utils/grid.css';
 }
 
 .scroll-header {
-    composes: fontEssonnes from '../utils/type.css';
-    composes: headingXxl from '../utils/type.css';
+    composes: fontEssonnes from '../components/utils/type.css';
+    composes: headingXxl from '../components/utils/type.css';
     margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     color: var(--color-green);
     text-shadow: .25rem .25rem rgb(6, 20, 35);
 }
 
 .scroll-text {
-    composes: textXl from '../utils/type.css';
+    composes: textXl from '../components/utils/type.css';
     text-shadow: .25rem .25rem rgb(6, 20, 35);
 }
 
 .line {
-    composes: divider from '../utils/elements.css';
+    composes: divider from '../components/utils/elements.css';
 }
 
 .desk-sequence {
@@ -93,10 +104,20 @@
 
 
 @media screen and (min-width: 768px) {
+
+    .hero {
+        height: 50vh;
+    }
+
     .hero-header {
         font-size: 7rem;
         line-height: 7rem;
     }
+
+    .hero-right-wrapper {
+        display: initial;
+    }
+
 
     .desk-sequence {
         width: var(--col-width-8)
@@ -105,9 +126,18 @@
 }
 
 @media screen and (min-width: 1024px) {
+
+    .scroll-hint {
+        top: 24rem;
+    }
+
     .desk-sequence {
         width: var(--col-width-6)
 
+    }
+
+    .scroll-header {
+        margin-bottom: 5rem;
     }
 
     .scroll-text-left {

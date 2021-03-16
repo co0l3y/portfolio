@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BackgroundSceneSvg = ({ inputRef, caseStudy }) => {
+const BackgroundSceneSvg = ({ inputRef, background }) => {
     return(
         <svg ref={inputRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -20,7 +20,7 @@ const BackgroundSceneSvg = ({ inputRef, caseStudy }) => {
                     <circle cx="512" cy="384" r="257" fill="#FFF"/>
                 </mask>
             </defs>
-            { !caseStudy &&
+            { background &&
             <>
             <g>
                 <g id="background" mask="url(#mask)" >
@@ -285,7 +285,7 @@ const BackgroundSceneSvg = ({ inputRef, caseStudy }) => {
                 <circle cx="614.51" cy="367.78" r="1.28"/>
                 <circle cx="556.35" cy="417.48" r="1.06"/>
             </g>
-            { !caseStudy &&
+            { background &&
             <g id="clouds">
                 <path id="Cloud-12" d="M623.89 454.79a5.28 5.28 0 00-7.08 1.56 1.84 1.84 0 00-.41 0 5.32 5.32 0 00-4.5-1.08 5.19 5.19 0 00-1.76.72 5 5 0 00-4.74 1.6 5.89 5.89 0 00-.7-.26 5.52 5.52 0 00-3.67-2.12.19.19 0 010-.08 3.54 3.54 0 00-3.18-3.86 3.5 3.5 0 00-3 1.21 4 4 0 00-3.85 1.12 3.83 3.83 0 00-.39.51c-.12.07-.25.13-.37.21a5.44 5.44 0 00-1.36 7.33.14.14 0 010 .06 6.15 6.15 0 001.2 5.72 5.14 5.14 0 0010 2.07 5 5 0 00.86-.86 5 5 0 00.69.61 37 37 0 009.38 4.77 5.62 5.62 0 003.79-.9 6.12 6.12 0 005.9-4.67 6.17 6.17 0 004.84-6.1c.07-.1.16-.19.23-.29a5.31 5.31 0 00-1.88-7.27z" fill="#eff4fb"/>
                 <g id="Cloud-11" fill="#eff4fb">
@@ -326,7 +326,7 @@ const BackgroundSceneSvg = ({ inputRef, caseStudy }) => {
                 <path id="Windowsill-Inner" fill="none" stroke="#0f3760" strokeMiterlimit="10" d="M399 342h300v241H399z"/>
                 <rect id="Windowsill-Outer" x="388.5" y="322" width="322" height="276" rx="2" fill="none" stroke="#0f3760" strokeMiterlimit="10" opacity=".2"/>
             </g>
-            { !caseStudy &&
+            { background &&
             <g id="blinds" fill="none" strokeMiterlimit="10" strokeWidth="4">
                 <path stroke="#185a9d" d="M699 342H399" />
                 <path stroke="#1b629d" d="M699 358.07H399" />
@@ -346,7 +346,7 @@ const BackgroundSceneSvg = ({ inputRef, caseStudy }) => {
                 <path stroke="#43cea2" d="M699 583H399" />
             </g>
             }
-            { !caseStudy &&
+            { background &&
             <g id="blinds-blend" fill="none" strokeMiterlimit="10" strokeWidth="4">
                 <path d="M399.5 583C297.05 583 214 500 214 397.5S297.05 212 399.5 212 585 295.05 585 397.5v.5a40 40 0 01-40 40 40 40 0 000 80" stroke="#43cea2" />
                 <path d="M399.47 566.93C299.25 566.93 218 485.69 218 385.47A181.47 181.47 0 01399.47 204a178.45 178.45 0 01178.61 187.74s0 .49-.05.5c-1.93 22.23-19.91 41.33-40.68 44a34.29 34.29 0 00-4.32.81c-18.59 4.62-32.06 22.68-30.47 43.53 1.71 22.44 20.86 40.29 44.17 40.29" stroke="#40c6a2" />

@@ -1,7 +1,7 @@
 .link-wrapper {
     text-decoration: none;
     color: var(--color-white);
-    padding: 4rem 4rem 4rem 0;
+    padding: 2rem 2rem 1rem 0;
     margin: 0;
     display: block;
     float: left;
@@ -40,4 +40,11 @@
     text-decoration: none;
     color: var(--color-white);
     text-align: center;
+}
+
+
+@media screen and (min-width: 768px) {
+    .link-wrapper {
+        padding: 4rem 4rem 4rem 0;
+    }
 }

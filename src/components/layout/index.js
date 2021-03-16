@@ -17,6 +17,10 @@ const Layout = ({ children }) => {
         const initAnim = initLoad(main)
 
         initAnim.play()
+
+        return(()=>{
+            initAnim.kill()
+        })
         
     },[mainRef])
 

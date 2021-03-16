@@ -13,7 +13,7 @@
 }
 
 .title-wrapper{
-    top: 18rem;
+    top: 12rem;
     left: var(--col-width-1);
     width: var(--col-width-6);
 }
@@ -24,6 +24,7 @@
     color: var(--color-green);
     margin: 0;
     padding: 0;
+    text-shadow: .25rem .25rem rgb(6, 20, 35);
 }
 
 .title-link {
@@ -108,6 +109,10 @@
 @media screen and (min-width: 768px) {
     .slide-container {
         align-items: center;
+    }
+
+    .title-wrapper {
+        top: 18rem;
     }
 
     .skills {

@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 
 import Layout from '../components/layout'
 import BackgroundSceneSvg from '../components/background-scene'
@@ -10,9 +8,9 @@ import CaseGallery from '../components/case-gallery'
 import MagicLink from '../components/magic-link'
 import SEO from '../components/seo'
 
-import { scrollSceneAnim, heroAnim, refreshScrollTrigger, killScrollTrigger } from '../components/Anim'
+import { heroAnim, scrollHintAnim, scrollSceneAnim, refreshScrollTrigger, killScrollTrigger } from '../components/Anim'
 
-import styles from '../components/index/index-page.module.css'
+import styles from './index-page.module.css'
 
 
 const IndexPage = ({
@@ -23,7 +21,6 @@ const IndexPage = ({
       }
     } 
   }) => {
-  gsap.registerPlugin(ScrollTrigger)
 
     
   // refs
@@ -43,6 +40,7 @@ const IndexPage = ({
     const heroTl = heroAnim(introRef)
     
     heroTl.play()
+    scrollHintAnim(scrollRef)
     scrollSceneAnim(introRef, scrollRef, pinRef, svgContainerRef, deskEl)
     refreshScrollTrigger()
       
@@ -64,7 +62,7 @@ const IndexPage = ({
       <div className={styles.heroRightWrapper}>
         <div className={styles.contactContainer}>
           <div className={styles.contactWrapper}>
-            <MagicLink to='#' icon='resume'>View Resume</MagicLink>
+            <MagicLink to='https://drive.google.com/file/d/1sAie7l_gz_h3shtSI3Zz7DgxliXkOKaG/view?usp=sharing' target='_blank' icon='resume'>View Resume</MagicLink>
           </div>
           <div className={styles.contactWrapper}>
             <MagicLink to='https://www.linkedin.com/in/seancameroncooley/' icon='linkedin'>Linkedin</MagicLink>
@@ -75,7 +73,7 @@ const IndexPage = ({
     <section ref={el => pinRef = el} className={styles.pinScene}>
       <div ref={el => scrollRef = el} className={styles.scrollScene}>
         <div ref={el => svgContainerRef = el} className={styles.backgroundScene}>
-          <BackgroundSceneSvg inputRef={svgRef}/>
+          <BackgroundSceneSvg background inputRef={svgRef}/>
           <div className={styles.deskSequence}>
             <DeskSequence inputRef={deskRef}/>
           </div>
@@ -91,7 +89,7 @@ const IndexPage = ({
           <div className={styles.scrollTextWrapper}>
             <h3 className={styles.scrollHeader}> I'm a design director</h3>
             <span className={styles.line}></span>
-            <p className={styles.scrollText}>With 10 years of experience weaving...</p>
+            <p className={styles.scrollText}>With 10 years of experience with weaving...</p>
           </div>
         </div>
         <div className={styles.scrollTextLeft}>
@@ -102,6 +100,7 @@ const IndexPage = ({
             <MagicLink internal icon='arrow' to='/about/'>Learn More</MagicLink>
           </div>
         </div>
+        <div className={styles.scrollHint}>C'mon Scroll, you know you want to...</div>
       </div>
       <CaseGallery caseStudies={caseStudies} totalCount={totalCount}/>
     </section>

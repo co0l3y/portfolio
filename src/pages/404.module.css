@@ -1,0 +1,59 @@
+.container{
+    height: 100vh;
+    position: relative;
+}
+
+.copy-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0
+}
+
+.hero {
+    composes: row from '../components/utils/grid.css';
+    height: 50vh;
+    min-height: 50rem;
+    align-items: flex-end;
+}
+
+.hero-wrapper {
+    composes: colSm6 colMd4 pushMd1 from '../components/utils/grid.css';
+}
+
+.hero-header {
+    composes: fontMuseo from '../components/utils/type.css';
+    font-size: 5rem;
+    line-height: 5rem;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.hero-sub-header {
+    composes: fontFutura from '../components/utils/type.css';
+    composes: headingS from '../components/utils/type.css';
+    margin: 0;
+    color: var(--color-green);
+    padding-top: 2rem;
+}
+
+.line {
+    composes: divider from '../components/utils/elements.css';
+}
+
+.copy {
+    composes: fontFutura textM from '../components/utils/grid.css';
+}
+
+@media screen and (min-width: 768px) {
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-header {
+        top: 8rem;
+        font-size: 7rem;
+        line-height: 7rem;
+    }
+}

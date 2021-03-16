@@ -4,7 +4,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    padding: 5rem 3rem 5rem 3rem;
+    padding: 3rem 3rem 0 3rem;
     justify-content: space-between;
     z-index: 20;
 }
@@ -70,6 +70,7 @@
 
 @media screen and (min-width: 768px) {
     .container{
+        padding: 5rem 3rem 5rem 3rem;
         width: auto;
     }
     .nav {

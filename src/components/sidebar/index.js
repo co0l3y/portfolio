@@ -7,7 +7,7 @@ import Logo from "../logo"
 
 import { linkHover, logoEnterAnim, logoExitAnim } from '../Anim'
 
-const paths = ['/about/']
+const paths = ['/about/', '/404.html', '/404/']
 
 const NavLink = ({ work, children, ...props}) => {
     let linkRef = useRef(null)

@@ -18,6 +18,7 @@
 .hero {
     composes: row from '../../components/utils/grid.css';
     height: 50vh;
+    min-height: 50rem;
     align-items: flex-end;
 }
 
@@ -44,8 +45,8 @@
 .intro-container {
     composes: row from '../../components/utils/grid.css';
     justify-content: flex-end;
-    padding-top: 24rem;
-    padding-bottom: 24rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
 }
 
 .intro-wrapper {
@@ -53,15 +54,17 @@
 }
 
 .intro, .outro {
-    composes: fontEssonnes headingL from '../../components/utils/type.css';
+    composes: fontEssonnes from '../../components/utils/type.css';
+    font-size: 3rem;
+    line-height: 4rem;
     color: var(--color-green);
 }
 
 .outro-container {
     composes: row from '../../components/utils/grid.css';
     justify-content: flex-end;
-    padding-top: 16rem;
-    padding-bottom: 16rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
 }
 
 
@@ -196,6 +199,11 @@
 
 
 @media screen and (min-width: 768px) {
+
+    .hero {
+        height: 50vh;
+    }
+    
     .image-container {
         left: 0;
         right: 0;
@@ -211,9 +219,29 @@
         line-height: 7rem;
     }
 
+    .intro, .outro {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+
+    .intro-container {
+        padding-top: 16rem;
+        padding-bottom: 16rem;
+    }
+
+    .outro-container {
+        padding-top: 16rem;
+        padding-bottom: 16rem;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
+
+    .intro, .outro {
+        font-size: 6rem;
+        line-height: 7rem;
+    }
 
     .wedding {
         flex-direction: row-reverse;

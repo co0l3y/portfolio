@@ -10,6 +10,7 @@ import MagicLink from '../../components/magic-link'
 import { heroAnim } from "../../components/Anim";
 
 import styles from './about.module.css'
+import SEO from '../../components/seo'
 
 const AboutPage = ({
     data: {
@@ -47,6 +48,7 @@ const AboutPage = ({
     },[heroRef])
     return(
         <Layout>
+            <SEO title='About' />
             <div className={styles.imageParent}>
                 <div className={styles.imageContainer}>
                     <div className={styles.imageWrapper}>
@@ -114,8 +116,8 @@ const AboutPage = ({
                             <span className={styles.line}></span>
                         </div>
                         <div className={styles.infoContentContainer}>
-                            <h3 className={styles.sectionSubhead}>Skills</h3>
                             <div className={styles.infoContentWrapper}>
+                                <h3 className={styles.sectionSubhead}>Skills</h3>
                                 <ul className={styles.skills}>
                                     <li className={styles.skillsItem}>Design Direction</li>
                                     <li className={styles.skillsItem}>UI/UX Design</li>
@@ -128,21 +130,22 @@ const AboutPage = ({
                                     <li className={styles.skillsItem}>Branding</li>
                                     <li className={styles.skillsItem}>Digital Marketing</li>
                                     <li className={styles.skillsItem}>3D Modeling &amp; AR</li>
+                                    <li className={styles.skillsItem}>Photography</li>
                                 </ul>
                             </div>
-                            <h3 className={styles.sectionSubhead}>Software</h3>
                             <div className={styles.infoContentWrapper}>
+                                <h3 className={styles.sectionSubhead}>Software</h3>
                                 <ul className={styles.skills}>
-                                <li className={styles.skillsItem}>Figma</li>
-                                <li className={styles.skillsItem}>Sketch</li>
-                                <li className={styles.skillsItem}>Origami Sudio</li>
-                                <li className={styles.skillsItem}>Illustrator</li>
-                                <li className={styles.skillsItem}>Photoshop</li>
-                                <li className={styles.skillsItem}>After Effects</li>
-                                <li className={styles.skillsItem}>Premier</li>
-                                <li className={styles.skillsItem}>Cinema 4D</li>
-                                <li className={styles.skillsItem}>Spark AR</li>
-                                <li className={styles.skillsItem}>Visual Studio Code</li>
+                                    <li className={styles.skillsItem}>Figma</li>
+                                    <li className={styles.skillsItem}>Sketch</li>
+                                    <li className={styles.skillsItem}>Origami Sudio</li>
+                                    <li className={styles.skillsItem}>Illustrator</li>
+                                    <li className={styles.skillsItem}>Photoshop</li>
+                                    <li className={styles.skillsItem}>After Effects</li>
+                                    <li className={styles.skillsItem}>Premier</li>
+                                    <li className={styles.skillsItem}>Cinema 4D</li>
+                                    <li className={styles.skillsItem}>Spark AR</li>
+                                    <li className={styles.skillsItem}>Visual Studio Code</li>
                                 </ul>
                             </div>
                         </div>
@@ -179,7 +182,7 @@ const AboutPage = ({
                     <div><h2 className={styles.outro}>Currently available for your next project. Let's keep the conversation going!</h2></div>
                     <div className={styles.contactContainer}>
                         <div className={styles.contactItem}>
-                            <MagicLink to="#" icon='resume'>Resume</MagicLink>
+                            <MagicLink to="https://drive.google.com/file/d/1sAie7l_gz_h3shtSI3Zz7DgxliXkOKaG/view?usp=sharing" target='_blank' icon='resume'>Resume</MagicLink>
                         </div>
                         <div className={styles.contactItem}>
                             <MagicLink to="mailto:cameron.cooley@gmail.com" icon='mail'>Contact</MagicLink>

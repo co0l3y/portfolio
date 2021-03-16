@@ -94,7 +94,7 @@ const ProjectLayout = ({
             <div className={styles.pinScene} ref={ref => pinRef = ref}>
               <div className={styles.sceneContainer}>
                 <div className={styles.backgroundScene} ref={ref => svgContainerRef = ref}>
-                  <BackgroundSceneSvg caseStudy/>
+                  <BackgroundSceneSvg />
                   <div className={styles.deskSequence}>
                     <DeskSequence inputRef={deskRef} />
                   </div>
