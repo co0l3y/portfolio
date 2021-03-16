@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "sean-cameron-cooley",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The portfolio of sean cameron cooley",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Sean Cooley <cameron.cooley@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
