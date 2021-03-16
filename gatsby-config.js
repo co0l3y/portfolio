@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Sean Cameron Cooley | Design, Motion, & Interactive`,
     description: `A multi-disciplinary designer with 10 years of experience weaving pixels, coffee, code, and insights into meanigful design solutions.`,
+    siteUrl: 'https://www.seancameroncooley.com',
     author: `@co0l3y`,
   },
   plugins: [

@@ -185,7 +185,7 @@ export const caseStudyQuery = graphql`
           }
           cover {
             childImageSharp {
-              fluid (maxWidth: 1600, toFormat: JPG, quality: 90){
+              fluid (maxWidth: 1200, toFormat: JPG, quality: 90){
                 ...GatsbyImageSharpFluid
               }
             }

@@ -52,7 +52,7 @@ const IndexPage = ({
 
   return(
   <Layout>
-    <SEO />
+    <SEO title='Home'/>
     <section ref={el => introRef = el} className={styles.hero}>
       <div className={styles.heroWrapper}>
         <h1 className={styles.heroHeader}>Sean Cameron Cooley</h1>
@@ -89,7 +89,7 @@ const IndexPage = ({
           <div className={styles.scrollTextWrapper}>
             <h3 className={styles.scrollHeader}> I'm a design director</h3>
             <span className={styles.line}></span>
-            <p className={styles.scrollText}>With 10 years of experience with weaving...</p>
+            <p className={styles.scrollText}>with 10 years of experience weaving...</p>
           </div>
         </div>
         <div className={styles.scrollTextLeft}>
