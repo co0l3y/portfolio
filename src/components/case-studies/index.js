@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import styles from './projects.module.css'
+import styles from './case-studies.module.css'
 
 import Layout from '../layout'
 import ProjectIntro from './intro'
@@ -13,7 +13,8 @@ import BackgroundSceneSvg from '../background-scene'
 import DeskSequence from '../desk-sequence'
 import CaseGallery from '../case-gallery'
 
-import { bgSceneCaseAnim } from '../Anim'
+import { bgSceneCaseAnim, killScrollTrigger, refreshScrollTrigger } from '../Anim'
+import SEO from "../seo"
 
 
 const ProjectLayout = ({
@@ -42,8 +43,13 @@ const ProjectLayout = ({
 
     useEffect(()=>{
       const deskEl = deskRef.current
-
+      
       bgSceneCaseAnim(pinRef, svgContainerRef, deskEl)
+      refreshScrollTrigger()
+
+      return(()=>{
+        killScrollTrigger()
+      })
 
     },[svgContainerRef, deskRef, pinRef])
 
@@ -75,6 +81,7 @@ const ProjectLayout = ({
 
     return(
         <Layout>
+            <SEO title={title}></SEO>
             <ProjectIntro title={title} category={type} />
             <ProjectCover image={cover.childImageSharp.fluid} />
             <Tldr data={tldr}/>
@@ -121,7 +128,7 @@ export const caseStudyQuery = graphql`
         }
         cover {
           childImageSharp {
-            fluid (maxWidth: 1600){
+            fluid (maxWidth: 1600, toFormat: JPG, quality: 90){
               ...GatsbyImageSharpFluid
             }
           }
@@ -130,7 +137,7 @@ export const caseStudyQuery = graphql`
           id
           src {
             childImageSharp {
-              fluid (maxWidth: 1200){
+              fluid (maxWidth: 1200, maxHeight: 800, toFormat: JPG, quality: 90, cropFocus: CENTER){
                 ...GatsbyImageSharpFluid
               }
             }
@@ -150,7 +157,7 @@ export const caseStudyQuery = graphql`
           id
           images {
             childImageSharp {
-              fluid (maxWidth: 650) {
+              fluid (maxWidth: 650, toFormat: JPG, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -178,7 +185,7 @@ export const caseStudyQuery = graphql`
           }
           cover {
             childImageSharp {
-              fluid (maxWidth: 1600){
+              fluid (maxWidth: 1600, toFormat: JPG, quality: 90){
                 ...GatsbyImageSharpFluid
               }
             }

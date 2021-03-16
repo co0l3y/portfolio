@@ -21,8 +21,12 @@ tldr:
   credits: "Clifford Lerner, David Fox, Robert Brisita, Dirk Heikoop, Jenna Freidman"
   tools: "Sketch, Photoshop, InVision, HTML, CSS, PHP,  Javascript (Angular)"
 sectionImages:
+  - id: 'problem'
+    src: ../../../images/covers/problem.jpg
   - id: 'my grade'
     src: images/work/my-grade-mockup.png
+  - id: 'scientist'
+    src: ../../../images/covers/scientist.png
 galleries:
   - id: 'myGradeMockup'
     images:
@@ -74,7 +78,8 @@ import ContentGallery from '../../../components/case-section/content-gallery'
 <CaseSection
   sticky
   title="So, What's the Problem?"
-  stepNum="01">
+  stepNum="01"
+  image={props.sectionImages.problem}>
 <ContentRow fullHeight>
 <Content colRight>
 
@@ -153,7 +158,7 @@ Based on my research I started sketching what these new screens and flows could 
 
 <CaseSection
   sticky
-  title="Start pushing pixels"
+  title="Design &amp; Rapid Development"
   stepNum="03"
   intro="I started fleshing out high-fidelity mockups of the features based on our research and planning. We wanted to iterate on these experiences rapidly once we launched, so the decision was made to create these screens as web-views within the app so we could hot-swap as needed. This brought with it certain design considerations and development constraints which I had to keep in mind.">
 </CaseSection>
@@ -191,8 +196,9 @@ Based on my research I started sketching what these new screens and flows could 
 
 <CaseSection
   sticky
-  title="Alright, build it already"
-  stepNum="04">
+  title="Testing 1,2,3..."
+  stepNum="04"
+  image={props.sectionImages.scientist}>
 <ContentRow>
 <Content colRight>
 

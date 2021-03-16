@@ -18,9 +18,17 @@ tldr:
   credits: "Miguel Molinari, Matt Walden"
   tools: "Sketch, Illustrator, InVision, HTML, CSS, Javascript (Ionic/Angular)"
 sectionImages:
+  - id: 'shrug'
+    src: ../../../images/covers/shrug.jpg
   - id: 'nearby'
     src: images/work/nearby-01.png
+  - id: 'wonka'
+    src: ../../../images/covers/wonka.jpg
 galleries:
+    - id: 'branding'
+      images:
+        - 'images/work/branding-01.jpg'
+        - 'images/work/branding-02.png'
     - id: 'nearbyMock'
       images:
         - 'images/work/nearby-mockup.png'
@@ -52,7 +60,8 @@ import ContentGallery from '../../../components/case-section/content-gallery'
 <CaseSection
   sticky
   title="So, What's the Problem?"
-  stepNum="01">
+  stepNum="01"
+  image={props.sectionImages.shrug}>
 <ContentRow fullHeight>
 <Content colRight>
 
@@ -136,7 +145,7 @@ I then explored various brand identities for Poko in black and white. I find it 
 <ContentRow>
 <Content>
 
-Images here please! 
+<ContentGallery fullWidth gallery={props.galleries.branding} />
 
 </Content>
 </ContentRow>
@@ -145,7 +154,7 @@ Images here please!
 <CaseSection
   title="Sign Up Flow"
   stepNum="03"
-  intro="We kept the sign up flow simple, so that users could get up and running quickly. User’s choose a sign up method, enter their username, and declare their team. We limited sign-up to only google and facebook initially, since this allowed us to find your friends this provided a bit of shielding from spam bots and bad-actors.">
+  intro="We kept the sign up flow simple, so that users could get up and running quickly. User’s choose a sign up method, enter their username, and declare their team. We limited sign-up to only google and facebook initially. This allowed us to find your friends and provided a bit of shielding from spam bots and bad-actors.">
 
 <ContentGallery phone gallery={props.phoneGalleries.signUp} />
 
@@ -191,7 +200,7 @@ Images here please!
 
 #### Development
 
-The developers and I had been in sync from the beginning, so they had already hit the ground running setting up the basics of the app. I prepared specs and style guides for them to follow. Since we used Ionic, a web-based framework for creative native apps, I was able to help the developers code the front-end UI with HTML and CSS.
+The developers and I had been in sync from the beginning, so they had already hit the ground running setting up the basics of the app. I prepared specs and style guides for them to follow. Since we used Ionic, a web-based framework for creating native apps, I was able to help the developers code the front-end UI with HTML and CSS.
 
 </Content>
 </ContentRow>
@@ -199,8 +208,9 @@ The developers and I had been in sync from the beginning, so they had already hi
 
 <CaseSection
   sticky
-  title="The results are in"
-  stepNum="04">
+  title="But, did you learn anything?"
+  stepNum="04"
+  image={props.sectionImages.wonka}>
 <ContentRow fullHeight>
 <Content colRight>
 

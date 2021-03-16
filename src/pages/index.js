@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -7,11 +7,10 @@ import Layout from '../components/layout'
 import BackgroundSceneSvg from '../components/background-scene'
 import DeskSequence from '../components/desk-sequence'
 import CaseGallery from '../components/case-gallery'
-import MagicLink from '../components/MagicLink'
-// import Img from 'gatsby-image'
-// import SEO from '../components/seo'
+import MagicLink from '../components/magic-link'
+import SEO from '../components/seo'
 
-import { scrollSceneAnim } from '../components/Anim'
+import { scrollSceneAnim, heroAnim, refreshScrollTrigger, killScrollTrigger } from '../components/Anim'
 
 import styles from '../components/index/index-page.module.css'
 
@@ -38,14 +37,24 @@ const IndexPage = ({
   
 
   useEffect(()=>{
+
     // elements
     const deskEl = deskRef.current
-    //animations
-      scrollSceneAnim(introRef, scrollRef, pinRef, svgContainerRef, deskEl)
+    const heroTl = heroAnim(introRef)
+    
+    heroTl.play()
+    scrollSceneAnim(introRef, scrollRef, pinRef, svgContainerRef, deskEl)
+    refreshScrollTrigger()
+      
+      return(()=>{
+        heroTl.kill()
+        killScrollTrigger()
+      })
   })
 
   return(
   <Layout>
+    <SEO />
     <section ref={el => introRef = el} className={styles.hero}>
       <div className={styles.heroWrapper}>
         <h1 className={styles.heroHeader}>Sean Cameron Cooley</h1>
@@ -82,7 +91,7 @@ const IndexPage = ({
           <div className={styles.scrollTextWrapper}>
             <h3 className={styles.scrollHeader}> I'm a design director</h3>
             <span className={styles.line}></span>
-            <p className={styles.scrollText}>With over 9 years of experience weaving...</p>
+            <p className={styles.scrollText}>With 10 years of experience weaving...</p>
           </div>
         </div>
         <div className={styles.scrollTextLeft}>
@@ -118,7 +127,7 @@ query IndexQuery {
         }
         cover {
           childImageSharp {
-            fluid (maxWidth: 1600) {
+            fluid (maxWidth: 1600, toFormat: JPG, quality: 90) {
               ...GatsbyImageSharpFluid
             }
           }

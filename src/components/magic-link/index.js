@@ -1,7 +1,7 @@
-import React, { useRef, useEffect} from 'react'
+import React, { useRef } from 'react'
 
 import Icon from '../icon'
-import Link from 'gatsby'
+import { Link } from 'gatsby'
 
 import { magicLinkExit, magicLinkOver, magicLinkEnter } from "../Anim";
 
@@ -33,7 +33,7 @@ const MagicLink = ({children, to, icon, internal, ...props}) => {
         magicLinkOver(e,container, background, text, iconEl, iconContainer)
     }
 
-    const handleMouseEnter = (e) => {
+    const handleMouseEnter = () => {
         const background = backgroundRef.current
         const text = textRef.current
         const iconEl = iconRef.current
@@ -42,7 +42,7 @@ const MagicLink = ({children, to, icon, internal, ...props}) => {
         magicLinkEnter(background, text, iconEl, iconContainer)
     }
 
-    const handleMouseExit = (e) => {
+    const handleMouseExit = () => {
 
         const background = backgroundRef.current
         const text = textRef.current

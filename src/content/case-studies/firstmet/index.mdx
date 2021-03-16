@@ -9,10 +9,10 @@ tldr:
   role: Senior Product Designer
   date: March 2018 - Dec 2018
   summary:
-    - "FirstMet (formerly Are You Interested?/AYI) was one of the first facebook connected dating apps. After 10 years, the company found itself in a crowded dating space. They needed to find ways to stay competitive. The user experience remained relatively unchanged in 10 years. User’s often found the experience dated or hard to navigate compared to simpler, contemporary products. So, we set out to change that."
-    - "I lead Product and UX design for a new core experience. We explored ways to make things simpler and more engaging. Initial A/B tests against control showed a 30% increase in user engagement, with user’s sending 10% more “likes”, and sending messages 20% more."
+    - "FirstMet (formerly Are You Interested?/AYI) was one of the first facebook connected dating apps. After 10 years, the company found itself in a crowded dating space and needed to find ways to stay competitive. The user experience remained relatively unchanged in 10 years. User’s often found the experience dated or hard to navigate compared to simpler, contemporary products. So, we set out to change that."
+    - "I lead Product and UX design for a new core experience. We explored ways to make things simpler and more engaging. Initial A/B tests against control showed a 30% increase in user engagement, with user’s sending 10% more “likes”, and 20% more messages."
   skills:
-    - "Lead UI/UX Design"
+    - "Lead UI/UX design"
     - "Discovery & requirements gathering"
     - "Prototyping & wireframing"
     - "High fidelity mockups"
@@ -21,10 +21,12 @@ tldr:
   credits: "Niki Larsen, Jason Dove, Botond Denes, Matthew Broodie-Stewart, Alex Rose"
   tools: "Sketch, Photoshop, Illustrator, After Effects, Origami"
 sectionImages:
+  - id: 'shrug'
+    src: ../../../images/covers/shrug.jpg
   - id: 'homework'
     src: images/covers/homework.png
-  - id: 'browse'
-    src: images/browse.png
+  - id: 'scientist'
+    src: ../../../images/covers/scientist.png
 galleries:
   - id: 'browse'
     images:
@@ -32,11 +34,14 @@ galleries:
       - 'images/like.png'
       - 'images/like-collapse.png'
 phoneGalleries:
-  - id: 'browse'
+  - id: 'browse01'
     images:
       - 'images/browse.png'
+  - id: 'browse02'
+    images:
       - 'images/like.png'
       - 'images/like-collapse.png'
+      - 'images/upsell-messaging.png'
   - id: 'profile'
     images:
       - 'images/profile-message.png'
@@ -53,7 +58,8 @@ import ContentGallery from '../../../components/case-section/content-gallery.js'
 <CaseSection
   sticky
   title="So, What's the problem?"
-  stepNum="01">
+  stepNum="01"
+  image={props.sectionImages.shrug}>
 
 <ContentRow fullHeight>
 <Content colRight>
@@ -88,7 +94,7 @@ FirstMet was having trouble retaining users. The dating space was now super satu
 
 <CaseSection
   sticky
-  title="Do all your homework"
+  title="Did you do your homework?"
   stepNum="01">
 
 <ContentRow>
@@ -135,7 +141,7 @@ We conducted usability testing to gain insights and feedback on the current expe
 <CaseSection
   sticky
   title="A plan for everything"
-  stepNum="01"
+  stepNum="02"
   image={props.sectionImages.homework}>
 
 <ContentRow>
@@ -179,8 +185,9 @@ After refining the planned user experience, we met with the dev team to determin
   title="Browse"
   stepNum="03"
   intro="The browse feed is the core experience of most dating apps. FirstMet’s existing browse was adapted from desktop, and optimized for early, antiquated mobile devices. The pictures were tiny, and pushed to the side by giant skeuomorphic buttons. Pictures are one of the most important parts of a dating profile and our user testing indicated users wanted bigger pictures. I focused on bringing profile pictures to the forefront, modernizing the UI, and better utilizing the available screen real-estate."
-  image={props.phoneGalleries.browse[0]}
-  phone>
+  image={props.phoneGalleries.browse01[0]}
+  phone
+>
 
 <ContentRow>
 <Content colRight>
@@ -190,7 +197,7 @@ Since dating apps are a form of tailored social network, we thought it might be 
 </Content>
 </ContentRow>
 
-<ContentGallery phone gallery={props.phoneGalleries.browse} />
+<ContentGallery phone gallery={props.phoneGalleries.browse02} />
 
 </CaseSection>
 
@@ -215,7 +222,8 @@ Since dating apps are a form of tailored social network, we thought it might be 
 <CaseSection
   sticky
   title="Testing 1,2,3..."
-  stepNum="04">
+  stepNum="04"
+  image={props.sectionImages.scientist}>
 <ContentRow>
 <Content colRight>
 
@@ -229,7 +237,7 @@ After finalizing designs and creating prototypes I then prepared spec documents,
 
 #### A/B Testing
 
-The Scientific Method and Feature testing were at the core of everything we did at FirstMet.  Every change to the app was based on coming up with a hypothesis, testing it, and analysing the results. The new experience was launched as a split A/B/C test. The A group saw the new experience with a scrolling feed. The B group saw an updated one-by-one experience, and C was our control group. 
+The Scientific Method and feature testing were at the core of everything we did at FirstMet.  Every change to the app was based on developing a hypothesis, testing it, and analysing the results. The new experience was launched as a split A/B/C test. The A group saw the new experience with a scrolling feed. The B group saw an updated one-by-one experience, and C was our control group. 
 
 </Content>
 </ContentRow>

@@ -33,8 +33,18 @@ const sectionHeadAnim = (sectionHead, line, stepHead, stepNumber) => {
     return(tl)
 }
 
+export const initLoad = (container) => {
+  return gsap.from(container, {autoAlpha: 0, duration: 2, ease: 'power2.out', paused: true})
+}
+
 export const refreshScrollTrigger = () => {
-  ScrollTrigger.refresh(true)
+
+  if (typeof document !== 'undefined') {
+    document.fonts.ready.then(() => {
+      ScrollTrigger.refresh(true)
+    })
+  }
+
 }
 
 export const killScrollTrigger = () => {
@@ -608,4 +618,20 @@ export const logoExitAnim = (logo) => {
     opacity: .8,
   })
 }
+
+export const heroAnim = (hero) => {
+  const tl = gsap.timeline({paused: true})
+
+  const head = hero.firstChild.firstChild
+  const line = hero.firstChild.children[1]
+  const subhead = hero.firstChild.lastChild
+  
+  tl.add(headLineAnim(head,line))
+  tl.add(textFadeUp(subhead), '<.25')
+
+  return(tl)
+
+}
+
+
 

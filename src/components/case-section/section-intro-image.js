@@ -29,7 +29,7 @@ const SectionIntroImage = ({ title, stepNum, intro, image, phone, children }) =>
             <div className={styles.introContainerImage}>
                 <div className={styles.imageContainer}>
                     <div ref={imageRef} className={styles.imageWrapper}>
-                        <Image style={{'height': '100%'}} imgStyle={{'objectFit' : 'cover'}} fluid={image} />
+                        <Image style={{'height': '100%', 'borderRadius': '2rem'}} imgStyle={{'objectFit' : 'cover'}} fluid={image} />
                     </div>
                 </div>
                 <div className={styles.headContainerImage}>

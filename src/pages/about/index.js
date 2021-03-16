@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{ useEffect, useRef } from 'react'
 
 import { graphql } from 'gatsby';
 
 import Image from 'gatsby-image'
 
 import Layout from '../../components/layout'
-import MagicLink from '../../components/MagicLink'
+import MagicLink from '../../components/magic-link'
+
+import { heroAnim } from "../../components/Anim";
 
 import styles from './about.module.css'
 
@@ -28,6 +30,21 @@ const AboutPage = ({
         }
     }
 } ) => {
+
+    const heroRef = useRef(null)
+
+    useEffect(()=>{
+        
+        const hero = heroRef.current
+        const heroTl = heroAnim(hero)
+
+        heroTl.play()
+
+        return (()=>{
+            heroTl.kill()
+        })
+
+    },[heroRef])
     return(
         <Layout>
             <div className={styles.imageParent}>
@@ -37,7 +54,7 @@ const AboutPage = ({
                     </div>
                 </div>
             </div>
-            <section className={styles.hero}>
+            <section ref={heroRef} className={styles.hero}>
                     <div className={styles.heroWrapper}>
                         <h1 className={styles.heroHeader}>Sean Cameron Cooley</h1>
                         <span className={styles.line}></span>
@@ -152,7 +169,7 @@ const AboutPage = ({
                     <h2 className={styles.sectionHeader}>I'm in a band!</h2>
                     <span className={styles.line}></span>
                     <div className={styles.contentWrapper}>
-                        <p className={styles.sectionCopy}>Wayne Johnson's Bicep (not to be confused with Dwayne Johnson for copyright purposes) is a 3 piece band based out of central New Jersey. We just recentply played the Live From Lonely Town virutal festival. More to come soon...</p>
+                        <p className={styles.sectionCopy}>Wayne Johnson's Bicep (not to be confused with Dwayne Johnson for copyright purposes) is a 3 piece band based out of central New Jersey. We just recentply played the Live From Lonely Town virtual festival. More to come soon...</p>
                         <MagicLink to='https://youtu.be/ENx5AimxYWU' target='_blank' icon='arrow'>Don't say Dwayne!</MagicLink>
                     </div>
                 </div>

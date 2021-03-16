@@ -10,7 +10,7 @@ tldr:
   date: "Jan. 2019 - Jan. 2021"
   summary:
     - "TIDAL, is a global, high-fidelity music streaming service. They were looking to grow their user base and expand internationally, but were new to iterative testing and optimization. I helped build and lead the Growth team, a small, hybrid group of creatives and marketers responsible for optimizing the users onboarding experience."
-    - "By bringing new design and testing strategies to TIDAL, the team was able to be more productive with our limited resources, be more creative, and test more efficiently. This helped us increase click through rates 30%, lower cost per acquisition 50%, and increase sign-up completion 20%."
+    - "By bringing new design and testing strategies to TIDAL, the team was able to be more productive with limited resources, be more creative, and test more efficiently. This helped us increase click through rates 30%, lower cost per acquisition 50%, and increase sign-up completion 20%."
   skills:
     - "Design direction & system architecture"
     - "Discovery and requirements gathering"
@@ -21,14 +21,18 @@ tldr:
   credits: "Krist Rehm, Samantha Guzman, Tom Losinksi, Krysti Pryde, Matt Ogilvie, Hazel Adao"
   tools: "Overflow, Sketch, Figma, Photoshop, Illustrator, After Effects, Airtable, Trello, Optimizely, Instapage"
 sectionImages:
+  - id: 'problem'
+    src: ../../../images/covers/problem.jpg
   - id: 'homework'
     src: images/covers/flow-campaigns.jpg
   - id: 'automate'
-    src: images/covers/all-the-things.jpg
+    src: ../../../images/covers/all-the-things.jpg
   - id: 'related'
-    src: images/covers/pepe-silvia.png
+    src: ../../../images/covers/pepe-silvia.png
   - id: 'sign-up'
     src: images/work/sign-up-flow.png
+  - id: 'wonka'
+    src: ../../../images/covers/wonka.jpg
 galleries:
   - id: 'templates1'
     images:
@@ -76,11 +80,13 @@ import CaseSection from '../../../components/case-section/'
 import ContentRow from '../../../components/case-section/content-row'
 import Content from '../../../components/case-section/content'
 import ContentGallery from '../../../components/case-section/content-gallery.js'
+import MagicLink from '../../../components/magic-link'
 
 <CaseSection
   sticky
   title="So, what's the problem?"
-  stepNum="01">
+  stepNum="01"
+  image={props.sectionImages.problem}>
 <ContentRow fullHeight>
 <Content colRight>
 
@@ -121,7 +127,7 @@ As our efforts ramped up so did the complexity. Our project management was sprea
 
 #### Stakeholder and Team Interviews
 
-First, met with executive stakeholders so I could understand their expectations for the Growth team’s KPIs and Goals. Then I met with the Growth creative team, individually and as a group, to gather their ideas, and better understand where their pain points were so we could build a better process.
+First, I met with executive stakeholders to understand their expectations for the Growth team’s KPIs and Goals. Then I met with the Growth creative team, individually and as a group, to gather their ideas, and better understand where their pain points were so we could build a better process.
 
 #### User Journey mapping
 
@@ -144,47 +150,34 @@ We performed our own audits of the various touch points, surveyed new users abou
 </CaseSection>
 
 <CaseSection
+  sticky
   title="Back to the basics"
   stepNum="02"
   intro="With limited resources the team had to be more agile to meet our objectives. I borrowed from my past experience A/B testing features as a Product Designer, and worked with the VP of Growth to introduce a more agile process.  We started working in 1 week  “Sprints” (I use that term loosely) and broke the process out into familiar steps for each day.">
 <ContentRow>
-<Content>
+<Content colRight>
 
 #### Day 1: Research &amp; Inspiration
 
-The entire team (not just creatives) collects inspiration from competitors and beyond. The inspiration wasn’t just limited to ad creative, but whatever you could find. We would meet to go over our inspiration and take turns talking about what we liked or didn’t like about it, and what learnings we could take away to apply in our own testing. 
-
-</Content>
-<Content>
+The entire team (not just creatives) collects inspiration from competitors and beyond. The inspiration wasn’t just limited to ad creative, but whatever you can find. We meet to go over our inspiration and take turns talking about what we like or don't like about it, and what learnings we can take away to apply in our own testing. 
 
 #### Day 2: Ideation &amp; Planning
 
-At the core of all our testing are Concepts. These are ideas we can turn into ad creative and eventually iterate on. Taking the research and inspiration from the day before, the team would ideate and submit concepts. At the end of the day we would meet, and in a pitch-style meeting everyone walks the team through their concepts. Sometimes we would form teams to help with ideation. The team then votes on which concept to explore that week.
-
-</Content>
-</ContentRow>
-<ContentRow>
-<Content>
+At the core of all our testing are Concepts. These are ideas we can turn into ad creative and eventually iterate on. Taking the research and inspiration from the day before, the team ideates and submits concepts. At the end of the day we meet, and in a pitch-style meeting everyone walks the team through their concepts. Sometimes we form teams to help with ideation. Then, everyone votes on the best concept to explore that week.
 
 #### Day 3: Visual Exploration
 
-The creative team meets to review the concept and produce a creative brief to help further explore and define the concept. The team then breaks off to start exploring possible creative executions.
-
-</Content>
-<Content>
+The creative team meets to review the concept and produce a creative brief to help further explore and define the concept. THen we break off to start exploring possible creative executions.
 
 #### Day 4: Finalization &amp; Internal Review
 
 The team finalizes their creatives for review, some creatives take longer to produce, and are reviewed the following week with check-ins along the way. The team meets to review and provide feedback.
 
-</Content>
-</ContentRow>
-<ContentRow>
-<Content>
-
 #### Day 5: Final Approval &amp; CIO
 
 After incorporating feedback from the internal review, the creative is submitted to the Creative Marketing Director for final approval. The whole team meets and reviews weekly test data to track our progress towards KPI goals and hold a “CIO” review.
+
+What is CIO? It stands for Celebrate, Iterate, Obliterate. During this time we would go over the results of our ongoing tests, and if they had reached statistical significance decide next steps. Features that hit their mark would be celebrated. Those that showed promise, but didn’t quite hit KPI’s would be iterated upon. Finally if a feature just wasn’t performing we would cut bait and obliterate it.
 
 </Content>
 </ContentRow>
@@ -243,7 +236,7 @@ Due to the iterative nature of our work, we had tons of assets, and it was becom
 
 I found Airtable and it’s spreadsheet-meets-database interface seemed like a perfect fit. Taking an object oriented design approach, I mapped each Object we needed to track and it’s relevant metadata. This allowed me to see the relationships between each object and map that all out in Airtable. The result was a single hub with custom views the creatives and marketing team could use to track every aspect of our testing.
 
-You can check out an early version of the Airtable here
+<MagicLink target="_blank" to="https://airtable.com/shrOx7uFi4Pg58zHb">Check out an early version here</MagicLink>
 
 </Content>
 </ContentRow>
@@ -255,7 +248,7 @@ You can check out an early version of the Airtable here
 <CaseSection
   title="Growth Marketing Creative"
   stepNum="03"
-  intro="We continuously tested our marketing creative and concepts, producing thousands of assets, to find what resonated with our various audiences and inform our branding strategy.">
+  intro="We continuously tested our marketing creative and concepts, producing thousands of assets in multiple languages, to find what resonated with our various audiences and inform our branding strategy.">
 
 <ContentGallery fullWidth gallery={props.galleries.creative} />
 
@@ -265,7 +258,7 @@ You can check out an early version of the Airtable here
   sticky
   title="Marketing Landing Pages"
   stepNum="03"
-  intro="We ran A/B tests on landing pages testing different copy, imagery, and layouts. Ultimately landing on a simple, modern look somewhere between tech and luxury brands.">
+  intro="We ran A/B tests on landing pages trying different copy, imagery, and layouts. Ultimately landing on a simple, modern look somewhere between tech and luxury brands.">
 
 <ContentGallery fullWidth colRight gallery={props.galleries.landingPages} />
 
@@ -274,7 +267,7 @@ You can check out an early version of the Airtable here
 <CaseSection
   title="Sign Up Flow"
   stepNum="03"
-  intro="After collecting feedback from real users, we found common friction points and hypothesized solutions. We explored, wireframed, and designed solutions, then worked with the Development team to scope and implement A/B tests on the sign up flow.">
+  intro="After collecting feedback from real users, we found common friction points formulated hypotheses. We explored, wireframed, and designed solutions, then worked with the Development team to scope and implement A/B tests on the sign up flow.">
 
 <ContentGallery fullWidth gallery={props.galleries.signUp} />
 
@@ -291,7 +284,8 @@ You can check out an early version of the Airtable here
 <CaseSection
   sticky
   title="So, did you learn anything?"
-  stepNum="04">
+  stepNum="04"
+  image={props.sectionImages.wonka}>
 <ContentRow fullHeight>
 <Content colRight>
 

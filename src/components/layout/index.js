@@ -1,33 +1,30 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 
 import Sidebar from "../sidebar"
 import Container from "../container"
 
-import { refreshScrollTrigger, killScrollTrigger } from '../Anim'
+import { initLoad } from '../Anim'
 
 import './layout.css'
 
 const Layout = ({ children }) => {
 
-    useEffect(() => {
-        // recalc scrolltrigger on font load
-        if (typeof document !== 'undefined') {
-            document.fonts.ready.then(() => {
-                // refreshScrollTrigger(true)
-                // console.log('Scrolltrigger refreshed!')
-            })
-        }
+    const mainRef = useRef(null)
 
-        return(()=>{
-            // killScrollTrigger()
-        })
-    },[])
+    useEffect(() => {
+        const main = mainRef.current
+
+        const initAnim = initLoad(main)
+
+        initAnim.play()
+        
+    },[mainRef])
 
     return (
         <>
             <Sidebar/>
             <Container>
-                <main>{children}</main>
+                <main ref={mainRef}>{children}</main>
             </Container>
         </>
     )

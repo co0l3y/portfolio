@@ -50,8 +50,13 @@
 
 /* Wrappers */
 
-.intro-wrapper, .intro-wrapper-sticky, .image-wrapper, .content-col-right {
+.intro-wrapper, .intro-wrapper-sticky, .content-col-right {
     composes: colMd7 from '../utils/grid.css';
+}
+
+
+.image-wrapper {
+    composes: colMd7 colLg9 from '../utils/grid.css';
 }
 
 .col-full-height {
@@ -90,6 +95,7 @@
 .head-container-image {
     composes: row from '../utils/grid.css';
     align-items: center;
+    padding-top: 3rem;
 }
 
 .head-container-sticky {
@@ -101,6 +107,7 @@
 
 .head-container-sticky-image {
     composes: row from '../utils/grid.css';
+    padding-top: 3rem;
     align-items: center;
 }
 
@@ -114,7 +121,7 @@
 }
 
 .head-wrapper-summary-image {
-    composes: colMd6 from '../utils/grid.css';
+    composes: colMd6 colLg5 from '../utils/grid.css';
     align-self: center;
 }
 
@@ -140,7 +147,7 @@
 
 .image-wrapper {
     composes: colMd9 colLg8 from '../utils/grid.css';
-    opacity: .36;
+    opacity: .5;
 }
 
 .image-wrapper-phone {
@@ -175,6 +182,7 @@
 @media screen and (min-width: 768px) {
 
     .head-container-image, .head-container-sticky-image {
+        padding-top: 0;
         position: absolute;
         height: 100%;
         top:0;
@@ -183,6 +191,7 @@
     }
 
     .head-container-sticky, .head-container-sticky-image {
+        padding-top: 0;
         min-height: 100vh;
     }
 
@@ -192,6 +201,10 @@
 
     .gallery-item {
         padding: 0;
+    }
+
+    .summary {
+        text-shadow: .25rem .25rem rgb(6, 20, 35);
     }
 }
 

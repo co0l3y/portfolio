@@ -35,6 +35,12 @@
     z-index: 99;
 }
 
+@media screen and (min-width: 768px) {
+    .header {
+        text-shadow: .25rem .25rem rgb(6, 20, 35);
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .process-header {
         padding-bottom: 2rem;
