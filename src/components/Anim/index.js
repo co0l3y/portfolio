@@ -34,7 +34,7 @@ const sectionHeadAnim = (sectionHead, line, stepHead, stepNumber) => {
 }
 
 export const initLoad = (container) => {
-  return gsap.from(container, {autoAlpha: 0, duration: .5, ease: 'power2.out', paused: true})
+  return gsap.from(container, {autoAlpha: 0, duration: .25, ease: 'power2.out', paused: true})
 }
 
 export const refreshScrollTrigger = () => {
