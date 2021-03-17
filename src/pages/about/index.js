@@ -172,7 +172,7 @@ const AboutPage = ({
                     <h2 className={styles.sectionHeader}>I'm in a band!</h2>
                     <span className={styles.line}></span>
                     <div className={styles.contentWrapper}>
-                        <p className={styles.sectionCopy}>Wayne Johnson's Bicep (not to be confused with Dwayne Johnson for copyright purposes) is a 3 piece band based out of central New Jersey. We just recentply played the Live From Lonely Town virtual festival. More to come soon...</p>
+                        <p className={styles.sectionCopy}>Wayne Johnson's Bicep (not to be confused with Dwayne Johnson for copyright purposes) is a 3 piece band based out of central New Jersey. We just recently played the Live From Lonely Town virtual festival. More to come soon...</p>
                         <MagicLink to='https://youtu.be/ENx5AimxYWU' target='_blank' icon='arrow'>Don't say Dwayne!</MagicLink>
                     </div>
                 </div>
