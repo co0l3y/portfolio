@@ -30,7 +30,7 @@
 .sub-head {
     composes: fontMuseo from '../utils/type.css';
     composes: headingXxs from '../utils/type.css';
-    opacity: 50%;
+    opacity: .5;
     margin: 2rem 0 2rem 0;
 }
 

@@ -93,7 +93,7 @@
 
 .num-total {
     composes: headingS from '../utils/type.css';
-    opacity: 50%;
+    opacity: .5;
 }
 
 .image-wrapper {
