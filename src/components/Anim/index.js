@@ -590,7 +590,7 @@ export const linkHover = (link) => {
 }
 
 export const magicLinkOver = (e, container, background, text, icon, iconContainer) => {
-
+    
     const containerRect = container.getBoundingClientRect()
     const scrollTop = typeof window !== 'undefined' && typeof document !== 'undefined' ? window.pageYOffset || document.documentElement.scrollTop : ''
     let relX = e.pageX - containerRect.left
@@ -617,26 +617,28 @@ export const magicLinkOver = (e, container, background, text, icon, iconContaine
       duration: 0.2,
       ease: 'power2.out',
     })
+
+
 }
 
 export const magicLinkEnter = (background, text, icon, iconContainer) => {
 
-  gsap.to(background, {scale: 1.25, backgroundColor: 'rgba(239,244,251,.16)', duration: .25, ease: 'back.out(1)'})
-  gsap.to(text, {scale: 1.25, color: '#43CEA2', duration: .5, ease: 'power2.out'})
-  gsap.to(icon, {fill: '#43CEA2', duration: .5, ease: 'power2.out'})
-  gsap.to(iconContainer, {opacity: 1, duration: .5, ease: 'power2.out'})
+  const tl = gsap.timeline({paused: true})
+
+  tl.fromTo(background, {scale: 1, backgroundColor: 'rgba(239,244,251,.08)'}, {scale: 1.25, backgroundColor: 'rgba(239,244,251,.16)', duration: .25, ease: 'back.out(1)'})
+  tl.fromTo(text, {scale: 1, color: '#EFF4FB'}, {scale: 1.25, color: '#43CEA2', duration: .25, ease: 'power2.out'}, '<')
+  tl.fromTo(icon, {fill: '#EFF4FB'}, {fill: '#43CEA2', duration: .25, ease: 'power2.out'}, '<')
+  tl.fromTo(iconContainer, {opacity: 0.5}, {opacity: 1, duration: .25, ease: 'power2.out'}, '<')
+
+  return(tl)
 
 }
 
-export const magicLinkExit = (background, text, icon, iconContainer) => {
-
-  gsap.to(icon, {fill: '#EFF4FB', duration: .5, ease: 'power2.out'})
+export const magicLinkExit = (background, text, iconContainer) => {
 
   gsap.to(background, {
     x: 0,
     y: 0 ,
-    scale: 1,
-    backgroundColor: 'rgba(239,244,251,.08)',
     duration: 0.4,
     ease: 'power2.out',
   })
@@ -644,8 +646,6 @@ export const magicLinkExit = (background, text, icon, iconContainer) => {
   gsap.to(text, {
     x: 0,
     y: 0 ,
-    scale: 1,
-    color: '#EFF4FB',
     duration: 0.2,
     ease: 'power2.out',
   })
@@ -653,7 +653,6 @@ export const magicLinkExit = (background, text, icon, iconContainer) => {
   gsap.to(iconContainer, {
     x: 0,
     y: 0,
-    opacity: .5,
     duration: 0.2,
     ease: 'power2.out',
   })

@@ -18,6 +18,7 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            keywords
             image
             siteUrl
             author
@@ -32,6 +33,7 @@ function SEO({ description, lang, meta, title }) {
     image,
     siteUrl,
     description: summary,
+    keywords,
     author 
   } = site.siteMetadata
 
@@ -52,10 +54,15 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
-          property: `og:title`,
-          content: title,
+          name: `keywords`,
+          content: keywords.join(','),
         },
         {
+          property: `og:title`,
+          content: defaultTitle,
+        },
+        {
+          name: 'image',
           property: `og:image`,
           content: `${siteUrl}${image}`,
         },
@@ -81,7 +88,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: defaultTitle,
         },
         {
           name: `twitter:description`,

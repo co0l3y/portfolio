@@ -3,7 +3,8 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Sean Cameron Cooley`,
-    description: `A multi-disciplinary designer with 10 years of experience weaving pixels, coffee, code, and insights into meanigful design solutions.`,
+    description: `Sean is a multi-disciplinary designer with 10 years of experience weaving pixels, coffee, code, and insights into meanigful design solutions.`,
+    keywords: ['Sean Cooley', 'Sean Cameron Cooley', 'User Experience', 'UI', 'UX', 'Design', 'Designer', 'Portfolio', 'Motion Graphics', 'Web Design'],
     siteUrl: 'https://www.seancameroncooley.com',
     image: '/images/og-image.png',
     author: `@co0l3y`,

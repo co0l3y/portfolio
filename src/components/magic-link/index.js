@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import Icon from '../icon'
 import { Link } from 'gatsby'
@@ -22,6 +22,7 @@ const MagicLink = ({children, to, icon, internal, ...props}) => {
     let textRef = useRef(null)
     let iconRef = useRef(null)
     let iconContainerRef = useRef(null)
+    let tlRef = useRef(null)
 
     const handleMouseMove = (e) => {
         const container = containerRef.current
@@ -34,12 +35,9 @@ const MagicLink = ({children, to, icon, internal, ...props}) => {
     }
 
     const handleMouseEnter = () => {
-        const background = backgroundRef.current
-        const text = textRef.current
-        const iconEl = iconRef.current
-        const iconContainer = iconContainerRef.current
 
-        magicLinkEnter(background, text, iconEl, iconContainer)
+        tlRef.current.play()
+        
     }
 
     const handleMouseExit = () => {
@@ -49,8 +47,21 @@ const MagicLink = ({children, to, icon, internal, ...props}) => {
         const iconEl = iconRef.current
         const iconContainer = iconContainerRef.current
 
-        magicLinkExit(background, text, iconEl, iconContainer)
+        tlRef.current.reverse()
+        magicLinkExit(background,text,iconContainer)
     }
+
+    useEffect(()=>{
+        const background = backgroundRef.current
+        const text = textRef.current
+        const iconEl = iconRef.current
+        const iconContainer = iconContainerRef.current
+        tlRef.current = magicLinkEnter(background, text, iconEl, iconContainer)
+
+        return(()=>{
+            tlRef.current.kill()
+        })
+    },[tlRef, backgroundRef, textRef, iconRef, iconContainerRef])
 
     return(
         <LinkWrapper to={to} onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseExit} className={styles.linkWrapper} {...props}>

@@ -65,7 +65,7 @@ const AboutPage = ({
             </section>
             <section className={styles.introContainer}>
                 <div className={styles.introWrapper}>
-                    <p className={styles.intro}>Hello! I'm a multi-disciplinary designer with 10 years of experience helping companies understand, and find solutions to, their customers problems through research, design, and testing. I lead teams, design, code, animate, play guitar, take adventures with my (soon to be) wife and our dog, love to roll up my sleeves, and always sweat the details.</p>
+                    <p className={styles.intro}>Hello! I'm a multi-disciplinary designer with 10 years of experience helping companies understand, and find solutions to, their customer's problems through research, design, and testing. I lead teams, design, code, animate, play guitar, take adventures with my (soon to be) wife and our dog, love to roll up my sleeves, and always sweat the details.</p>
                 </div>
             </section>
             <div>
