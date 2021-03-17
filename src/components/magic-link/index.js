@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 
 import Icon from '../icon'
 import { Link } from 'gatsby'
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 import { magicLinkExit, magicLinkOver, magicLinkEnter } from "../Anim";
 
@@ -11,7 +12,7 @@ const LinkWrapper = ({internal, to, children, ...props}) => {
     if (internal) {
         return <Link to={to} {...props}>{children}</Link>
     } else {
-        return <a href={to} {...props}>{children}</a>
+        return <OutboundLink href={to} {...props}>{children}</OutboundLink>
     }
 }
 
@@ -44,7 +45,6 @@ const MagicLink = ({children, to, icon, internal, ...props}) => {
 
         const background = backgroundRef.current
         const text = textRef.current
-        const iconEl = iconRef.current
         const iconContainer = iconContainerRef.current
 
         tlRef.current.reverse()

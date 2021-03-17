@@ -48,6 +48,15 @@ module.exports = {
         icon: `src/images/icon-1024.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-gatsby-cloud`
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIDs: [process.env.GTAG_ID],
+        gtagConfig: {
+          anonymize_ip: true,
+        }
+      },
+    },
+    `gatsby-plugin-gatsby-cloud`,
   ],
 }
