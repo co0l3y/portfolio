@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
         <>
             <Sidebar/>
             <Container>
-                <main ref={mainRef}>{children}</main>
+                <main className='main-container' ref={mainRef}>{children}</main>
             </Container>
         </>
     )
