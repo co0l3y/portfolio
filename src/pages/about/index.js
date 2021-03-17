@@ -185,7 +185,7 @@ const AboutPage = ({
                             <MagicLink to="https://drive.google.com/file/d/1sAie7l_gz_h3shtSI3Zz7DgxliXkOKaG/view?usp=sharing" target='_blank' icon='resume'>Resume</MagicLink>
                         </div>
                         <div className={styles.contactItem}>
-                            <MagicLink to="mailto:cameron.cooley@gmail.com" icon='mail'>Contact</MagicLink>
+                            <MagicLink to="mailto:hello@seancameroncooley.com" icon='mail'>Contact</MagicLink>
                         </div>
                         <div className={styles.contactItem}>
                             <MagicLink to="https://www.linkedin.com/in/seancameroncooley/" target='_blank' icon='linkedin'>Linkedin</MagicLink>

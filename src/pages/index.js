@@ -52,7 +52,7 @@ const IndexPage = ({
 
   return(
   <Layout>
-    <SEO title='Home'/>
+    <SEO title='Portfolio'/>
     <section ref={el => introRef = el} className={styles.hero}>
       <div className={styles.heroWrapper}>
         <h1 className={styles.heroHeader}>Sean Cameron Cooley</h1>

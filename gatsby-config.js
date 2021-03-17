@@ -2,9 +2,10 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Sean Cameron Cooley | Design, Motion, & Interactive`,
+    title: `Sean Cameron Cooley`,
     description: `A multi-disciplinary designer with 10 years of experience weaving pixels, coffee, code, and insights into meanigful design solutions.`,
     siteUrl: 'https://www.seancameroncooley.com',
+    image: '/images/og-image.png',
     author: `@co0l3y`,
   },
   plugins: [
