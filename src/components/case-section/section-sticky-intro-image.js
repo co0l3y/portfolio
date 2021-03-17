@@ -3,7 +3,7 @@ import React, {useEffect, useRef} from 'react'
 import SectionHeader from './section-header'
 import Image from 'gatsby-image'
 
-import styles from './case-section.module.css'
+import * as styles from './case-section.module.css'
 
 import { stickyHeaderAnim, sectionIntroAnim, sectionImageAnim } from '../Anim'
 

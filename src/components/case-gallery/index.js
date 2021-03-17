@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'gatsby-image'
 import { Link } from "gatsby"
 
-import styles from './case-gallery.module.css'
+import * as styles from './case-gallery.module.css'
 
 import { caseSlideAnim, caseHoverAnim }from '../Anim'
 
@@ -59,12 +59,12 @@ const CaseSlide = ({
                 <Link className={styles.view} to={slug} role="navigation" aria-label={title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>View Case Study</Link>
             </div>
             <div className={styles.infoContainer}>
-                <div className={styles.infoCat}>{type}</div>
-                <div className={styles.infoDate}>{date}</div>
+                <div>{type}</div>
+                <div>{date}</div>
             </div>
             <div className={styles.skills}>
                 <ul className={styles.skillsList}>
-                    {skills.map(skill => <li key={skill} className={styles.skillItem}>{skill}</li>)}
+                    {skills.map(skill => <li key={skill} className={styles.skillsItem}>{skill}</li>)}
                 </ul>
             </div>
             <div className={styles.numContainer}>
@@ -88,7 +88,7 @@ const CaseGallery = ({ caseStudies, totalCount }) => {
     )
 
     return(
-        <div ref={containerRef} className={styles.container}>
+        <div ref={containerRef}>
             {slides}
         </div>
     )

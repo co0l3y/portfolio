@@ -9,7 +9,7 @@ import MagicLink from '../../components/magic-link'
 
 import { heroAnim } from "../../components/Anim";
 
-import styles from './about.module.css'
+import * as styles from './about.module.css'
 import SEO from '../../components/seo'
 
 const AboutPage = ({
@@ -68,7 +68,7 @@ const AboutPage = ({
                     <p className={styles.intro}>Hello! I'm a multi-disciplinary designer with 10 years of experience helping companies understand, and find solutions to, their customers problems through research, design, and testing. I lead teams, design, code, animate, play guitar, take adventures with my (soon to be) wife and our dog, love to roll up my sleeves, and always sweat the details.</p>
                 </div>
             </section>
-            <div className={styles.infoContainer}>
+            <div>
                 <section className={styles.sectionContainer}>
                     <div className={styles.infoHeadWrapper}>
                         <h2 className={styles.sectionHeader}>Work Experience</h2>

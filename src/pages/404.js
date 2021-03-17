@@ -4,13 +4,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BackgroundSceneSvg from "../components/background-scene"
 
-import styles from './404.module.css'
+import * as styles from './404.module.css'
 
 const NotFoundPage = () => (
   <Layout>
     <SEO title="Ooopsie Doopsie" />
     <div className={styles.container}>
-      <div className={styles.background}>
+      <div>
         <BackgroundSceneSvg />
       </div>
       <div className={styles.copyContainer}>

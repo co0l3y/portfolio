@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 
 import Image from 'gatsby-image'
 
-import styles from './case-section.module.css'
+import * as styles from './case-section.module.css'
 
 import ContentRow from './content-row'
 import Content from './content'

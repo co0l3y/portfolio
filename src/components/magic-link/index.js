@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 import { magicLinkExit, magicLinkOver, magicLinkEnter } from "../Anim";
 
-import styles from './magic-link.module.css'
+import * as styles from './magic-link.module.css'
 
 const LinkWrapper = ({internal, to, children, ...props}) => {
     if (internal) {

@@ -27,6 +27,10 @@
     padding: 0;
 }
 
+.emoji {
+    font-style: normal;
+}
+
 .sub-head {
     composes: fontMuseo from '../utils/type.css';
     composes: headingXxs from '../utils/type.css';

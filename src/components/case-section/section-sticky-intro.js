@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 
-import styles from './case-section.module.css'
+import * as styles from './case-section.module.css'
 
 import SectionHeader from './section-header'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './section-header.module.css'
+import * as styles from './section-header.module.css'
 
 
 const SectionHeader = React.forwardRef(({ title, stepNum }, ref) => {

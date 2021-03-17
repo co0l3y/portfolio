@@ -10,7 +10,7 @@ import SEO from '../components/seo'
 
 import { heroAnim, scrollHintAnim, scrollSceneAnim, refreshScrollTrigger, killScrollTrigger } from '../components/Anim'
 
-import styles from './index-page.module.css'
+import * as styles from './index-page.module.css'
 
 
 const IndexPage = ({
@@ -70,7 +70,7 @@ const IndexPage = ({
         </div>
       </div>
     </section>
-    <section ref={el => pinRef = el} className={styles.pinScene}>
+    <section ref={el => pinRef = el} >
       <div ref={el => scrollRef = el} className={styles.scrollScene}>
         <div ref={el => svgContainerRef = el} className={styles.backgroundScene}>
           <BackgroundSceneSvg background inputRef={svgRef}/>

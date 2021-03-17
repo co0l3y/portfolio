@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { caseCoverAnim } from '../../Anim'
 
 import Img from 'gatsby-image'
-import styles from './cover.module.css'
+import * as styles from './cover.module.css'
 
 const ProjectCover = ({ image }) => {
     

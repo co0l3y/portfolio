@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './tldr.module.css'
+import * as styles from './tldr.module.css'
 
 const Tldr = ({ data: { role, date, summary, company, skills, tools, credits} }) => {
     

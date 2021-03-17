@@ -2,7 +2,7 @@ import React,{ useEffect, useRef } from "react"
 
 import { Link } from 'gatsby'
 
-import styles from "./sidebar.module.css"
+import * as styles from "./sidebar.module.css"
 import Logo from "../logo"
 
 import { linkHover, logoEnterAnim, logoExitAnim } from '../Anim'
@@ -71,7 +71,7 @@ const Sidebar = () => {
                 <div className={styles.logoWrapper} ref={logoRef}><Logo /></div>
             </Link>
         </div>
-        <nav className={styles.navContainer}>
+        <nav>
             <ul className={styles.nav}>
                 <li className={styles.navItem}>
                     <NavLink work to='/'>Work</NavLink>

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-import styles from './intro.module.css'
+import * as styles from './intro.module.css'
 
 import { caseIntroAnim } from '../../Anim'
 
