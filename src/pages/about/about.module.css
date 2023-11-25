@@ -172,7 +172,7 @@
     composes: col from '../../components/utils/grid.css';
 }
 
-.wedding, .band {
+.band {
     composes: row from '../../components/utils/grid.css';
     padding-top: 10rem;
     padding-bottom: 10rem;
@@ -241,12 +241,6 @@
     .intro, .outro {
         font-size: 6rem;
         line-height: 7rem;
-    }
-
-    .wedding {
-        flex-direction: row-reverse;
-        padding-top: 20rem;
-        padding-bottom: 20rem;
     }
 
     .band {

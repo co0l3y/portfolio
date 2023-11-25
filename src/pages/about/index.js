@@ -65,7 +65,7 @@ const AboutPage = ({
             </section>
             <section className={styles.introContainer}>
                 <div className={styles.introWrapper}>
-                    <p className={styles.intro}>Hello! I'm a multi-disciplinary designer with 10 years of experience helping companies understand, and find solutions to, their customer's problems through research, design, and testing. I lead teams, design, code, animate, play guitar, take adventures with my (soon to be) wife and our dog, love to roll up my sleeves, and always sweat the details.</p>
+                    <p className={styles.intro}>Hello! I'm a multi-disciplinary designer with over 12 years of experience helping companies understand, and find solutions to, their customer's problems through research, design, and testing. I lead teams, design, code, animate, play guitar, take adventures with my (soon to be) wife and our dog, love to roll up my sleeves, and always sweat the details.</p>
                 </div>
             </section>
             <div>
@@ -151,19 +151,6 @@ const AboutPage = ({
                         </div>
                 </section>
             </div>
-            <section className={styles.wedding}>
-                <div className={styles.contentContainer}>
-                    <Image fluid={engagement} />
-                </div>
-                <div className={styles.headWrapper}>
-                    <h2 className={styles.sectionHeader}>I'm about to get married!</h2>
-                    <span className={styles.line}></span>
-                    <div className={styles.contentWrapper}>
-                        <p className={styles.sectionCopy}>I met the love of my life almost 8 years ago, and we are (finally) getting married in May after the pandemic delayed our plans. Almost two years ago our favorite musician, the NiceGuy&trade; himself, Joey Dosik helped me propose on-stage at one of his concerts. You can check it out in all it's glory on YouTube</p>
-                        <MagicLink to='https://youtu.be/8KOvqCCX3Tc' target='_blank' icon='arrow'>I hit the Game Winner!</MagicLink>
-                    </div>
-                </div>
-            </section>
             <section className={styles.band}>
                 <div className={styles.contentContainer}>
                     <Image fluid={wayne} />

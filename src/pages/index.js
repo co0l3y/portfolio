@@ -87,7 +87,7 @@ const IndexPage = ({
         </div>
         <div className={styles.scrollTextRight}>
           <div className={styles.scrollTextWrapper}>
-            <h3 className={styles.scrollHeader}> I'm a Product Design Manager</h3>
+            <h3 className={styles.scrollHeader}> I'm a Principal Product Designer</h3>
             <span className={styles.line}></span>
             <p className={styles.scrollText}>Building the Design System at Peacock <span role='image' aria-label='Peacock'>&#129434;</span> weaving...</p>
           </div>
