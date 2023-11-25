@@ -76,6 +76,11 @@ const AboutPage = ({
                     </div>
                     <div className={styles.infoContentContainer}>
                         <div className={styles.infoContentWrapper}>
+                            <span className={styles.date}>2021-Present</span>
+                            <h3 className={styles.position}>Principal Designer, Design Systems</h3>
+                            <span className={styles.company}>Peacock &#183; New York, NY</span>
+                        </div>
+                        <div className={styles.infoContentWrapper}>
                             <span className={styles.date}>2019-2021</span>
                             <h3 className={styles.position}>Associate Director, Design &amp; UX</h3>
                             <span className={styles.company}>Tidal Music &#183; New York, NY</span>
